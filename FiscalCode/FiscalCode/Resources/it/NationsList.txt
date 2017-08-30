@@ -1,0 +1,327 @@
+﻿Z100;Albania
+Z101;Andorra
+Z102;Austria
+Z103;Belgio
+Z104;Bulgaria
+Z105;Cecoslovacchia
+Z106;Città del Vaticano
+Z107;Danimarca
+Z108;Faer Oer (Isole)
+Z109;Finlandia
+Z110;Francia
+Z111;Germania Repubblica Democratica
+Z112;Germania
+Z112;Germania Repubblica Federale
+Z113;Gibilterra
+Z114;Gran Bretagna e Irlanda del Nord
+Z115;Grecia
+Z116;Irlanda
+Z117;Islanda
+Z118;Iugoslavia
+Z119;Liechtenstein
+Z120;Lussemburgo
+Z121;Malta
+Z122;Man (Isola)
+Z123;Monaco
+Z124;Normanne (Isole)
+Z125;Norvegia
+Z126;Paesi Bassi
+Z127;Repubblica di Polonia
+Z127;Polonia
+Z128;Portogallo
+Z129;Romania
+Z130;San Marino
+Z131;Spagna
+Z132;Svezia
+Z133;Svizzera
+Z134;Ungheria
+Z135;Unione Repubbliche Socialiste Sovietiche
+Z136;Georgia
+Z137;Armenia
+Z138;Ucraina
+Z139;Bielorussia
+Z140;Moldavia
+Z141;Azerbaigian
+Z142;Kirghizistan
+Z143;Uzbekistan
+Z144;Estonia
+Z145;Lettonia
+Z146;Lituania
+Z147;Tagikistan
+Z148;Macedonia
+Z149;Croazia
+Z150;Slovenia
+Z151;Turkemenistan
+Z152;Kazakistan
+Z153;Bosnia Ed Erzegovina
+Z154;Russia
+Z155;Slovacchia
+Z156;Ceca Repubblica
+Z157;Serbia e Montenegro
+Z158;Serbia
+Z159;Montenegro
+Z160;Kossovo
+Z161;Territori Palestinesi
+Z200;Afghanistan
+Z201;Arabia Meridionale Federazione
+Z202;Arabia Meridionale Protettorato
+Z203;Arabia Saudita
+Z204;Bahrein
+Z205;Bhutan
+Z206;Birmania
+Z207;Brunei
+Z208;Cambogia
+Z209;Sri Lanka
+Z209;Ceylon
+Z210;Cina Repubblica Popolare
+Z211;Cipro
+Z212;Cocos (Isole)
+Z213;Corea del Sud
+Z214;Corea del Nord
+Z215;Costa dei Pirati
+Z215;Emirati Arabi Uniti
+Z216;Filippine
+Z217;Repubblica della Cina Nazionale
+Z217;Formosa
+Z218;Gaza (Territorio di)
+Z219;Giappone
+Z220;Giordania
+Z221;Hong Kong
+Z222;India
+Z223;Indonesia
+Z224;Iran
+Z225;Iraq
+Z226;Israele
+Z227;Kuwait
+Z228;Laos
+Z229;Libano
+Z230;Malaysia
+Z231;Macao
+Z232;Maldive
+Z233;Mongolia
+Z234;Nepal
+Z235;Oman
+Z236;Pakistan
+Z237;Qatar
+Z238;Ryukyu (Isole)
+Z239;Sikkim
+Z240;Siria
+Z241;Thailandia
+Z242;Timor (Isola)
+Z243;Turchia
+Z244;Vietnam del Sud
+Z245;Vietnam del Nord
+Z246;Yemen
+Z247;Malaysia
+Z248;Singapore
+Z249;Bangladesh
+Z250;Yemen Repubblica Democratica Popolare
+Z251;Vietnam
+Z252;Armenia
+Z253;Azerbaigian
+Z254;Georgia
+Z255;Kazakistan
+Z256;Kirghizistan
+Z257;Tagikistan
+Z258;Turkemenistan
+Z259;Uzbekistan
+Z300;Africa del Sud-Ovest
+Z300;Namibia
+Z301;Algeria
+Z302;Angola
+Z303;Basutoland-Sud Africa Britannico
+Z304;Beciuania-Sud Africa Britannico
+Z305;Burundi
+Z306;Camerun
+Z307;Capo Verde
+Z307;Capo Verde (Isole)
+Z308;Centrafricana Repubblica
+Z308;Centroafricana Repubblica
+Z308;Centroafricano Impero
+Z309;Ciad
+Z310;Comore (Isole)
+Z310;Comore
+Z311;Congo Repubblica Popolare
+Z311;Congo Brazzaville
+Z312;Congo Repubblica Democratica
+Z312;Zaire
+Z312;Congo Leopoldville
+Z313;Costa D'Avorio
+Z314;Dahomey
+Z314;Benin
+Z315;Etiopia
+Z316;Gabon
+Z317;Gambia
+Z318;Ghana
+Z319;Guinea
+Z320;Guinea Portoghese
+Z320;Guinea Bissau
+Z321;Guinea Spagnola
+Z321;Guinea Equatoriale
+Z322;Kenya
+Z323;Ifni
+Z324;La Reunion (Isola)
+Z325;Liberia
+Z326;Libia
+Z327;Madagascar
+Z328;Malawi
+Z329;Mali
+Z330;Marocco
+Z331;Mauritania
+Z332;Maurizio (Isole)
+Z332;Maurizio
+Z333;Mozambico
+Z334;Niger
+Z335;Nigeria
+Z336;Egitto
+Z337;Rhodesia
+Z337;Zimbabwe
+Z338;Ruanda
+Z339;Sahara Spagnolo
+Z340;Sant'elena (Isola)
+Z341;São Tomé e Príncipe 
+Z341;São Tomé e Príncipe (Isole)
+Z342;Seicelle
+Z342;Seicelle (Isole)
+Z343;Senegal
+Z344;Sierra Leone
+Z345;Somalia
+Z346;Territorio Francese degli Afar e degli Issa
+Z346;Somalia Francese
+Z347;Sudafricana Repubblica
+Z348;Sudan
+Z349;Swaziland
+Z349;Swaziland-Sudafrica Britannico
+Z350;Tanganica
+Z351;Togo
+Z352;Tunisia
+Z353;Uganda
+Z354;Burkina
+Z354;Volta
+Z355;Zambia
+Z356;Zanzibar
+Z357;Tanzania
+Z358;Botswana
+Z359;Lesotho
+Z360;Mayotte (Isola)
+Z361;Gibuti
+Z362;Sahara Meridionale
+Z363;Sahara Settentrionale
+Z364;Bophuthatswana
+Z365;Transkei
+Z366;Venda
+Z367;Ciskei
+Z368;Eritrea
+Z369;Nyasaland
+Z370;Congo Belga
+Z400;Bermuda (Isole)
+Z401;Canada
+Z402;Groenlandia
+Z403;Saint Pierre Et Miquelon (Isole)
+Z404;Stati Uniti D'America
+Z500;Antille Britanniche
+Z501;Antille Olandesi
+Z502;Bahama (Isole)
+Z502;Bahama
+Z503;Costa Rica
+Z504;Cuba
+Z505;Repubblica Dominicana
+Z506;El Salvador
+Z507;Giamaica
+Z508;Guadalupa
+Z509;Guatemala
+Z510;Haiti
+Z511;Honduras
+Z512;Honduras Britannico
+Z512;Belize
+Z513;Martinica
+Z514;Messico
+Z515;Nicaragua
+Z516;Panamá
+Z517;Panamá Zona del Canale
+Z518;Puerto Rico
+Z519;Turks e Caicos (Isole)
+Z520;Vergini Americane (Isole)
+Z521;Antille Britanniche
+Z522;Barbados
+Z523;Antille Britanniche
+Z524;Grenada
+Z525;Vergini Britanniche (Isole)
+Z526;Dominica
+Z527;Saint Lucia
+Z528;Saint Vincent e Grenadine
+Z529;Anguilla (Isola)
+Z530;Cayman (Isole)
+Z531;Montserrat
+Z532;Antigua e Barbuda
+Z533;Saint Kitts e Nevis
+Z600;Argentina
+Z601;Bolivia
+Z602;Brasile
+Z603;Cile
+Z604;Colombia
+Z605;Ecuador
+Z606;Guyana Britannica
+Z606;Guyana
+Z607;Guayana
+Z608;Guayana Olandese
+Z608;Suriname
+Z609;Malvine
+Z610;Paraguay
+Z611;Perù
+Z612;Trinidad e Tobago
+Z613;Uruguay
+Z614;Venezuela
+Z700;Australia
+Z701;Caroline (Isole)
+Z702;Christmas (Isola)
+Z703;Cook (Isole)
+Z704;Figi
+Z705;Gilbert E Ellice (Isole)
+Z706;Guam (Isola)
+Z707;Irian Occidentale
+Z708;Macquarie (Isole)
+Z709;Marcus (Isole)
+Z710;Marianne (Isole)
+Z711;Marshall (Isole)
+Z711;Marshall
+Z712;Midway (Isole)
+Z713;Nauru
+Z713;Nauru (Isole)
+Z714;Niue
+Z715;Norfolk (Isole e Isole del Mar dei Coralli)
+Z716;Nuova Caledonia (Isole e Dipendenze)
+Z717;Nuove Ebridi (Isole Condominio Franco-Inglese)
+Z718;Nuova Guinea
+Z719;Nuova Zelanda
+Z720;Papuasia
+Z721;Isole Cilene (Pasqua e Sala Y Gomez)
+Z721;Pasqua (Isola)
+Z722;Pitcairn (E Dipendenze)
+Z723;Polinesia Francese (Isole)
+Z724;Salomone
+Z724;Salomone (Isole)
+Z725;Samoa Americane (Isole)
+Z726;Samoa
+Z727;Tokelau
+Z728;Tonga
+Z729;Wallis e Futuna (Isole)
+Z730;Papua Nuova Guinea
+Z731;Kiribati
+Z732;Tuvalu
+Z733;Vanuatu
+Z734;Palau
+Z734;Palau Repubblica
+Z735;Micronesia Stati Federati
+Z800;Dipendenze Canadesi
+Z801;Dipendenze Norvegesi Artiche
+Z802;Dipendenze Sovietiche
+Z802;Dipendenze Russe
+Z900;Dipendenze Australiane
+Z901;Dipendenze Britanniche
+Z902;Dipendenze Francesi
+Z903;Dipendenze Neozelandesi
+Z904;Dipendenze Norvegesi Antartiche
+Z905;Dipendenze Statunitensi
+Z906;Dipendenze Sudafricane
+Z907;Sud Sudan

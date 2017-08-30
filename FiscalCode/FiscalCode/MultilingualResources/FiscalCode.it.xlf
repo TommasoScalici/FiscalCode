@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="it" original="FISCALCODE/RESOURCES/APPRESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="FISCALCODE/RESOURCES/APPRESOURCES.RESX" datatype="resx">
+        <trans-unit id="AppName" translate="yes" xml:space="preserve">
+          <source>Fiscal Code</source>
+          <target state="new">Fiscal Code</target>
+        </trans-unit>
+        <trans-unit id="Birthdate" translate="yes" xml:space="preserve">
+          <source>Birthdate</source>
+          <target state="new">Birthdate</target>
+        </trans-unit>
+        <trans-unit id="Birthnation" translate="yes" xml:space="preserve">
+          <source>Birth nation</source>
+          <target state="new">Birth nation</target>
+        </trans-unit>
+        <trans-unit id="Birthplace" translate="yes" xml:space="preserve">
+          <source>Birthplace</source>
+          <target state="new">Birthplace</target>
+        </trans-unit>
+        <trans-unit id="Confirm" translate="yes" xml:space="preserve">
+          <source>Confirm</source>
+          <target state="new">Confirm</target>
+        </trans-unit>
+        <trans-unit id="Editor" translate="yes" xml:space="preserve">
+          <source>Fill fields</source>
+          <target state="new">Fill fields</target>
+        </trans-unit>
+        <trans-unit id="Foreign" translate="yes" xml:space="preserve">
+          <source>Foreign</source>
+          <target state="new">Foreign</target>
+        </trans-unit>
+        <trans-unit id="Italian" translate="yes" xml:space="preserve">
+          <source>Italian</source>
+          <target state="new">Italian</target>
+        </trans-unit>
+        <trans-unit id="Italy" translate="yes" xml:space="preserve">
+          <source>Italy</source>
+          <target state="new">Italy</target>
+        </trans-unit>
+        <trans-unit id="Name" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="New" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+        </trans-unit>
+        <trans-unit id="Sex" translate="yes" xml:space="preserve">
+          <source>Sex</source>
+          <target state="new">Sex</target>
+        </trans-unit>
+        <trans-unit id="Surname" translate="yes" xml:space="preserve">
+          <source>Surname</source>
+          <target state="new">Surname</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

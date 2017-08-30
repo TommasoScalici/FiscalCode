@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FiscalCode.Views.EditorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+    xmlns:conv="clr-namespace:FiscalCode.Converters"
+    xmlns:loc="clr-namespace:FiscalCode.Localization"
+    xmlns:sf="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+    xmlns:utils="clr-namespace:FiscalCode.Utilities"
+    xmlns:vm="clr-namespace:FiscalCode.ViewModels"
+    Title="{loc:Translate Editor}">
+
+    <ContentPage.BindingContext>
+        <vm:EditorViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:BoolNegationConverter x:Key="BoolNegationConverter" />
+            <conv:SelectionChangedEventArgsConverter x:Key="SelectionChangedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="ConfirmToolbarItemClicked"
+            Command="{Binding ConfirmCommand}"
+            Text="{loc:Translate Confirm}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid Margin="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Entry
+                Grid.ColumnSpan="4"
+                Margin="5"
+                Placeholder="{loc:Translate Name}"
+                Text="{Binding Name}" />
+            <Entry
+                Grid.Row="1"
+                Grid.ColumnSpan="4"
+                Margin="5"
+                Placeholder="{loc:Translate Surname}"
+                Text="{Binding Surname}" />
+            <Label
+                Grid.Row="2"
+                Margin="5"
+                Text="{loc:Translate Birthnation}"
+                VerticalOptions="Center" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5"
+                Text="{loc:Translate Italian}"
+                VerticalOptions="Center" />
+            <Switch
+                x:Name="foreignPersonSwitch"
+                Grid.Row="2"
+                Grid.Column="2"
+                Margin="5"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="3"
+                Text="{loc:Translate Foreign}"
+                VerticalOptions="Center" />
+
+            <sf:SfAutoComplete
+                Grid.Row="3"
+                Grid.ColumnSpan="4"
+                Margin="5"
+                DataSource="{Binding Districts}"
+                DisplayMemberPath="Name"
+                IsVisible="{Binding IsToggled, Converter={StaticResource BoolNegationConverter}, Source={Reference Name=foreignPersonSwitch}}"
+                MaximumDropDownHeight="120"
+                SelectedValuePath="{Binding .}"
+                Watermark="{loc:Translate Birthplace}">
+
+                <sf:SfAutoComplete.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="SelectionChanged">
+                        <behaviors:InvokeCommandAction Command="{Binding SelectedItemCommand}" Converter="{StaticResource SelectionChangedEventArgsConverter}" />
+                    </behaviors:EventHandlerBehavior>
+                </sf:SfAutoComplete.Behaviors>
+
+                <sf:SfAutoComplete.ItemTemplate>
+                    <DataTemplate>
+                        <Label>
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="16"
+                                    WinPhone="16"
+                                    iOS="16" />
+                            </Label.FontSize>
+                            <Label.Text>
+                                <utils:MultiBinding StringFormat="{}{0} ({1})">
+                                    <Binding Path="Name" />
+                                    <Binding Path="ProvinceAbbreviation" />
+                                </utils:MultiBinding>
+                            </Label.Text>
+                        </Label>
+                    </DataTemplate>
+                </sf:SfAutoComplete.ItemTemplate>
+
+            </sf:SfAutoComplete>
+
+            <sf:SfAutoComplete
+                Grid.Row="3"
+                Grid.ColumnSpan="4"
+                Margin="5"
+                DataSource="{Binding Nations}"
+                DisplayMemberPath="Name"
+                IsVisible="{Binding IsToggled, Source={Reference Name=foreignPersonSwitch}}"
+                MaximumDropDownHeight="120"
+                SelectedValuePath="{Binding .}"
+                Watermark="{loc:Translate Birthnation}">
+
+                <sf:SfAutoComplete.Behaviors>
+                    <behaviors:EventHandlerBehavior EventName="SelectionChanged">
+                        <behaviors:InvokeCommandAction Command="{Binding SelectedItemCommand}" Converter="{StaticResource SelectionChangedEventArgsConverter}" />
+                    </behaviors:EventHandlerBehavior>
+                </sf:SfAutoComplete.Behaviors>
+
+            </sf:SfAutoComplete>
+
+            <Label
+                Grid.Row="4"
+                Margin="5"
+                Text="{loc:Translate Birthdate}"
+                VerticalTextAlignment="Center" />
+            <DatePicker
+                Grid.Row="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Margin="5"
+                Date="{Binding Birthdate}" />
+            <Label
+                Grid.Row="5"
+                Margin="5"
+                Text="{loc:Translate Sex}"
+                VerticalTextAlignment="Center" />
+            <Picker
+                Grid.Row="5"
+                Grid.Column="1"
+                Margin="5"
+                SelectedItem="{Binding Sex}">
+                <Picker.Items>
+                    <x:String>M</x:String>
+                    <x:String>F</x:String>
+                </Picker.Items>
+            </Picker>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
