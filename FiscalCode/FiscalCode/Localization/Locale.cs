@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace FiscalCode.Localization
 {
-    public class Locale
+    public static class Locale
     {
         public static string GetLocale() => DependencyService.Get<ILocale>().GetCurrent();
         public static void SetLocale() => DependencyService.Get<ILocale>().SetLocale();

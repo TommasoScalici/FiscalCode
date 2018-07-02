@@ -1,8 +1,6 @@
-﻿using System.Globalization;
-
-using FiscalCode.Localization;
-using FiscalCode.Resources;
+﻿using FiscalCode.Localization;
 using FiscalCode.Views;
+using Syncfusion.Licensing;
 using Xamarin.Forms;
 
 namespace FiscalCode
@@ -11,12 +9,13 @@ namespace FiscalCode
     {
         public App()
         {
+            SyncfusionLicenseProvider.RegisterLicense("MjYxNUAzMTM2MmUzMjJlMzBLampFdnVWeEVBTFk1T044bFlDOUNBNU5RNEI4bVZwNUIxa1hvd3ROcGJzPQ==");
+
             InitializeComponent();
 
             Locale.SetLocale();
 
             var netLanguage = DependencyService.Get<ILocale>().GetCurrent();
-            AppResources.Culture = new CultureInfo(netLanguage);
 
             MainPage = new NavigationPage(new MainPage());
         }

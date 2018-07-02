@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Tommaso Scalici</Authors>
+    <Company />
+    <Copyright>Copyright © 2018 Tommaso Scalici</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\DistrictsList.txt" />
+    <None Remove="Resources\en\NationsList.txt" />
+    <None Remove="Resources\it\NationsList.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\en\NationsList.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DistrictsList.txt" />
+    <EmbeddedResource Include="Resources\it\NationsList.txt" />
+  </ItemGroup>
+
+</Project>

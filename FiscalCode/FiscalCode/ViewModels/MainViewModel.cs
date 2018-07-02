@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
-using FiscalCode.DataModels;
 using FiscalCode.ViewModels;
+using FiscalCodeCalculator;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(MainViewModel))]

@@ -10,10 +10,8 @@ namespace FiscalCode.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var eventArgs = value as SelectionChangedEventArgs;
-
-            if (eventArgs == null)
-                throw new ArgumentException($"Expected {nameof(SelectionChangedEventArgs)} as value", "value");
+            if (!(value is SelectionChangedEventArgs eventArgs))
+                throw new ArgumentException($"Expected {nameof(SelectionChangedEventArgs)} as value", nameof(value));
 
             return eventArgs.Value;
         }

@@ -12,4 +12,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>Codice Fiscale</value>
+  </data>
+  <data name="Birthdate" xml:space="preserve">
+    <value>Data di nascita</value>
+  </data>
+  <data name="Birthnation" xml:space="preserve">
+    <value>Nazione di nascita</value>
+  </data>
+  <data name="Birthplace" xml:space="preserve">
+    <value>Luogo di nascita</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Conferma</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Compila i campi</value>
+  </data>
+  <data name="Foreign" xml:space="preserve">
+    <value>Estero</value>
+  </data>
+  <data name="Italian" xml:space="preserve">
+    <value>Italiano</value>
+  </data>
+  <data name="Italy" xml:space="preserve">
+    <value>Italia</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nuovo</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Sesso</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Cognome</value>
+  </data>
 </root>

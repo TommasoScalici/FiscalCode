@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
-using FiscalCode.DataModels;
 using FiscalCode.ViewModels;
+using FiscalCodeCalculator;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
