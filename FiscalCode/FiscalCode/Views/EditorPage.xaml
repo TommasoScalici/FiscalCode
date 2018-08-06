@@ -8,12 +8,7 @@
     xmlns:loc="clr-namespace:FiscalCode.Localization"
     xmlns:sf="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
     xmlns:utils="clr-namespace:FiscalCode.Utilities"
-    xmlns:vm="clr-namespace:FiscalCode.ViewModels"
     Title="{loc:Translate Editor}">
-
-    <ContentPage.BindingContext>
-        <vm:EditorViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -91,6 +86,7 @@
                 DisplayMemberPath="Name"
                 IsVisible="{Binding IsToggled, Converter={StaticResource BoolNegationConverter}, Source={Reference Name=foreignPersonSwitch}}"
                 MaximumDropDownHeight="120"
+                SelectedItem="{Binding Birthdistrict}"
                 SelectedValuePath="{Binding .}"
                 Watermark="{loc:Translate Birthplace}">
 
@@ -130,6 +126,7 @@
                 DisplayMemberPath="Name"
                 IsVisible="{Binding IsToggled, Source={Reference Name=foreignPersonSwitch}}"
                 MaximumDropDownHeight="120"
+                SelectedItem="{Binding Birthnation}"
                 SelectedValuePath="{Binding .}"
                 Watermark="{loc:Translate Birthnation}">
 

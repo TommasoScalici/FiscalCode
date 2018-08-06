@@ -4,38 +4,111 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:loc="clr-namespace:FiscalCode.Localization"
+    xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:utils="clr-namespace:FiscalCode.Utilities"
+    xmlns:views="clr-namespace:FiscalCode.Views"
     Title="{loc:Translate AppName}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="NewToolbarItemClicked" Text="{loc:Translate New}" />
+
+        <ToolbarItem Command="{Binding ViewModel.AddCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="Add.png" />
+                    <On Platform="UWP" Value="Assets/Add.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+        <ToolbarItem Command="{Binding ViewModel.EditCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="Edit.png" />
+                    <On Platform="UWP" Value="Assets/Edit.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+        <ToolbarItem Command="{Binding ViewModel.DeleteCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="Delete.png" />
+                    <On Platform="UWP" Value="Assets/Delete.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+        <ToolbarItem Command="{Binding ViewModel.ShowCardCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="Card.png" />
+                    <On Platform="UWP" Value="Assets/Card.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
     </ContentPage.ToolbarItems>
 
-    <ListView
-        CachingStrategy="RecycleElement"
-        HorizontalOptions="Fill"
-        ItemTapped="ListViewItemTapped"
-        ItemsSource="{Binding Items}"
-        VerticalOptions="StartAndExpand">
+    <Grid>
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding FiscalCode}">
-                    <TextCell.Detail>
-                        <utils:MultiBinding StringFormat="{}{0} {1} ({2})&#13;&#10;{3:d} ({4}) {5} {6}&#13;&#10;">
-                            <Binding Path="Name" />
-                            <Binding Path="Surname" />
-                            <Binding Path="Sex" />
-                            <Binding Path="Birthdate" />
-                            <Binding Path="BirthDistrict.Name" />
-                            <Binding Path="BirthDistrict.ProvinceAbbreviation" />
-                            <Binding Path="BirthNation.Name" />
-                        </utils:MultiBinding>
-                    </TextCell.Detail>
-                </TextCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    </ListView>
+        <sf:SfListView
+            AutoFitMode="Height"
+            ItemSpacing="5"
+            ItemsSource="{Binding Items}"
+            SelectionChanged="SfListViewSelectionChanged"
+            SelectionMode="Multiple">
+
+            <sf:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{Binding FiscalCode}" />
+
+                        <Label Grid.Row="1">
+                            <utils:MultiBinding StringFormat="{}{0} {1} ({2})">
+                                <Binding Path="Name" />
+                                <Binding Path="Surname" />
+                                <Binding Path="Sex" />
+                            </utils:MultiBinding>
+                        </Label>
+
+                        <Label Grid.Row="2">
+                            <utils:MultiBinding StringFormat="{}{0:d} {1} ({2})">
+                                <Binding Path="Birthdate" />
+                                <Binding Path="BirthDistrict.Name" />
+                                <Binding Path="BirthDistrict.ProvinceAbbreviation" />
+                                <Binding Path="BirthNation.Name" />
+                            </utils:MultiBinding>
+                        </Label>
+
+                    </Grid>
+                </DataTemplate>
+            </sf:SfListView.ItemTemplate>
+
+        </sf:SfListView>
+
+        <views:AdMobView Grid.Row="1">
+            <views:AdMobView.AdUnitId>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="ca-app-pub-2308630572499783/7989376672" />
+                </OnPlatform>
+            </views:AdMobView.AdUnitId>
+        </views:AdMobView>
+    </Grid>
 
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.SfAutoComplete.XForms.iOS;
 using UIKit;
 using Xamarin.Forms;
@@ -23,9 +24,8 @@ namespace FiscalCode.iOS
         //
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
-#pragma warning disable RECS0026
-            new SfAutoCompleteRenderer();
-#pragma warning restore RECS0026
+            SfAutoCompleteRenderer.Init();
+            SfListViewRenderer.Init();
             Forms.Init();
             LoadApplication(new App());
 

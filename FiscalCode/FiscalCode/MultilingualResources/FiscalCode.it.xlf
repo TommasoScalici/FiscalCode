@@ -8,55 +8,59 @@
       <group id="FISCALCODE/RESOURCES/APPRESOURCES.RESX" datatype="resx">
         <trans-unit id="AppName" translate="yes" xml:space="preserve">
           <source>Fiscal Code</source>
-          <target state="translated">Codice Fiscale</target>
+          <target state="final">Codice Fiscale</target>
         </trans-unit>
         <trans-unit id="Birthdate" translate="yes" xml:space="preserve">
           <source>Birthdate</source>
-          <target state="translated">Data di nascita</target>
+          <target state="final">Data di nascita</target>
         </trans-unit>
         <trans-unit id="Birthnation" translate="yes" xml:space="preserve">
           <source>Birth nation</source>
-          <target state="translated">Nazione di nascita</target>
+          <target state="final">Nazione di nascita</target>
         </trans-unit>
         <trans-unit id="Birthplace" translate="yes" xml:space="preserve">
           <source>Birthplace</source>
-          <target state="translated">Luogo di nascita</target>
+          <target state="final">Luogo di nascita</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="translated">Conferma</target>
+          <target state="final">Conferma</target>
         </trans-unit>
         <trans-unit id="Editor" translate="yes" xml:space="preserve">
           <source>Fill fields</source>
-          <target state="translated">Compila i campi</target>
+          <target state="final">Compila i campi</target>
         </trans-unit>
         <trans-unit id="Foreign" translate="yes" xml:space="preserve">
           <source>Foreign</source>
-          <target state="translated">Estero</target>
+          <target state="final">Estero</target>
         </trans-unit>
         <trans-unit id="Italian" translate="yes" xml:space="preserve">
           <source>Italian</source>
-          <target state="translated">Italiano</target>
+          <target state="final">Italiano</target>
         </trans-unit>
         <trans-unit id="Italy" translate="yes" xml:space="preserve">
           <source>Italy</source>
-          <target state="translated">Italia</target>
+          <target state="final">Italia</target>
         </trans-unit>
         <trans-unit id="Name" translate="yes" xml:space="preserve">
           <source>Name</source>
-          <target state="translated">Nome</target>
+          <target state="final">Nome</target>
         </trans-unit>
         <trans-unit id="New" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="translated">Nuovo</target>
+          <target state="final">Nuovo</target>
         </trans-unit>
         <trans-unit id="Sex" translate="yes" xml:space="preserve">
           <source>Sex</source>
-          <target state="translated">Sesso</target>
+          <target state="final">Sesso</target>
         </trans-unit>
         <trans-unit id="Surname" translate="yes" xml:space="preserve">
           <source>Surname</source>
-          <target state="translated">Cognome</target>
+          <target state="final">Cognome</target>
+        </trans-unit>
+        <trans-unit id="AppDescription" translate="yes" xml:space="preserve">
+          <source>App that calculates the italian fiscal code, on the basis of the personal data entered.</source>
+          <target state="final">App che calcola il codice fiscale, sulla base dei dati anagrafici inseriti.</target>
         </trans-unit>
       </group>
     </body>

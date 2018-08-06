@@ -51,4 +51,7 @@
   <data name="Surname" xml:space="preserve">
     <value>Cognome</value>
   </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>App che calcola il codice fiscale, sulla base dei dati anagrafici inseriti.</value>
+  </data>
 </root>

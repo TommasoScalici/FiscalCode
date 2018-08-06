@@ -9,9 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalCode.iOS", "FiscalCod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalCode.UWP", "FiscalCode\FiscalCode.UWP\FiscalCode.UWP.csproj", "{68B24C31-46AC-425B-BE3D-1539614F1862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalCode", "FiscalCode\FiscalCode\FiscalCode.csproj", "{ABC4D531-9386-47ED-9898-10B8309D19F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalCode", "FiscalCode\FiscalCode\FiscalCode.csproj", "{ABC4D531-9386-47ED-9898-10B8309D19F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalCodeCalculator", "FiscalCodeCalculator\FiscalCodeCalculator.csproj", "{99E2BEA1-DFA5-4F8C-8917-4C5A930F5F69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4552C51F-CB17-467A-B9C5-4AB5A6B2D2E1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
