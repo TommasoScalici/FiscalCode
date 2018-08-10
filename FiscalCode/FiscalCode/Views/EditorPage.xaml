@@ -8,7 +8,7 @@
     xmlns:loc="clr-namespace:FiscalCode.Localization"
     xmlns:sf="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
     xmlns:utils="clr-namespace:FiscalCode.Utilities"
-    Title="{loc:Translate Editor}">
+    Title="{loc:Translate EditorPageTitle}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -88,6 +88,7 @@
                 MaximumDropDownHeight="120"
                 SelectedItem="{Binding Birthdistrict}"
                 SelectedValuePath="{Binding .}"
+                ShowClearButton="True"
                 Watermark="{loc:Translate Birthplace}">
 
                 <sf:SfAutoComplete.Behaviors>
@@ -128,6 +129,7 @@
                 MaximumDropDownHeight="120"
                 SelectedItem="{Binding Birthnation}"
                 SelectedValuePath="{Binding .}"
+                ShowClearButton="True"
                 Watermark="{loc:Translate Birthnation}">
 
                 <sf:SfAutoComplete.Behaviors>

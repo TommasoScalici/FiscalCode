@@ -12,9 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppName" xml:space="preserve">
-    <value>Codice Fiscale</value>
-  </data>
   <data name="Birthdate" xml:space="preserve">
     <value>Data di nascita</value>
   </data>
@@ -51,7 +48,40 @@
   <data name="Surname" xml:space="preserve">
     <value>Cognome</value>
   </data>
-  <data name="AppDescription" xml:space="preserve">
-    <value>App che calcola il codice fiscale, sulla base dei dati anagrafici inseriti.</value>
+  <data name="Save" xml:space="preserve">
+    <value>Salva</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Condividi</value>
+  </data>
+  <data name="Allow" xml:space="preserve">
+    <value>Consenti</value>
+  </data>
+  <data name="Deny" xml:space="preserve">
+    <value>Nega</value>
+  </data>
+  <data name="PermissionMessage" xml:space="preserve">
+    <value>Per utilizzare questa funzione è necessario il permesso di scrittura su memoria. Consentire a quest'app il permesso di scrittura?</value>
+  </data>
+  <data name="PermissionTitle" xml:space="preserve">
+    <value>Autorizzazione necessaria</value>
+  </data>
+  <data name="SaveMessageDescription" xml:space="preserve">
+    <value>Tessera salvata nella galleria foto</value>
+  </data>
+  <data name="SaveMessageTitle" xml:space="preserve">
+    <value>Salvataggio completato</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Condividi tessera sanitaria</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Codice Fiscale</value>
+  </data>
+  <data name="CardPageTitle" xml:space="preserve">
+    <value>Tessera sanitaria</value>
+  </data>
+  <data name="EditorPageTitle" xml:space="preserve">
+    <value>Compila i campi</value>
   </data>
 </root>

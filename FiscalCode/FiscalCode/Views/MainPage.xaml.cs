@@ -20,7 +20,7 @@ namespace FiscalCode.Views
 
             ViewModel.AddCommand.Executed += (sender, e) => Navigation.PushAsync(new EditorPage(ViewModel.EditorViewModel));
             ViewModel.EditCommand.Executed += (sender, e) => Navigation.PushAsync(new EditorPage(ViewModel.EditorViewModel));
-            ViewModel.ShowCardCommand.Executed += (sender, e) => Navigation.PushAsync(new CardPage(ViewModel.EditorViewModel));
+            ViewModel.ShowCardCommand.Executed += (sender, e) => Navigation.PushAsync(new CardPage(ViewModel.SelectedItems.Single()));
             ViewModel.DeleteCommand.Executed += (sender, e) => UpdateItems();
         }
 

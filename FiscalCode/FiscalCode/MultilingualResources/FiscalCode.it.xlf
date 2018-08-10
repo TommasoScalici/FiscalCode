@@ -6,10 +6,6 @@
     </header>
     <body>
       <group id="FISCALCODE/RESOURCES/APPRESOURCES.RESX" datatype="resx">
-        <trans-unit id="AppName" translate="yes" xml:space="preserve">
-          <source>Fiscal Code</source>
-          <target state="final">Codice Fiscale</target>
-        </trans-unit>
         <trans-unit id="Birthdate" translate="yes" xml:space="preserve">
           <source>Birthdate</source>
           <target state="final">Data di nascita</target>
@@ -58,9 +54,53 @@
           <source>Surname</source>
           <target state="final">Cognome</target>
         </trans-unit>
-        <trans-unit id="AppDescription" translate="yes" xml:space="preserve">
-          <source>App that calculates the italian fiscal code, on the basis of the personal data entered.</source>
-          <target state="final">App che calcola il codice fiscale, sulla base dei dati anagrafici inseriti.</target>
+        <trans-unit id="Save" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="final">Salva</target>
+        </trans-unit>
+        <trans-unit id="Share" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="final">Condividi</target>
+        </trans-unit>
+        <trans-unit id="Allow" translate="yes" xml:space="preserve">
+          <source>Allow</source>
+          <target state="final">Consenti</target>
+        </trans-unit>
+        <trans-unit id="Deny" translate="yes" xml:space="preserve">
+          <source>Deny</source>
+          <target state="final">Nega</target>
+        </trans-unit>
+        <trans-unit id="PermissionMessage" translate="yes" xml:space="preserve">
+          <source>Permission to write to external storage is needed to use this feature. Allow this app to write to external storage?</source>
+          <target state="final">Per utilizzare questa funzione è necessario il permesso di scrittura su memoria. Consentire a quest'app il permesso di scrittura?</target>
+        </trans-unit>
+        <trans-unit id="PermissionTitle" translate="yes" xml:space="preserve">
+          <source>Permission needed</source>
+          <target state="final">Autorizzazione necessaria</target>
+        </trans-unit>
+        <trans-unit id="SaveMessageDescription" translate="yes" xml:space="preserve">
+          <source>Card saved in the photo gallery</source>
+          <target state="final">Tessera salvata nella galleria foto</target>
+        </trans-unit>
+        <trans-unit id="SaveMessageTitle" translate="yes" xml:space="preserve">
+          <source>Save completed</source>
+          <target state="final">Salvataggio completato</target>
+        </trans-unit>
+        <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
+          <source>Share health card</source>
+          <target state="final">Condividi tessera sanitaria</target>
+        </trans-unit>
+        <trans-unit id="AppName" translate="yes" xml:space="preserve">
+          <source>Fiscal Code</source>
+          <target state="final">Codice Fiscale</target>
+        </trans-unit>
+        <trans-unit id="CardPageTitle" translate="yes" xml:space="preserve">
+          <source>Health card</source>
+          <target state="final">Tessera sanitaria</target>
+        </trans-unit>
+        <trans-unit id="EditorPageTitle" translate="yes" xml:space="preserve">
+          <source>Fill fields</source>
+          <target state="final">Compila i campi</target>
         </trans-unit>
       </group>
     </body>
