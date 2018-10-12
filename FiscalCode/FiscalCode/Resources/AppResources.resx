@@ -138,6 +138,12 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>You're going to delete the selected fiscal code(s). Are you sure?</value>
+  </data>
+  <data name="DeleteConfirmationTitle" xml:space="preserve">
+    <value>Confirm deletion</value>
+  </data>
   <data name="Deny" xml:space="preserve">
     <value>Deny</value>
   </data>
@@ -161,6 +167,9 @@
   </data>
   <data name="New" xml:space="preserve">
     <value>New</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="PermissionMessage" xml:space="preserve">
     <value>Permission to write to external storage is needed to use this feature. Allow this app to write to external storage?</value>
@@ -188,5 +197,8 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Surname</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

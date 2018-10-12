@@ -6,7 +6,6 @@ using FiscalCode.Commands;
 using FiscalCode.Localization;
 using FiscalCodeCalculator;
 using PropertyChanged;
-using Xamarin.Forms;
 
 namespace FiscalCode.ViewModels
 {
@@ -14,16 +13,17 @@ namespace FiscalCode.ViewModels
     public sealed class EditorViewModel
     {
         readonly long id;
+        MainViewModel mainViewModel;
         Person person;
 
+        public EditorViewModel() => InitializeCommands();
 
-        public EditorViewModel()
-        {
-            Birthdate = DateTime.Now;
-            InitializeCommands();
-        }
+#pragma warning disable RECS0154
+        public EditorViewModel(MainViewModel mainViewModel) : this() => this.mainViewModel = mainViewModel;
+#pragma warning restore RECS0154
 
-        public EditorViewModel(Person person)
+        public EditorViewModel(MainViewModel mainViewModel, Person person)
+            : this(mainViewModel)
         {
             this.person = person;
             id = person.ID;
@@ -33,7 +33,6 @@ namespace FiscalCode.ViewModels
             Birthdate = person.Birthdate;
             Birthdistrict = person.BirthDistrict;
             Birthnation = person.BirthNation;
-            InitializeCommands();
         }
 
 
@@ -41,7 +40,7 @@ namespace FiscalCode.ViewModels
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Sex { get; set; }
-        public DateTime Birthdate { get; set; }
+        public DateTime Birthdate { get; set; } = DateTime.Now;
         public District Birthdistrict { get; set; }
         public Nation Birthnation { get; set; }
         public IEnumerable<District> Districts { get; } = FiscalDataStore.Districts;
@@ -52,11 +51,10 @@ namespace FiscalCode.ViewModels
 
         void CalculateFiscalCode()
         {
-            var mainVM = DependencyService.Get<MainViewModel>();
-            var lastId = mainVM.People.Count == 0 ? 0 : mainVM.People.Max(p => p.ID);
+            var lastId = mainViewModel.People.Count == 0 ? 0 : mainViewModel.People.Max(p => p.ID);
 
             if (id == 0)
-                person = new Person(lastId + 1);
+                person = new Person { ID = lastId + 1 };
 
             person.Birthdate = Birthdate;
             person.BirthDistrict = Birthdistrict;
@@ -68,10 +66,10 @@ namespace FiscalCode.ViewModels
 
             person.FiscalCode = Calculator.Calculate(person);
 
-            if (!mainVM.People.Any(p => p.ID == id))
-                mainVM.People.Add(person);
+            if (!mainViewModel.People.Any(p => p.ID == id))
+                mainViewModel.People.Add(person);
 
-            mainVM.SaveData();
+            mainViewModel.SaveData();
         }
 
         void InitializeCommands()

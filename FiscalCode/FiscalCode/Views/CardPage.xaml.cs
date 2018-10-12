@@ -78,7 +78,7 @@ namespace FiscalCode.Views
 
         async void SaveToolbarItemClicked(object sender, EventArgs e)
         {
-            if (await CheckIfWriteExternalStoragePermissionIsGranted())
+            if (await CheckIfWriteExternalStoragePermissionIsGrantedAsync())
             {
                 MessagingCenter.Send(this, "SaveToGallery", image);
 
@@ -96,7 +96,7 @@ namespace FiscalCode.Views
 
         void ShareToolBarItemClicked(object sender, EventArgs e) => MessagingCenter.Send(this, "Share", image);
 
-        async Task<bool> CheckIfWriteExternalStoragePermissionIsGranted()
+        async Task<bool> CheckIfWriteExternalStoragePermissionIsGrantedAsync()
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
 

@@ -6992,7 +6992,10 @@ namespace FiscalCode.Droid
 		{
 			
 			// aapt resource value: 0x7f080000
-			public const int file_provider_paths = 2131230720;
+			public const int backup_rules = 2131230720;
+			
+			// aapt resource value: 0x7f080001
+			public const int file_provider_paths = 2131230721;
 			
 			static Xml()
 			{

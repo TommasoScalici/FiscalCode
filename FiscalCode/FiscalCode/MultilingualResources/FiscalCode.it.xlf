@@ -102,6 +102,22 @@
           <source>Fill fields</source>
           <target state="final">Compila i campi</target>
         </trans-unit>
+        <trans-unit id="DeleteConfirmationMessage" translate="yes" xml:space="preserve">
+          <source>You're going to delete the selected fiscal code(s). Are you sure?</source>
+          <target state="final">Stai per eliminare il/i codice/i fiscale/i selezionato/i. Sei sicuro?</target>
+        </trans-unit>
+        <trans-unit id="DeleteConfirmationTitle" translate="yes" xml:space="preserve">
+          <source>Confirm deletion</source>
+          <target state="final">Conferma eliminazione</target>
+        </trans-unit>
+        <trans-unit id="No" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="final">No</target>
+        </trans-unit>
+        <trans-unit id="Yes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="final">Sì</target>
+        </trans-unit>
       </group>
     </body>
   </file>

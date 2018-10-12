@@ -75,8 +75,7 @@ namespace FiscalCode.Droid
         void Share(SKImage image)
         {
             var dateTime = System.DateTime.Now;
-            var localAppDataPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
-            var savePath = $"{localAppDataPath}/IMG_"
+            var savePath = $"{CacheDir}/IMG_"
                            + $"{dateTime.Year}{dateTime.Month}{dateTime.Day}_{dateTime.Hour}{dateTime.Minute}{dateTime.Second}.jpg";
 
             if (!File.Exists(savePath))

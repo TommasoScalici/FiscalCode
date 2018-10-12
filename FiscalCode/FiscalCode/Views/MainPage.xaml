@@ -65,38 +65,46 @@
 
             <sf:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="5">
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
+                    <Frame
+                        Margin="5"
+                        Padding="5"
+                        CornerRadius="10"
+                        HasShadow="True">
+                        <Grid Margin="10">
 
-                        <Label
-                            Grid.Row="0"
-                            FontAttributes="Bold"
-                            FontSize="Medium"
-                            Text="{Binding FiscalCode}" />
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                        <Label Grid.Row="1">
-                            <utils:MultiBinding StringFormat="{}{0} {1} ({2})">
-                                <Binding Path="Name" />
-                                <Binding Path="Surname" />
-                                <Binding Path="Sex" />
-                            </utils:MultiBinding>
-                        </Label>
+                            <Label
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="{Binding FiscalCode}" />
 
-                        <Label Grid.Row="2">
-                            <utils:MultiBinding StringFormat="{}{0:d} {1} ({2})">
-                                <Binding Path="Birthdate" />
-                                <Binding Path="BirthDistrict.Name" />
-                                <Binding Path="BirthDistrict.ProvinceAbbreviation" />
-                                <Binding Path="BirthNation.Name" />
-                            </utils:MultiBinding>
-                        </Label>
+                            <Label Grid.Row="1">
+                                <utils:MultiBinding StringFormat="{}{0} {1} ({2})">
+                                    <Binding Path="Name" />
+                                    <Binding Path="Surname" />
+                                    <Binding Path="Sex" />
+                                </utils:MultiBinding>
+                            </Label>
 
-                    </Grid>
+                            <Label Grid.Row="2">
+                                <utils:MultiBinding StringFormat="{}{0:d} {1} ({2})">
+                                    <Binding Path="Birthdate" />
+                                    <Binding Path="BirthDistrict.Name" />
+                                    <Binding Path="BirthDistrict.ProvinceAbbreviation" />
+                                    <Binding Path="BirthNation.Name" />
+                                </utils:MultiBinding>
+                            </Label>
+
+                        </Grid>
+                    </Frame>
+
                 </DataTemplate>
             </sf:SfListView.ItemTemplate>
 

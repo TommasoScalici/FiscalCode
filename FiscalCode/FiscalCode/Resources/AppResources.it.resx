@@ -84,4 +84,16 @@
   <data name="EditorPageTitle" xml:space="preserve">
     <value>Compila i campi</value>
   </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>Stai per eliminare il/i codice/i fiscale/i selezionato/i. Sei sicuro?</value>
+  </data>
+  <data name="DeleteConfirmationTitle" xml:space="preserve">
+    <value>Conferma eliminazione</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sì</value>
+  </data>
 </root>

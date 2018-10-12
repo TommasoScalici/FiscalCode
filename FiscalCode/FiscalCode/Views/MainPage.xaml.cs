@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 
+using FiscalCode.Localization;
 using FiscalCode.ViewModels;
 using FiscalCodeCalculator;
 using Syncfusion.ListView.XForms;
@@ -14,14 +16,15 @@ namespace FiscalCode.Views
     {
         public MainPage()
         {
-            ViewModel = DependencyService.Get<MainViewModel>();
+            ViewModel = new MainViewModel();
             BindingContext = this;
             InitializeComponent();
 
             ViewModel.AddCommand.Executed += (sender, e) => Navigation.PushAsync(new EditorPage(ViewModel.EditorViewModel));
             ViewModel.EditCommand.Executed += (sender, e) => Navigation.PushAsync(new EditorPage(ViewModel.EditorViewModel));
             ViewModel.ShowCardCommand.Executed += (sender, e) => Navigation.PushAsync(new CardPage(ViewModel.SelectedItems.Single()));
-            ViewModel.DeleteCommand.Executed += (sender, e) => UpdateItems();
+
+            ViewModel.DeletionRequested += ViewModelDeletionRequested;
         }
 
 
@@ -35,6 +38,18 @@ namespace FiscalCode.Views
             UpdateItems();
             ViewModel.SelectedItems.Clear();
             UpdateUI();
+        }
+
+
+        async void ViewModelDeletionRequested(object sender, EventArgs e)
+        {
+            var result = await DisplayAlert(Locale.Localize("DeleteConfirmationTitle"), Locale.Localize("DeleteConfirmationMessage"),
+                                            Locale.Localize("Yes"), Locale.Localize("No"));
+            if (result)
+            {
+                ViewModel.DeleteSelectedItems();
+                UpdateItems();
+            }
         }
 
         void SfListViewSelectionChanged(object sender, ItemSelectionChangedEventArgs e)
