@@ -69,9 +69,6 @@
   <data name="SaveMessageDescription" xml:space="preserve">
     <value>Tessera salvata nella galleria foto</value>
   </data>
-  <data name="SaveMessageTitle" xml:space="preserve">
-    <value>Salvataggio completato</value>
-  </data>
   <data name="ShareMessage" xml:space="preserve">
     <value>Condividi tessera sanitaria</value>
   </data>
@@ -95,5 +92,8 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sì</value>
+  </data>
+  <data name="CopySuccesfulDescription" xml:space="preserve">
+    <value>Il Codice Fiscale è stato copiato negli appunti</value>
   </data>
 </root>

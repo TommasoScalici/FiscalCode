@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using FiscalCode.Localization;
+using FiscalCode.Utilities;
 using FiscalCodeCalculator;
+
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
-using Plugin.Toasts;
+
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,7 +20,7 @@ namespace FiscalCode.Views
     public partial class CardPage : ContentPage
     {
         SKImage image;
-        Person person;
+        readonly Person person;
 
 
         public CardPage() => InitializeComponent();
@@ -49,24 +53,26 @@ namespace FiscalCode.Views
                 return;
 
             var bitmap = SKBitmap.Decode(stream);
-            var canvas = new SKCanvas(bitmap);
-            var font = SKTypeface.FromFamilyName("Roboto Mono");
-            var brush = new SKPaint
+            using (var canvas = new SKCanvas(bitmap))
             {
-                Color = SKColors.Black,
-                FakeBoldText = true,
-                IsAntialias = true,
-                Typeface = font,
-                TextSize = Convert.ToInt64(Device.GetNamedSize(NamedSize.Default, typeof(Label))),
-            };
+                var font = SKTypeface.FromFamilyName("Roboto Mono");
+                var brush = new SKPaint
+                {
+                    Color = SKColors.Black,
+                    FakeBoldText = true,
+                    IsAntialias = true,
+                    Typeface = font,
+                    TextSize = Convert.ToInt64(Device.GetNamedSize(NamedSize.Default, typeof(Label))),
+                };
 
-            canvas.DrawText(person.FiscalCode, 90, 130, brush);
-            canvas.DrawText(person.Surname, 90, 160, brush);
-            canvas.DrawText(person.Name, 90, 190, brush);
-            canvas.DrawText(person.BirthDistrict.Name, 90, 230, brush);
-            canvas.DrawText(person.BirthDistrict.ProvinceAbbreviation, 90, 260, brush);
-            canvas.DrawText(person.Birthdate.ToString("d"), 90, 290, brush);
-            canvas.DrawText(person.Sex, 480, 190, brush);
+                canvas.DrawText(person.FiscalCode, 90, 130, brush);
+                canvas.DrawText(person.Surname, 90, 160, brush);
+                canvas.DrawText(person.Name, 90, 190, brush);
+                canvas.DrawText(person.BirthDistrict.Name, 90, 230, brush);
+                canvas.DrawText(person.BirthDistrict.ProvinceAbbreviation, 90, 260, brush);
+                canvas.DrawText(person.Birthdate.ToString("d"), 90, 290, brush);
+                canvas.DrawText(person.Sex, 480, 190, brush);
+            }
 
             image = SKImage.FromBitmap(bitmap);
 
@@ -81,16 +87,7 @@ namespace FiscalCode.Views
             if (await CheckIfWriteExternalStoragePermissionIsGrantedAsync())
             {
                 MessagingCenter.Send(this, "SaveToGallery", image);
-
-                var notificationOptions = new NotificationOptions
-                {
-                    Title = Locale.Localize("SaveMessageTitle"),
-                    Description = Locale.Localize("SaveMessageDescription"),
-                    IsClickable = false,
-                };
-
-                var notification = DependencyService.Get<IToastNotificator>();
-                var result = await notification.Notify(notificationOptions);
+                DependencyService.Get<IMessage>().ShortAlert(Locale.Localize("SaveMessageDescription"));
             }
         }
 

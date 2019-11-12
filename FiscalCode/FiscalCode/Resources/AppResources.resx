@@ -138,6 +138,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="CopySuccesfulDescription" xml:space="preserve">
+    <value>The Fiscal Code was copied to clipboard</value>
+  </data>
   <data name="DeleteConfirmationMessage" xml:space="preserve">
     <value>You're going to delete the selected fiscal code(s). Are you sure?</value>
   </data>
@@ -182,9 +185,6 @@
   </data>
   <data name="SaveMessageDescription" xml:space="preserve">
     <value>Card saved in the photo gallery</value>
-  </data>
-  <data name="SaveMessageTitle" xml:space="preserve">
-    <value>Save completed</value>
   </data>
   <data name="Sex" xml:space="preserve">
     <value>Sex</value>

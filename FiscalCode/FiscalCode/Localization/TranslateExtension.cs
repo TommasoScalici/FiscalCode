@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Plugin.Multilingual;
+
+using System;
 using System.Reflection;
 using System.Resources;
 
-using Plugin.Multilingual;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,7 @@ namespace FiscalCode.Localization
 
         static readonly Lazy<ResourceManager> resourceManager =
             new Lazy<ResourceManager>(() => new ResourceManager(resourceId, typeof(TranslateExtension).GetTypeInfo().Assembly));
+
 
         public string Text { get; set; }
 

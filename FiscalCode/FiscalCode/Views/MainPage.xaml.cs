@@ -1,11 +1,15 @@
-﻿using System;
+﻿using FiscalCode.Commands;
+using FiscalCode.Localization;
+using FiscalCode.Utilities;
+using FiscalCode.ViewModels;
+
+using FiscalCodeCalculator;
+using Syncfusion.ListView.XForms;
+
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-using FiscalCode.Localization;
-using FiscalCode.ViewModels;
-using FiscalCodeCalculator;
-using Syncfusion.ListView.XForms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,11 +22,12 @@ namespace FiscalCode.Views
         {
             ViewModel = new MainViewModel();
             BindingContext = this;
-            InitializeComponent();
 
+            InitializeComponent();
             ViewModel.AddCommand.Executed += (sender, e) => Navigation.PushAsync(new EditorPage(ViewModel.EditorViewModel));
+            ViewModel.CopyCommand.Executed += (sender, e) => DependencyService.Get<IMessage>().ShortAlert(Locale.Localize("CopySuccesfulDescription"));
             ViewModel.EditCommand.Executed += (sender, e) => Navigation.PushAsync(new EditorPage(ViewModel.EditorViewModel));
-            ViewModel.ShowCardCommand.Executed += (sender, e) => Navigation.PushAsync(new CardPage(ViewModel.SelectedItems.Single()));
+            ViewModel.ShowCardCommand.Executed += (sender, e) => Navigation.PushAsync(new CardPage(e.Parameter as Person));
 
             ViewModel.DeletionRequested += ViewModelDeletionRequested;
         }

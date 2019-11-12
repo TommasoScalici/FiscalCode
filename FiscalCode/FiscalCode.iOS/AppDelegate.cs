@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using FiscalCode.Utilities;
+using Foundation;
 using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.SfAutoComplete.XForms.iOS;
 using UIKit;
@@ -27,6 +28,8 @@ namespace FiscalCode.iOS
             SfAutoCompleteRenderer.Init();
             SfListViewRenderer.Init();
             Forms.Init();
+            DependencyService.Register<IMessage>();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(uiApplication, launchOptions);

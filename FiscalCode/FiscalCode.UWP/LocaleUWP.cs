@@ -13,7 +13,7 @@ namespace FiscalCode.UWP
         public string GetCurrent()
         {
             var lang = CultureInfo.CurrentUICulture.Name;
-            var culture = CultureInfo.CurrentCulture.Name;
+            _ = CultureInfo.CurrentCulture.Name;
             return lang;
         }
 

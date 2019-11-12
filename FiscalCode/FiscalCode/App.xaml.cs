@@ -9,15 +9,17 @@ namespace FiscalCode
     {
         public App()
         {
-            SyncfusionLicenseProvider.RegisterLicense("MjYxNUAzMTM2MmUzMjJlMzBLampFdnVWeEVBTFk1T044bFlDOUNBNU5RNEI4bVZwNUIxa1hvd3ROcGJzPQ==");
+            SyncfusionLicenseProvider.RegisterLicense("MTUzMDExQDMxMzcyZTMzMmUzME1MVFQ0OTRRVnpITGloWktDMlRPSmFFOEtNR0I4c3QzMW4weUlDYThLWVU9");
 
             InitializeComponent();
 
             Locale.SetLocale();
+            _ = DependencyService.Get<ILocale>().GetCurrent();
 
-            var netLanguage = DependencyService.Get<ILocale>().GetCurrent();
-
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#267F00")
+            };
         }
 
 

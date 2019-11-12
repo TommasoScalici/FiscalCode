@@ -82,10 +82,6 @@
           <source>Card saved in the photo gallery</source>
           <target state="final">Tessera salvata nella galleria foto</target>
         </trans-unit>
-        <trans-unit id="SaveMessageTitle" translate="yes" xml:space="preserve">
-          <source>Save completed</source>
-          <target state="final">Salvataggio completato</target>
-        </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share health card</source>
           <target state="final">Condividi tessera sanitaria</target>
@@ -117,6 +113,10 @@
         <trans-unit id="Yes" translate="yes" xml:space="preserve">
           <source>Yes</source>
           <target state="final">Sì</target>
+        </trans-unit>
+        <trans-unit id="CopySuccesfulDescription" translate="yes" xml:space="preserve">
+          <source>The Fiscal Code was copied to clipboard</source>
+          <target state="final">Il Codice Fiscale è stato copiato negli appunti</target>
         </trans-unit>
       </group>
     </body>

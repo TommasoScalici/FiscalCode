@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -53,11 +52,9 @@ namespace FiscalCodeCalculator
             {
                 var name = string.Empty;
 
-                try
-                {
-                    name = resourceNames.Single(x => x.Contains(resourceName));
-                }
-                catch (InvalidOperationException)
+                if(resourceNames.Count(x => x.Contains(resourceName)) == 1)
+                    name = resourceNames.FirstOrDefault(x => x.Contains(resourceName));
+                else
                 {
                     var lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
                     name = resourceNames.FirstOrDefault(x => x.Contains(resourceName) && x.Contains(lang));

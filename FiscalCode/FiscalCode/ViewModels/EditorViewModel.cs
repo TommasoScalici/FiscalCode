@@ -5,6 +5,7 @@ using System.Linq;
 using FiscalCode.Commands;
 using FiscalCode.Localization;
 using FiscalCodeCalculator;
+
 using PropertyChanged;
 
 namespace FiscalCode.ViewModels
@@ -13,7 +14,7 @@ namespace FiscalCode.ViewModels
     public sealed class EditorViewModel
     {
         readonly long id;
-        MainViewModel mainViewModel;
+        readonly MainViewModel mainViewModel;
         Person person;
 
         public EditorViewModel() => InitializeCommands();
@@ -22,8 +23,7 @@ namespace FiscalCode.ViewModels
         public EditorViewModel(MainViewModel mainViewModel) : this() => this.mainViewModel = mainViewModel;
 #pragma warning restore RECS0154
 
-        public EditorViewModel(MainViewModel mainViewModel, Person person)
-            : this(mainViewModel)
+        public EditorViewModel(MainViewModel mainViewModel, Person person) : this(mainViewModel)
         {
             this.person = person;
             id = person.ID;

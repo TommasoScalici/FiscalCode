@@ -35,7 +35,7 @@ namespace FiscalCode.Utilities
             foreach (var b in Bindings)
             {
                 var property = BindableProperty.Create($"Property-{Guid.NewGuid().ToString("N")}", typeof(object),
-                    typeof(MultiBinding), default(object), propertyChanged: (_, o, n) => SetValue());
+                    typeof(MultiBinding), default, propertyChanged: (_, o, n) => SetValue());
 
                 properties.Add(property);
                 target.SetBinding(property, b);

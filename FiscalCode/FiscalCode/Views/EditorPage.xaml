@@ -89,6 +89,7 @@
                 SelectedItem="{Binding Birthdistrict}"
                 SelectedValuePath="{Binding .}"
                 ShowClearButton="True"
+                ShowSuggestionsOnFocus="True"
                 Watermark="{loc:Translate Birthplace}">
 
                 <sf:SfAutoComplete.Behaviors>

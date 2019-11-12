@@ -51,8 +51,6 @@ namespace FiscalCodeCalculator
 
         public static string Calculate(Person person)
         {
-            var fiscalCode = string.Empty;
-
             var day = person.Sex == "F" ? (person.Birthdate.Day + 40).ToString() : person.Birthdate.Day.ToString("0#");
             var month = MonthsMapping[person.Birthdate.Month - 1];
             var year = person.Birthdate.Year.ToString().Substring(2, 2);
@@ -79,8 +77,7 @@ namespace FiscalCodeCalculator
             }
 
             var finalCheckDigit = Alphabet[partialCheckDigit % 26];
-            fiscalCode = string.Concat(partialResult, finalCheckDigit);
-
+            var fiscalCode = string.Concat(partialResult, finalCheckDigit);
             if (fiscalCode.Length != 16)
                 return string.Empty;
 

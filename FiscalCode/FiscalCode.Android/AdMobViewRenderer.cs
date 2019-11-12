@@ -41,8 +41,10 @@ namespace FiscalCode.Droid
             };
 
             adView.LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
-            adView.LoadAd(new AdRequest.Builder().Build());
+            var builder = new AdRequest.Builder();
 
+            adView.LoadAd(builder.Build());
+            builder.Dispose();
             return adView;
         }
     }

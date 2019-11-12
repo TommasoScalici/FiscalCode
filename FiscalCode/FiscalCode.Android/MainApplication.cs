@@ -1,8 +1,9 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Runtime;
+
 using Plugin.CurrentActivity;
+
+using System;
 
 namespace FiscalCode.Droid
 {

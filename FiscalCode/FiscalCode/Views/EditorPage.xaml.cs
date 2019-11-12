@@ -12,7 +12,8 @@ namespace FiscalCode.Views
         public EditorPage() => InitializeComponent();
 
 #pragma warning disable RECS0154 
-        public EditorPage(EditorViewModel viewModel) : this() => BindingContext = viewModel;
+        public EditorPage(EditorViewModel viewModel) : this() => 
+            BindingContext = viewModel;
 #pragma warning restore RECS0154
 
 

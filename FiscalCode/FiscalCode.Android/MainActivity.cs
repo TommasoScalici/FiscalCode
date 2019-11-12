@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-using Android;
+﻿using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -9,10 +7,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.Content;
 using Android.Views;
+
 using FiscalCode.Views;
+
 using Plugin.Permissions;
-using Plugin.Toasts;
+
 using SkiaSharp;
+
+using System.IO;
+using System.Runtime.Remoting.Messaging;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -27,8 +30,7 @@ namespace FiscalCode.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            DependencyService.Register<ToastNotification>();
-            ToastNotification.Init(this);
+            DependencyService.Register<IMessage>();
 
             MobileAds.Initialize(ApplicationContext, "ca-app-pub-2308630572499783~6760055483");
             Window.DecorView.ImportantForAutofill = ImportantForAutofill.NoExcludeDescendants;

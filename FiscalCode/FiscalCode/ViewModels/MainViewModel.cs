@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 using FiscalCode.Commands;
 using FiscalCodeCalculator;
+
 using Newtonsoft.Json;
+
+using Plugin.Clipboard;
 
 namespace FiscalCode.ViewModels
 {
@@ -17,18 +19,18 @@ namespace FiscalCode.ViewModels
 
     public class MainViewModel
     {
-        static readonly string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        static readonly string dataFileName = "data.json";
+        const string dataFileName = "data.json";
+        static readonly string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
 
         public MainViewModel()
         {
             AddCommand = new RelayCommand(() => EditorViewModel = new EditorViewModel(this));
+            CopyCommand = new RelayCommand(person => 
+            CrossClipboard.Current.SetText((person as Person)?.FiscalCode));
             DeleteCommand = new RelayCommand(() => DeletionRequested?.Invoke(this, EventArgs.Empty), () => SelectedItems.Count > 0);
-            EditCommand = new RelayCommand(() => EditorViewModel = new EditorViewModel(this, SelectedItems.Single()),
-                                           () => SelectedItems.Count == 1);
-            ShowCardCommand = new RelayCommand(() => EditorViewModel = new EditorViewModel(this, SelectedItems.Single()),
-                                               () => SelectedItems.Count == 1);
+            EditCommand = new RelayCommand(person => EditorViewModel = new EditorViewModel(this, person as Person));
+            ShowCardCommand = new RelayCommand(person => EditorViewModel = new EditorViewModel(this, person as Person));
             LoadData();
         }
 
@@ -37,6 +39,7 @@ namespace FiscalCode.ViewModels
 
 
         public RelayCommand AddCommand { get; }
+        public RelayCommand CopyCommand { get; }
         public RelayCommand DeleteCommand { get; }
         public RelayCommand EditCommand { get; }
         public RelayCommand ShowCardCommand { get; }

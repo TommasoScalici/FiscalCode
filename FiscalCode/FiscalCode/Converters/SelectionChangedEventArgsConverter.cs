@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
 
-using Syncfusion.SfAutoComplete.XForms;
 using Xamarin.Forms;
+using SelectionChangedEventArgs = Syncfusion.SfAutoComplete.XForms.SelectionChangedEventArgs;
 
 namespace FiscalCode.Converters
 {
