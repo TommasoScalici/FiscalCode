@@ -1,7 +1,6 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
-
-using FiscalCode.Localization;
 using FiscalCode.Utilities;
 using FiscalCodeCalculator;
 
@@ -10,7 +9,7 @@ using Plugin.Permissions.Abstractions;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -86,12 +85,26 @@ namespace FiscalCode.Views
         {
             if (await CheckIfWriteExternalStoragePermissionIsGrantedAsync())
             {
-                MessagingCenter.Send(this, "SaveToGallery", image);
-                DependencyService.Get<IMessage>().ShortAlert(Locale.Localize("SaveMessageDescription"));
+                var dateTime = DateTime.Now;
+                var fileName = $"{dateTime.Year}{dateTime.Month}{dateTime.Day}_{dateTime.Hour}{dateTime.Minute}{dateTime.Second}.jpg";
+                var skData = image.Encode(SKEncodedImageFormat.Jpeg, 100);
+
+                if (await DependencyService.Get<IPhotoLibrary>().SavePhotoAsync(skData.ToArray(), string.Empty, fileName))
+                    DependencyService.Get<IMessage>().ShortAlert(Localization.Locale.Localize("SaveMessageDescription"));
             }
         }
 
-        void ShareToolBarItemClicked(object sender, EventArgs e) => MessagingCenter.Send(this, "Share", image);
+        async void ShareToolBarItemClicked(object sender, EventArgs e)
+        {
+            var dateTime = DateTime.Now;
+            var fileName = $"{dateTime:yyyyMMdd_HHmmss}.jpg";
+            var filePath = Path.Combine(FileSystem.CacheDirectory, fileName);
+            var skData = image.Encode(SKEncodedImageFormat.Jpeg, 100);
+            var file = File.Create(filePath);
+            skData.SaveTo(file);
+
+            await Share.RequestAsync(new ShareFileRequest(new ShareFile(filePath)));
+        }
 
         async Task<bool> CheckIfWriteExternalStoragePermissionIsGrantedAsync()
         {
@@ -100,8 +113,8 @@ namespace FiscalCode.Views
             if (status != PermissionStatus.Granted)
             {
                 if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Storage))
-                    await DisplayAlert(Locale.Localize("PermissionTitle"), Locale.Localize("PermissionMessage"),
-                                       Locale.Localize("Allow"), Locale.Localize("Deny"));
+                    await DisplayAlert(Localization.Locale.Localize("PermissionTitle"), Localization.Locale.Localize("PermissionMessage"),
+                                       Localization.Locale.Localize("Allow"), Localization.Locale.Localize("Deny"));
 
                 var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage);
 

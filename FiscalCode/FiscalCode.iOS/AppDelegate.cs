@@ -1,8 +1,12 @@
-﻿using FiscalCode.Utilities;
+﻿
+using FiscalCode.Utilities;
+using FiscalCode.Views;
+
 using Foundation;
 using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.SfAutoComplete.XForms.iOS;
 using UIKit;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
@@ -28,7 +32,20 @@ namespace FiscalCode.iOS
             SfAutoCompleteRenderer.Init();
             SfListViewRenderer.Init();
             Forms.Init();
-            DependencyService.Register<IMessage>();
+
+            DependencyService.Register<Message>();
+            DependencyService.Register<PhotoLibrary>();
+
+
+            UINavigationBar.Appearance.TintColor = UIColor.Black;
+
+            MessagingCenter.Subscribe<CardPage>(this, "Orientation.Unspecified", sender =>
+                                                UIDevice.CurrentDevice.SetValueForKey(NSNumber.FromNInt((int)UIDeviceOrientation.Portrait),
+                                                                                      new NSString("orientation")));
+
+            MessagingCenter.Subscribe<CardPage>(this, "Orientation.ForceLandScape", sender =>
+                                                UIDevice.CurrentDevice.SetValueForKey(NSNumber.FromNInt((int)UIDeviceOrientation.LandscapeLeft),
+                                                                                      new NSString("orientation")));
 
             LoadApplication(new App());
 

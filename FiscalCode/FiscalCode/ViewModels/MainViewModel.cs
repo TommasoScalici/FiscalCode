@@ -8,6 +8,7 @@ using FiscalCodeCalculator;
 using Newtonsoft.Json;
 
 using Plugin.Clipboard;
+using Xamarin.Essentials;
 
 namespace FiscalCode.ViewModels
 {
@@ -20,14 +21,13 @@ namespace FiscalCode.ViewModels
     public class MainViewModel
     {
         const string dataFileName = "data.json";
-        static readonly string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        static readonly string localAppDataPath = FileSystem.AppDataDirectory;
 
 
         public MainViewModel()
         {
             AddCommand = new RelayCommand(() => EditorViewModel = new EditorViewModel(this));
-            CopyCommand = new RelayCommand(person => 
-            CrossClipboard.Current.SetText((person as Person)?.FiscalCode));
+            CopyCommand = new RelayCommand(person => CrossClipboard.Current.SetText((person as Person)?.FiscalCode));
             DeleteCommand = new RelayCommand(() => DeletionRequested?.Invoke(this, EventArgs.Empty), () => SelectedItems.Count > 0);
             EditCommand = new RelayCommand(person => EditorViewModel = new EditorViewModel(this, person as Person));
             ShowCardCommand = new RelayCommand(person => EditorViewModel = new EditorViewModel(this, person as Person));

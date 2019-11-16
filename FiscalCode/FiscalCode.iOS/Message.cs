@@ -6,10 +6,12 @@ using UIKit;
 [assembly: Xamarin.Forms.Dependency(typeof(FiscalCode.iOS.Message))]
 namespace FiscalCode.iOS
 {
-    public class Message : IMessage
+    internal class Message : IMessage
     {
         const double longDelay = 3.5;
-        const double shortDelay = 1.0;
+        const double shortDelay = 1.5;
+
+        NSTimer alertDelay;
 
         public void LongAlert(string message) => ShowAlert(message, longDelay);
         public void ShortAlert(string message) => ShowAlert(message, shortDelay);
@@ -17,19 +19,19 @@ namespace FiscalCode.iOS
         void ShowAlert(string message, double seconds)
         {
             var alert = UIAlertController.Create(null, message, UIAlertControllerStyle.Alert);
-
-            using (var alertDelay = NSTimer.CreateScheduledTimer(seconds, _ => DismissMessage(alert, _)))
-            {
-                UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alert, true, null);
-            }
+            alertDelay = NSTimer.CreateScheduledTimer(seconds, alertDelay => DismissMessage(alert, alertDelay));
+            UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alert, true, null);
         }
 
-        static void DismissMessage(UIAlertController alert, NSTimer alertDelay)
+        void DismissMessage(UIAlertController alert, NSTimer alertDelay)
         {
             if (alert != null)
                 alert.DismissViewController(true, null);
 
             if (alertDelay != null)
+                alertDelay.Dispose();
+
+            if (this.alertDelay != null)
                 alertDelay.Dispose();
         }
     }
