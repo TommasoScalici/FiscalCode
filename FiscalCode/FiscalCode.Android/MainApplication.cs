@@ -1,8 +1,6 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-using Plugin.CurrentActivity;
-
 using System;
 
 namespace FiscalCode.Droid
@@ -17,10 +15,6 @@ namespace FiscalCode.Droid
     {
         public MainApplication(IntPtr handle, JniHandleOwnership transer) : base(handle, transer) { }
 
-        public override void OnCreate()
-        {
-            base.OnCreate();
-            CrossCurrentActivity.Current.Init(this);
-        }
+        public override void OnCreate() => base.OnCreate();
     }
 }

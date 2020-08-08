@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using FiscalCode.Utilities;
-using FiscalCodeCalculator;
 
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
+using FiscalCode.Utilities;
+
+using FiscalCodeCalculator;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -108,19 +108,10 @@ namespace FiscalCode.Views
 
         async Task<bool> CheckIfWriteExternalStoragePermissionIsGrantedAsync()
         {
-            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
+            var status = await Permissions.CheckStatusAsync<Permissions.StorageWrite>();
 
             if (status != PermissionStatus.Granted)
-            {
-                if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Storage))
-                    await DisplayAlert(Localization.Locale.Localize("PermissionTitle"), Localization.Locale.Localize("PermissionMessage"),
-                                       Localization.Locale.Localize("Allow"), Localization.Locale.Localize("Deny"));
-
-                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage);
-
-                if (results.ContainsKey(Permission.Storage))
-                    status = results[Permission.Storage];
-            }
+                status = await Permissions.RequestAsync<Permissions.StorageWrite>();
 
             if (status == PermissionStatus.Granted)
                 return true;

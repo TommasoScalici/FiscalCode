@@ -1,6 +1,5 @@
-﻿using Plugin.Multilingual;
-
-using System;
+﻿using System;
+using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
@@ -25,7 +24,7 @@ namespace FiscalCode.Localization
             if (Text == null)
                 return "";
 
-            var currentCultureInfo = CrossMultilingual.Current.CurrentCultureInfo;
+            var currentCultureInfo = CultureInfo.InstalledUICulture;
             var translation = resourceManager.Value.GetString(Text, currentCultureInfo);
 
             if (translation == null)

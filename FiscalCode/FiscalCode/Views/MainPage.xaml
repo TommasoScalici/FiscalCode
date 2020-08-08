@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:loc="clr-namespace:FiscalCode.Localization"
     xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-    xmlns:utils="clr-namespace:FiscalCode.Utilities"
     xmlns:views="clr-namespace:FiscalCode.Views"
     Title="{loc:Translate AppName}">
 
@@ -77,20 +76,20 @@
                                 Text="{Binding FiscalCode}" />
 
                             <Label Grid.Row="1">
-                                <utils:MultiBinding StringFormat="{}{0} {1} ({2})">
+                                <MultiBinding StringFormat="{}{0} {1} ({2})">
                                     <Binding Path="Name" />
                                     <Binding Path="Surname" />
                                     <Binding Path="Sex" />
-                                </utils:MultiBinding>
+                                </MultiBinding>
                             </Label>
 
                             <Label Grid.Row="2" Text="{Binding Birthdate, StringFormat='{0:d}'}" />
 
                             <Label Grid.Row="3">
-                                <utils:MultiBinding StringFormat="{}{0} ({1})">
+                                <MultiBinding StringFormat="{}{0} ({1})">
                                     <Binding Path="BirthDistrict.Name" />
                                     <Binding Path="BirthDistrict.ProvinceAbbreviation" />
-                                </utils:MultiBinding>
+                                </MultiBinding>
                             </Label>
 
                             <Label Grid.Row="4" Text="{Binding BirthNation.Name}" />

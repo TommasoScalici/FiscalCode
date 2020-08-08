@@ -2,11 +2,10 @@
 using Android.Content.PM;
 using Android.Gms.Ads;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
+
 using FiscalCode.Views;
 
-using Plugin.Permissions;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -46,12 +45,6 @@ namespace FiscalCode.Droid
 
             Instance = this;
             LoadApplication(new App());
-        }
-
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
-        {
-            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

@@ -7,7 +7,6 @@
     xmlns:conv="clr-namespace:FiscalCode.Converters"
     xmlns:loc="clr-namespace:FiscalCode.Localization"
     xmlns:sf="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
-    xmlns:utils="clr-namespace:FiscalCode.Utilities"
     Title="{loc:Translate EditorPageTitle}">
 
     <ContentPage.Resources>
@@ -87,7 +86,6 @@
                 IsVisible="{Binding IsToggled, Converter={StaticResource BoolNegationConverter}, Source={Reference Name=foreignPersonSwitch}}"
                 MaximumDropDownHeight="120"
                 SelectedItem="{Binding Birthdistrict}"
-                SelectedValuePath="{Binding .}"
                 ShowClearButton="True"
                 ShowSuggestionsOnFocus="True"
                 Watermark="{loc:Translate Birthplace}">
@@ -109,10 +107,10 @@
                                     iOS="16" />
                             </Label.FontSize>
                             <Label.Text>
-                                <utils:MultiBinding StringFormat="{}{0} ({1})">
+                                <MultiBinding StringFormat="{}{0} ({1})">
                                     <Binding Path="Name" />
                                     <Binding Path="ProvinceAbbreviation" />
-                                </utils:MultiBinding>
+                                </MultiBinding>
                             </Label.Text>
                         </Label>
                     </DataTemplate>
@@ -129,7 +127,6 @@
                 IsVisible="{Binding IsToggled, Source={Reference Name=foreignPersonSwitch}}"
                 MaximumDropDownHeight="120"
                 SelectedItem="{Binding Birthnation}"
-                SelectedValuePath="{Binding .}"
                 ShowClearButton="True"
                 Watermark="{loc:Translate Birthnation}">
 

@@ -9,7 +9,7 @@ namespace FiscalCode
     {
         public App()
         {
-            SyncfusionLicenseProvider.RegisterLicense("MTUzMDExQDMxMzcyZTMzMmUzME1MVFQ0OTRRVnpITGloWktDMlRPSmFFOEtNR0I4c3QzMW4weUlDYThLWVU9");
+            SyncfusionLicenseProvider.RegisterLicense("MzAwODYxQDMxMzgyZTMyMmUzMEFxSUFyOThmaVhuUlpWclRpVVVtbkJYemlVUEorcS96WTJLaVVnWEhjYkE9");
 
             InitializeComponent();
 

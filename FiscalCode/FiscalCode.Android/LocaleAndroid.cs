@@ -18,7 +18,7 @@ namespace FiscalCode.Droid
             var netLanguage = androidLocale.Language.Replace('_', '-');
             var netLocale = androidLocale.ToString().Replace('_', '-');
 
-            Debug.WriteLine($"android: {androidLocale.ToString()}");
+            Debug.WriteLine($"android: {androidLocale}");
             Debug.WriteLine($"netlang: {netLanguage}");
             Debug.WriteLine($"netlocale: {netLocale}");
 

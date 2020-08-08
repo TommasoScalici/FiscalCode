@@ -45,10 +45,12 @@
     <AndroidSupportedAbis />
     <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
     <AndroidUseAapt2>true</AndroidUseAapt2>
-    <AndroidDexTool>dx</AndroidDexTool>
+    <AndroidDexTool>d8</AndroidDexTool>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <LangVersion>8.0</LangVersion>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +71,7 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -79,19 +82,19 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>1.3.1</Version>
+      <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Ads">
-      <Version>71.1601.0</Version>
+      <Version>71.1601.4</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.GooglePlayServices.Ads">
-      <Version>71.1720.1</Version>
+      <Version>71.1720.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

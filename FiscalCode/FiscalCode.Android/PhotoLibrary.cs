@@ -12,6 +12,7 @@ namespace FiscalCode.Droid
 {
     internal class PhotoLibrary : IPhotoLibrary
     {
+        [System.Obsolete]
         public async Task<bool> SavePhotoAsync(byte[] data, string folder, string filename)
         {
             try
@@ -25,19 +26,17 @@ namespace FiscalCode.Droid
                     folderDirectory.Mkdirs();
                 }
 
-                using (var bitmapFile = new File(folderDirectory, filename))
+                using var bitmapFile = new File(folderDirectory, filename);
+                bitmapFile.CreateNewFile();
+
+                using (var outputStream = new FileOutputStream(bitmapFile))
                 {
-                    bitmapFile.CreateNewFile();
-
-                    using (var outputStream = new FileOutputStream(bitmapFile))
-                    {
-                        await outputStream.WriteAsync(data);
-                    }
-
-                    MediaScannerConnection.ScanFile(MainActivity.Instance,
-                                                    new string[] { bitmapFile.Path },
-                                                    new string[] { "image/png", "image/jpeg" }, null);
+                    await outputStream.WriteAsync(data);
                 }
+
+                MediaScannerConnection.ScanFile(MainActivity.Instance,
+                                                new string[] { bitmapFile.Path },
+                                                new string[] { "image/png", "image/jpeg" }, null);
             }
             catch (Exception ex)
             {
