@@ -3,6 +3,7 @@ using FiscalCode.Utilities;
 using FiscalCode.ViewModels;
 
 using FiscalCodeCalculator;
+
 using Syncfusion.ListView.XForms;
 
 using System;

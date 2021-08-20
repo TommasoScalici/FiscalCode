@@ -16,9 +16,7 @@ namespace FiscalCode.iOS
     // User Interface of the application, as well as listening (and optionally responding) to
     // application events from iOS.
     [Register("AppDelegate")]
-#pragma warning disable RECS0001
     public partial class AppDelegate : FormsApplicationDelegate
-#pragma warning restore RECS0001
     {
         //
         // This method is invoked when the application has loaded and is ready to run. In this

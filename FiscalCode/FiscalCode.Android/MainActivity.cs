@@ -26,7 +26,7 @@ namespace FiscalCode.Droid
             DependencyService.Register<Message>();
             DependencyService.Register<PhotoLibrary>();
 
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-2308630572499783~6760055483");
+            MobileAds.Initialize(ApplicationContext);
             Window.DecorView.ImportantForAutofill = ImportantForAutofill.NoExcludeDescendants;
 
             MessagingCenter.Subscribe<CardPage>(this, "Orientation.Unspecified", sender =>
@@ -37,12 +37,8 @@ namespace FiscalCode.Droid
 
 
             base.OnCreate(savedInstanceState);
-
-#pragma warning disable IDE0001
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-#pragma warning restore IDE0001
-
             Instance = this;
             LoadApplication(new App());
         }

@@ -84,7 +84,7 @@ namespace FiscalCodeCalculator
             return fiscalCode;
         }
 
-        static string CalculateNameOrSurnameCode(Person person, bool isCalculatingName = true)
+        private static string CalculateNameOrSurnameCode(Person person, bool isCalculatingName = true)
         {
             var nameOrSurname = isCalculatingName ? person.Name : person.Surname;
             var consonants = string.Concat(from char c in nameOrSurname.ToUpperInvariant()

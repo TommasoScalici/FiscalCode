@@ -8,8 +8,8 @@ namespace FiscalCodeCalculator
 {
     public static class FiscalDataStore
     {
-        static readonly List<District> districts = new List<District>();
-        static readonly List<Nation> nations = new List<Nation>();
+        private static readonly List<District> districts = new List<District>();
+        private static readonly List<Nation> nations = new List<Nation>();
 
 
         static FiscalDataStore()
@@ -42,8 +42,7 @@ namespace FiscalCodeCalculator
         public static IEnumerable<District> Districts => districts;
         public static IEnumerable<Nation> Nations => nations;
 
-
-        static Stream LoadStreamFromResource(string resourceName)
+        private static Stream LoadStreamFromResource(string resourceName)
         {
             var assembly = typeof(FiscalDataStore).GetTypeInfo().Assembly;
             var resourceNames = assembly.GetManifestResourceNames();
@@ -52,7 +51,7 @@ namespace FiscalCodeCalculator
             {
                 var name = string.Empty;
 
-                if(resourceNames.Count(x => x.Contains(resourceName)) == 1)
+                if (resourceNames.Count(x => x.Contains(resourceName)) == 1)
                     name = resourceNames.FirstOrDefault(x => x.Contains(resourceName));
                 else
                 {

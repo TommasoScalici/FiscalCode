@@ -5,6 +5,8 @@ using Android.Gms.Ads;
 using Android.Widget;
 using FiscalCode.Droid;
 using FiscalCode.Views;
+
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -34,9 +36,12 @@ namespace FiscalCode.Droid
 
         AdView CreateAdView()
         {
+            var appContext = Android.App.Application.Context;
+            var width = (int)(DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density);
+
             var adView = new AdView(Context)
             {
-                AdSize = AdSize.SmartBanner,
+                AdSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSize(appContext, width),
                 AdUnitId = Element.AdUnitId
             };
 

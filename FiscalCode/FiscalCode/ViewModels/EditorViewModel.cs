@@ -19,9 +19,7 @@ namespace FiscalCode.ViewModels
 
         public EditorViewModel() => InitializeCommands();
 
-#pragma warning disable RECS0154
         public EditorViewModel(MainViewModel mainViewModel) : this() => this.mainViewModel = mainViewModel;
-#pragma warning restore RECS0154
 
         public EditorViewModel(MainViewModel mainViewModel, Person person) : this(mainViewModel)
         {
