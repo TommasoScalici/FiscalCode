@@ -1,0 +1,327 @@
+﻿Albania;EE
+Andorra;EE
+Austria;EE
+Belgio;EE
+Bulgaria;EE
+Cecoslovacchia;EE
+Città del Vaticano;EE
+Danimarca;EE
+Faer Oer (Isole);EE
+Finlandia;EE
+Francia;EE
+Germania Repubblica Democratica;EE
+Germania;EE
+Germania Repubblica Federale;EE
+Gibilterra;EE
+Gran Bretagna e Irlanda del Nord;EE
+Grecia;EE
+Irlanda;EE
+Islanda;EE
+Iugoslavia;EE
+Liechtenstein;EE
+Lussemburgo;EE
+Malta;EE
+Man (Isola);EE
+Monaco;EE
+Normanne (Isole);EE
+Norvegia;EE
+Paesi Bassi;EE
+Repubblica di Polonia;EE
+Polonia;EE
+Portogallo;EE
+Romania;EE
+San Marino;EE
+Spagna;EE
+Svezia;EE
+Svizzera;EE
+Ungheria;EE
+Unione Repubbliche Socialiste Sovietiche;EE
+Georgia;EE
+Armenia;EE
+Ucraina;EE
+Bielorussia;EE
+Moldavia;EE
+Azerbaigian;EE
+Kirghizistan;EE
+Uzbekistan;EE
+Estonia;EE
+Lettonia;EE
+Lituania;EE
+Tagikistan;EE
+Macedonia;EE
+Croazia;EE
+Slovenia;EE
+Turkemenistan;EE
+Kazakistan;EE
+Bosnia Ed Erzegovina;EE
+Russia;EE
+Slovacchia;EE
+Ceca Repubblica;EE
+Serbia e Montenegro;EE
+Serbia;EE
+Montenegro;EE
+Kossovo;EE
+Territori Palestinesi;EE
+Afghanistan;EE
+Arabia Meridionale Federazione;EE
+Arabia Meridionale Protettorato;EE
+Arabia Saudita;EE
+Bahrein;EE
+Bhutan;EE
+Birmania;EE
+Brunei;EE
+Cambogia;EE
+Sri Lanka;EE
+Ceylon;EE
+Cina Repubblica Popolare;EE
+Cipro;EE
+Cocos (Isole);EE
+Corea del Sud;EE
+Corea del Nord;EE
+Costa dei Pirati;EE
+Emirati Arabi Uniti;EE
+Filippine;EE
+Repubblica della Cina Nazionale;EE
+Formosa;EE
+Gaza (Territorio di);EE
+Giappone;EE
+Giordania;EE
+Hong Kong;EE
+India;EE
+Indonesia;EE
+Iran;EE
+Iraq;EE
+Israele;EE
+Kuwait;EE
+Laos;EE
+Libano;EE
+Malaysia;EE
+Macao;EE
+Maldive;EE
+Mongolia;EE
+Nepal;EE
+Oman;EE
+Pakistan;EE
+Qatar;EE
+Ryukyu (Isole);EE
+Sikkim;EE
+Siria;EE
+Thailandia;EE
+Timor (Isola);EE
+Turchia;EE
+Vietnam del Sud;EE
+Vietnam del Nord;EE
+Yemen;EE
+Malaysia;EE
+Singapore;EE
+Bangladesh;EE
+Yemen Repubblica Democratica Popolare;EE
+Vietnam;EE
+Armenia;EE
+Azerbaigian;EE
+Georgia;EE
+Kazakistan;EE
+Kirghizistan;EE
+Tagikistan;EE
+Turkemenistan;EE
+Uzbekistan;EE
+Africa del Sud-Ovest;EE
+Namibia;EE
+Algeria;EE
+Angola;EE
+Basutoland-Sud Africa Britannico;EE
+Beciuania-Sud Africa Britannico;EE
+Burundi;EE
+Camerun;EE
+Capo Verde;EE
+Capo Verde (Isole);EE
+Centrafricana Repubblica;EE
+Centroafricana Repubblica;EE
+Centroafricano Impero;EE
+Ciad;EE
+Comore (Isole);EE
+Comore;EE
+Congo Repubblica Popolare;EE
+Congo Brazzaville;EE
+Congo Repubblica Democratica;EE
+Zaire;EE
+Congo Leopoldville;EE
+Costa D'Avorio;EE
+Dahomey;EE
+Benin;EE
+Etiopia;EE
+Gabon;EE
+Gambia;EE
+Ghana;EE
+Guinea;EE
+Guinea Portoghese;EE
+Guinea Bissau;EE
+Guinea Spagnola;EE
+Guinea Equatoriale;EE
+Kenya;EE
+Ifni;EE
+La Reunion (Isola);EE
+Liberia;EE
+Libia;EE
+Madagascar;EE
+Malawi;EE
+Mali;EE
+Marocco;EE
+Mauritania;EE
+Maurizio (Isole);EE
+Maurizio;EE
+Mozambico;EE
+Niger;EE
+Nigeria;EE
+Egitto;EE
+Rhodesia;EE
+Zimbabwe;EE
+Ruanda;EE
+Sahara Spagnolo;EE
+Sant'elena (Isola);EE
+São Tomé e Príncipe ;EE
+São Tomé e Príncipe (Isole);EE
+Seicelle;EE
+Seicelle (Isole);EE
+Senegal;EE
+Sierra Leone;EE
+Somalia;EE
+Territorio Francese degli Afar e degli Issa;EE
+Somalia Francese;EE
+Sudafricana Repubblica;EE
+Sudan;EE
+Swaziland;EE
+Swaziland-Sudafrica Britannico;EE
+Tanganica;EE
+Togo;EE
+Tunisia;EE
+Uganda;EE
+Burkina;EE
+Volta;EE
+Zambia;EE
+Zanzibar;EE
+Tanzania;EE
+Botswana;EE
+Lesotho;EE
+Mayotte (Isola);EE
+Gibuti;EE
+Sahara Meridionale;EE
+Sahara Settentrionale;EE
+Bophuthatswana;EE
+Transkei;EE
+Venda;EE
+Ciskei;EE
+Eritrea;EE
+Nyasaland;EE
+Congo Belga;EE
+Bermuda (Isole);EE
+Canada;EE
+Groenlandia;EE
+Saint Pierre Et Miquelon (Isole);EE
+Stati Uniti D'America;EE
+Antille Britanniche;EE
+Antille Olandesi;EE
+Bahama (Isole);EE
+Bahama;EE
+Costa Rica;EE
+Cuba;EE
+Repubblica Dominicana;EE
+El Salvador;EE
+Giamaica;EE
+Guadalupa;EE
+Guatemala;EE
+Haiti;EE
+Honduras;EE
+Honduras Britannico;EE
+Belize;EE
+Martinica;EE
+Messico;EE
+Nicaragua;EE
+Panamá;EE
+Panamá Zona del Canale;EE
+Puerto Rico;EE
+Turks e Caicos (Isole);EE
+Vergini Americane (Isole);EE
+Antille Britanniche;EE
+Barbados;EE
+Antille Britanniche;EE
+Grenada;EE
+Vergini Britanniche (Isole);EE
+Dominica;EE
+Saint Lucia;EE
+Saint Vincent e Grenadine;EE
+Anguilla (Isola);EE
+Cayman (Isole);EE
+Montserrat;EE
+Antigua e Barbuda;EE
+Saint Kitts e Nevis;EE
+Argentina;EE
+Bolivia;EE
+Brasile;EE
+Cile;EE
+Colombia;EE
+Ecuador;EE
+Guyana Britannica;EE
+Guyana;EE
+Guayana;EE
+Guayana Olandese;EE
+Suriname;EE
+Malvine;EE
+Paraguay;EE
+Perù;EE
+Trinidad e Tobago;EE
+Uruguay;EE
+Venezuela;EE
+Australia;EE
+Caroline (Isole);EE
+Christmas (Isola);EE
+Cook (Isole);EE
+Figi;EE
+Gilbert E Ellice (Isole);EE
+Guam (Isola);EE
+Irian Occidentale;EE
+Macquarie (Isole);EE
+Marcus (Isole);EE
+Marianne (Isole);EE
+Marshall (Isole);EE
+Marshall;EE
+Midway (Isole);EE
+Nauru;EE
+Nauru (Isole);EE
+Niue;EE
+Norfolk (Isole e Isole del Mar dei Coralli);EE
+Nuova Caledonia (Isole e Dipendenze);EE
+Nuove Ebridi (Isole Condominio Franco-Inglese);EE
+Nuova Guinea;EE
+Nuova Zelanda;EE
+Papuasia;EE
+Isole Cilene (Pasqua e Sala Y Gomez);EE
+Pasqua (Isola);EE
+Pitcairn (E Dipendenze);EE
+Polinesia Francese (Isole);EE
+Salomone;EE
+Salomone (Isole);EE
+Samoa Americane (Isole);EE
+Samoa;EE
+Tokelau;EE
+Tonga;EE
+Wallis e Futuna (Isole);EE
+Papua Nuova Guinea;EE
+Kiribati;EE
+Tuvalu;EE
+Vanuatu;EE
+Palau;EE
+Palau Repubblica;EE
+Micronesia Stati Federati;EE
+Dipendenze Canadesi;EE
+Dipendenze Norvegesi Artiche;EE
+Dipendenze Sovietiche;EE
+Dipendenze Russe;EE
+Dipendenze Australiane;EE
+Dipendenze Britanniche;EE
+Dipendenze Francesi;EE
+Dipendenze Neozelandesi;EE
+Dipendenze Norvegesi Antartiche;EE
+Dipendenze Statunitensi;EE
+Dipendenze Sudafricane;EE
+Sud Sudan;EE

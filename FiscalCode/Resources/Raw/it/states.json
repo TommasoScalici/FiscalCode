@@ -1,0 +1,1310 @@
+[
+  {
+    "Name": "Albania",
+    "State": "EE"
+  },
+  {
+    "Name": "Andorra",
+    "State": "EE"
+  },
+  {
+    "Name": "Austria",
+    "State": "EE"
+  },
+  {
+    "Name": "Belgio",
+    "State": "EE"
+  },
+  {
+    "Name": "Bulgaria",
+    "State": "EE"
+  },
+  {
+    "Name": "Cecoslovacchia",
+    "State": "EE"
+  },
+  {
+    "Name": "Città del Vaticano",
+    "State": "EE"
+  },
+  {
+    "Name": "Danimarca",
+    "State": "EE"
+  },
+  {
+    "Name": "Faer Oer (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Finlandia",
+    "State": "EE"
+  },
+  {
+    "Name": "Francia",
+    "State": "EE"
+  },
+  {
+    "Name": "Germania Repubblica Democratica",
+    "State": "EE"
+  },
+  {
+    "Name": "Germania",
+    "State": "EE"
+  },
+  {
+    "Name": "Germania Repubblica Federale",
+    "State": "EE"
+  },
+  {
+    "Name": "Gibilterra",
+    "State": "EE"
+  },
+  {
+    "Name": "Gran Bretagna e Irlanda del Nord",
+    "State": "EE"
+  },
+  {
+    "Name": "Grecia",
+    "State": "EE"
+  },
+  {
+    "Name": "Irlanda",
+    "State": "EE"
+  },
+  {
+    "Name": "Islanda",
+    "State": "EE"
+  },
+  {
+    "Name": "Iugoslavia",
+    "State": "EE"
+  },
+  {
+    "Name": "Liechtenstein",
+    "State": "EE"
+  },
+  {
+    "Name": "Lussemburgo",
+    "State": "EE"
+  },
+  {
+    "Name": "Malta",
+    "State": "EE"
+  },
+  {
+    "Name": "Man (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Monaco",
+    "State": "EE"
+  },
+  {
+    "Name": "Normanne (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Norvegia",
+    "State": "EE"
+  },
+  {
+    "Name": "Paesi Bassi",
+    "State": "EE"
+  },
+  {
+    "Name": "Repubblica di Polonia",
+    "State": "EE"
+  },
+  {
+    "Name": "Polonia",
+    "State": "EE"
+  },
+  {
+    "Name": "Portogallo",
+    "State": "EE"
+  },
+  {
+    "Name": "Romania",
+    "State": "EE"
+  },
+  {
+    "Name": "San Marino",
+    "State": "EE"
+  },
+  {
+    "Name": "Spagna",
+    "State": "EE"
+  },
+  {
+    "Name": "Svezia",
+    "State": "EE"
+  },
+  {
+    "Name": "Svizzera",
+    "State": "EE"
+  },
+  {
+    "Name": "Ungheria",
+    "State": "EE"
+  },
+  {
+    "Name": "Unione Repubbliche Socialiste Sovietiche",
+    "State": "EE"
+  },
+  {
+    "Name": "Georgia",
+    "State": "EE"
+  },
+  {
+    "Name": "Armenia",
+    "State": "EE"
+  },
+  {
+    "Name": "Ucraina",
+    "State": "EE"
+  },
+  {
+    "Name": "Bielorussia",
+    "State": "EE"
+  },
+  {
+    "Name": "Moldavia",
+    "State": "EE"
+  },
+  {
+    "Name": "Azerbaigian",
+    "State": "EE"
+  },
+  {
+    "Name": "Kirghizistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Uzbekistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Estonia",
+    "State": "EE"
+  },
+  {
+    "Name": "Lettonia",
+    "State": "EE"
+  },
+  {
+    "Name": "Lituania",
+    "State": "EE"
+  },
+  {
+    "Name": "Tagikistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Macedonia",
+    "State": "EE"
+  },
+  {
+    "Name": "Croazia",
+    "State": "EE"
+  },
+  {
+    "Name": "Slovenia",
+    "State": "EE"
+  },
+  {
+    "Name": "Turkemenistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Kazakistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Bosnia Ed Erzegovina",
+    "State": "EE"
+  },
+  {
+    "Name": "Russia",
+    "State": "EE"
+  },
+  {
+    "Name": "Slovacchia",
+    "State": "EE"
+  },
+  {
+    "Name": "Ceca Repubblica",
+    "State": "EE"
+  },
+  {
+    "Name": "Serbia e Montenegro",
+    "State": "EE"
+  },
+  {
+    "Name": "Serbia",
+    "State": "EE"
+  },
+  {
+    "Name": "Montenegro",
+    "State": "EE"
+  },
+  {
+    "Name": "Kossovo",
+    "State": "EE"
+  },
+  {
+    "Name": "Territori Palestinesi",
+    "State": "EE"
+  },
+  {
+    "Name": "Afghanistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Arabia Meridionale Federazione",
+    "State": "EE"
+  },
+  {
+    "Name": "Arabia Meridionale Protettorato",
+    "State": "EE"
+  },
+  {
+    "Name": "Arabia Saudita",
+    "State": "EE"
+  },
+  {
+    "Name": "Bahrein",
+    "State": "EE"
+  },
+  {
+    "Name": "Bhutan",
+    "State": "EE"
+  },
+  {
+    "Name": "Birmania",
+    "State": "EE"
+  },
+  {
+    "Name": "Brunei",
+    "State": "EE"
+  },
+  {
+    "Name": "Cambogia",
+    "State": "EE"
+  },
+  {
+    "Name": "Sri Lanka",
+    "State": "EE"
+  },
+  {
+    "Name": "Ceylon",
+    "State": "EE"
+  },
+  {
+    "Name": "Cina Repubblica Popolare",
+    "State": "EE"
+  },
+  {
+    "Name": "Cipro",
+    "State": "EE"
+  },
+  {
+    "Name": "Cocos (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Corea del Sud",
+    "State": "EE"
+  },
+  {
+    "Name": "Corea del Nord",
+    "State": "EE"
+  },
+  {
+    "Name": "Costa dei Pirati",
+    "State": "EE"
+  },
+  {
+    "Name": "Emirati Arabi Uniti",
+    "State": "EE"
+  },
+  {
+    "Name": "Filippine",
+    "State": "EE"
+  },
+  {
+    "Name": "Repubblica della Cina Nazionale",
+    "State": "EE"
+  },
+  {
+    "Name": "Formosa",
+    "State": "EE"
+  },
+  {
+    "Name": "Gaza (Territorio di)",
+    "State": "EE"
+  },
+  {
+    "Name": "Giappone",
+    "State": "EE"
+  },
+  {
+    "Name": "Giordania",
+    "State": "EE"
+  },
+  {
+    "Name": "Hong Kong",
+    "State": "EE"
+  },
+  {
+    "Name": "India",
+    "State": "EE"
+  },
+  {
+    "Name": "Indonesia",
+    "State": "EE"
+  },
+  {
+    "Name": "Iran",
+    "State": "EE"
+  },
+  {
+    "Name": "Iraq",
+    "State": "EE"
+  },
+  {
+    "Name": "Israele",
+    "State": "EE"
+  },
+  {
+    "Name": "Kuwait",
+    "State": "EE"
+  },
+  {
+    "Name": "Laos",
+    "State": "EE"
+  },
+  {
+    "Name": "Libano",
+    "State": "EE"
+  },
+  {
+    "Name": "Malaysia",
+    "State": "EE"
+  },
+  {
+    "Name": "Macao",
+    "State": "EE"
+  },
+  {
+    "Name": "Maldive",
+    "State": "EE"
+  },
+  {
+    "Name": "Mongolia",
+    "State": "EE"
+  },
+  {
+    "Name": "Nepal",
+    "State": "EE"
+  },
+  {
+    "Name": "Oman",
+    "State": "EE"
+  },
+  {
+    "Name": "Pakistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Qatar",
+    "State": "EE"
+  },
+  {
+    "Name": "Ryukyu (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Sikkim",
+    "State": "EE"
+  },
+  {
+    "Name": "Siria",
+    "State": "EE"
+  },
+  {
+    "Name": "Thailandia",
+    "State": "EE"
+  },
+  {
+    "Name": "Timor (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Turchia",
+    "State": "EE"
+  },
+  {
+    "Name": "Vietnam del Sud",
+    "State": "EE"
+  },
+  {
+    "Name": "Vietnam del Nord",
+    "State": "EE"
+  },
+  {
+    "Name": "Yemen",
+    "State": "EE"
+  },
+  {
+    "Name": "Malaysia",
+    "State": "EE"
+  },
+  {
+    "Name": "Singapore",
+    "State": "EE"
+  },
+  {
+    "Name": "Bangladesh",
+    "State": "EE"
+  },
+  {
+    "Name": "Yemen Repubblica Democratica Popolare",
+    "State": "EE"
+  },
+  {
+    "Name": "Vietnam",
+    "State": "EE"
+  },
+  {
+    "Name": "Armenia",
+    "State": "EE"
+  },
+  {
+    "Name": "Azerbaigian",
+    "State": "EE"
+  },
+  {
+    "Name": "Georgia",
+    "State": "EE"
+  },
+  {
+    "Name": "Kazakistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Kirghizistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Tagikistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Turkemenistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Uzbekistan",
+    "State": "EE"
+  },
+  {
+    "Name": "Africa del Sud-Ovest",
+    "State": "EE"
+  },
+  {
+    "Name": "Namibia",
+    "State": "EE"
+  },
+  {
+    "Name": "Algeria",
+    "State": "EE"
+  },
+  {
+    "Name": "Angola",
+    "State": "EE"
+  },
+  {
+    "Name": "Basutoland-Sud Africa Britannico",
+    "State": "EE"
+  },
+  {
+    "Name": "Beciuania-Sud Africa Britannico",
+    "State": "EE"
+  },
+  {
+    "Name": "Burundi",
+    "State": "EE"
+  },
+  {
+    "Name": "Camerun",
+    "State": "EE"
+  },
+  {
+    "Name": "Capo Verde",
+    "State": "EE"
+  },
+  {
+    "Name": "Capo Verde (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Centrafricana Repubblica",
+    "State": "EE"
+  },
+  {
+    "Name": "Centroafricana Repubblica",
+    "State": "EE"
+  },
+  {
+    "Name": "Centroafricano Impero",
+    "State": "EE"
+  },
+  {
+    "Name": "Ciad",
+    "State": "EE"
+  },
+  {
+    "Name": "Comore (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Comore",
+    "State": "EE"
+  },
+  {
+    "Name": "Congo Repubblica Popolare",
+    "State": "EE"
+  },
+  {
+    "Name": "Congo Brazzaville",
+    "State": "EE"
+  },
+  {
+    "Name": "Congo Repubblica Democratica",
+    "State": "EE"
+  },
+  {
+    "Name": "Zaire",
+    "State": "EE"
+  },
+  {
+    "Name": "Congo Leopoldville",
+    "State": "EE"
+  },
+  {
+    "Name": "Costa D'Avorio",
+    "State": "EE"
+  },
+  {
+    "Name": "Dahomey",
+    "State": "EE"
+  },
+  {
+    "Name": "Benin",
+    "State": "EE"
+  },
+  {
+    "Name": "Etiopia",
+    "State": "EE"
+  },
+  {
+    "Name": "Gabon",
+    "State": "EE"
+  },
+  {
+    "Name": "Gambia",
+    "State": "EE"
+  },
+  {
+    "Name": "Ghana",
+    "State": "EE"
+  },
+  {
+    "Name": "Guinea",
+    "State": "EE"
+  },
+  {
+    "Name": "Guinea Portoghese",
+    "State": "EE"
+  },
+  {
+    "Name": "Guinea Bissau",
+    "State": "EE"
+  },
+  {
+    "Name": "Guinea Spagnola",
+    "State": "EE"
+  },
+  {
+    "Name": "Guinea Equatoriale",
+    "State": "EE"
+  },
+  {
+    "Name": "Kenya",
+    "State": "EE"
+  },
+  {
+    "Name": "Ifni",
+    "State": "EE"
+  },
+  {
+    "Name": "La Reunion (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Liberia",
+    "State": "EE"
+  },
+  {
+    "Name": "Libia",
+    "State": "EE"
+  },
+  {
+    "Name": "Madagascar",
+    "State": "EE"
+  },
+  {
+    "Name": "Malawi",
+    "State": "EE"
+  },
+  {
+    "Name": "Mali",
+    "State": "EE"
+  },
+  {
+    "Name": "Marocco",
+    "State": "EE"
+  },
+  {
+    "Name": "Mauritania",
+    "State": "EE"
+  },
+  {
+    "Name": "Maurizio (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Maurizio",
+    "State": "EE"
+  },
+  {
+    "Name": "Mozambico",
+    "State": "EE"
+  },
+  {
+    "Name": "Niger",
+    "State": "EE"
+  },
+  {
+    "Name": "Nigeria",
+    "State": "EE"
+  },
+  {
+    "Name": "Egitto",
+    "State": "EE"
+  },
+  {
+    "Name": "Rhodesia",
+    "State": "EE"
+  },
+  {
+    "Name": "Zimbabwe",
+    "State": "EE"
+  },
+  {
+    "Name": "Ruanda",
+    "State": "EE"
+  },
+  {
+    "Name": "Sahara Spagnolo",
+    "State": "EE"
+  },
+  {
+    "Name": "Sant'elena (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "São Tomé e Príncipe",
+    "State": "EE"
+  },
+  {
+    "Name": "São Tomé e Príncipe (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Seicelle",
+    "State": "EE"
+  },
+  {
+    "Name": "Seicelle (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Senegal",
+    "State": "EE"
+  },
+  {
+    "Name": "Sierra Leone",
+    "State": "EE"
+  },
+  {
+    "Name": "Somalia",
+    "State": "EE"
+  },
+  {
+    "Name": "Territorio Francese degli Afar e degli Issa",
+    "State": "EE"
+  },
+  {
+    "Name": "Somalia Francese",
+    "State": "EE"
+  },
+  {
+    "Name": "Sudafricana Repubblica",
+    "State": "EE"
+  },
+  {
+    "Name": "Sudan",
+    "State": "EE"
+  },
+  {
+    "Name": "Swaziland",
+    "State": "EE"
+  },
+  {
+    "Name": "Swaziland-Sudafrica Britannico",
+    "State": "EE"
+  },
+  {
+    "Name": "Tanganica",
+    "State": "EE"
+  },
+  {
+    "Name": "Togo",
+    "State": "EE"
+  },
+  {
+    "Name": "Tunisia",
+    "State": "EE"
+  },
+  {
+    "Name": "Uganda",
+    "State": "EE"
+  },
+  {
+    "Name": "Burkina",
+    "State": "EE"
+  },
+  {
+    "Name": "Volta",
+    "State": "EE"
+  },
+  {
+    "Name": "Zambia",
+    "State": "EE"
+  },
+  {
+    "Name": "Zanzibar",
+    "State": "EE"
+  },
+  {
+    "Name": "Tanzania",
+    "State": "EE"
+  },
+  {
+    "Name": "Botswana",
+    "State": "EE"
+  },
+  {
+    "Name": "Lesotho",
+    "State": "EE"
+  },
+  {
+    "Name": "Mayotte (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Gibuti",
+    "State": "EE"
+  },
+  {
+    "Name": "Sahara Meridionale",
+    "State": "EE"
+  },
+  {
+    "Name": "Sahara Settentrionale",
+    "State": "EE"
+  },
+  {
+    "Name": "Bophuthatswana",
+    "State": "EE"
+  },
+  {
+    "Name": "Transkei",
+    "State": "EE"
+  },
+  {
+    "Name": "Venda",
+    "State": "EE"
+  },
+  {
+    "Name": "Ciskei",
+    "State": "EE"
+  },
+  {
+    "Name": "Eritrea",
+    "State": "EE"
+  },
+  {
+    "Name": "Nyasaland",
+    "State": "EE"
+  },
+  {
+    "Name": "Congo Belga",
+    "State": "EE"
+  },
+  {
+    "Name": "Bermuda (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Canada",
+    "State": "EE"
+  },
+  {
+    "Name": "Groenlandia",
+    "State": "EE"
+  },
+  {
+    "Name": "Saint Pierre Et Miquelon (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Stati Uniti D'America",
+    "State": "EE"
+  },
+  {
+    "Name": "Antille Britanniche",
+    "State": "EE"
+  },
+  {
+    "Name": "Antille Olandesi",
+    "State": "EE"
+  },
+  {
+    "Name": "Bahama (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Bahama",
+    "State": "EE"
+  },
+  {
+    "Name": "Costa Rica",
+    "State": "EE"
+  },
+  {
+    "Name": "Cuba",
+    "State": "EE"
+  },
+  {
+    "Name": "Repubblica Dominicana",
+    "State": "EE"
+  },
+  {
+    "Name": "El Salvador",
+    "State": "EE"
+  },
+  {
+    "Name": "Giamaica",
+    "State": "EE"
+  },
+  {
+    "Name": "Guadalupa",
+    "State": "EE"
+  },
+  {
+    "Name": "Guatemala",
+    "State": "EE"
+  },
+  {
+    "Name": "Haiti",
+    "State": "EE"
+  },
+  {
+    "Name": "Honduras",
+    "State": "EE"
+  },
+  {
+    "Name": "Honduras Britannico",
+    "State": "EE"
+  },
+  {
+    "Name": "Belize",
+    "State": "EE"
+  },
+  {
+    "Name": "Martinica",
+    "State": "EE"
+  },
+  {
+    "Name": "Messico",
+    "State": "EE"
+  },
+  {
+    "Name": "Nicaragua",
+    "State": "EE"
+  },
+  {
+    "Name": "Panamá",
+    "State": "EE"
+  },
+  {
+    "Name": "Panamá Zona del Canale",
+    "State": "EE"
+  },
+  {
+    "Name": "Puerto Rico",
+    "State": "EE"
+  },
+  {
+    "Name": "Turks e Caicos (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Vergini Americane (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Antille Britanniche",
+    "State": "EE"
+  },
+  {
+    "Name": "Barbados",
+    "State": "EE"
+  },
+  {
+    "Name": "Antille Britanniche",
+    "State": "EE"
+  },
+  {
+    "Name": "Grenada",
+    "State": "EE"
+  },
+  {
+    "Name": "Vergini Britanniche (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Dominica",
+    "State": "EE"
+  },
+  {
+    "Name": "Saint Lucia",
+    "State": "EE"
+  },
+  {
+    "Name": "Saint Vincent e Grenadine",
+    "State": "EE"
+  },
+  {
+    "Name": "Anguilla (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Cayman (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Montserrat",
+    "State": "EE"
+  },
+  {
+    "Name": "Antigua e Barbuda",
+    "State": "EE"
+  },
+  {
+    "Name": "Saint Kitts e Nevis",
+    "State": "EE"
+  },
+  {
+    "Name": "Argentina",
+    "State": "EE"
+  },
+  {
+    "Name": "Bolivia",
+    "State": "EE"
+  },
+  {
+    "Name": "Brasile",
+    "State": "EE"
+  },
+  {
+    "Name": "Cile",
+    "State": "EE"
+  },
+  {
+    "Name": "Colombia",
+    "State": "EE"
+  },
+  {
+    "Name": "Ecuador",
+    "State": "EE"
+  },
+  {
+    "Name": "Guyana Britannica",
+    "State": "EE"
+  },
+  {
+    "Name": "Guyana",
+    "State": "EE"
+  },
+  {
+    "Name": "Guayana",
+    "State": "EE"
+  },
+  {
+    "Name": "Guayana Olandese",
+    "State": "EE"
+  },
+  {
+    "Name": "Suriname",
+    "State": "EE"
+  },
+  {
+    "Name": "Malvine",
+    "State": "EE"
+  },
+  {
+    "Name": "Paraguay",
+    "State": "EE"
+  },
+  {
+    "Name": "Perù",
+    "State": "EE"
+  },
+  {
+    "Name": "Trinidad e Tobago",
+    "State": "EE"
+  },
+  {
+    "Name": "Uruguay",
+    "State": "EE"
+  },
+  {
+    "Name": "Venezuela",
+    "State": "EE"
+  },
+  {
+    "Name": "Australia",
+    "State": "EE"
+  },
+  {
+    "Name": "Caroline (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Christmas (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Cook (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Figi",
+    "State": "EE"
+  },
+  {
+    "Name": "Gilbert E Ellice (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Guam (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Irian Occidentale",
+    "State": "EE"
+  },
+  {
+    "Name": "Macquarie (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Marcus (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Marianne (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Marshall (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Marshall",
+    "State": "EE"
+  },
+  {
+    "Name": "Midway (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Nauru",
+    "State": "EE"
+  },
+  {
+    "Name": "Nauru (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Niue",
+    "State": "EE"
+  },
+  {
+    "Name": "Norfolk (Isole e Isole del Mar dei Coralli)",
+    "State": "EE"
+  },
+  {
+    "Name": "Nuova Caledonia (Isole e Dipendenze)",
+    "State": "EE"
+  },
+  {
+    "Name": "Nuove Ebridi (Isole Condominio Franco-Inglese)",
+    "State": "EE"
+  },
+  {
+    "Name": "Nuova Guinea",
+    "State": "EE"
+  },
+  {
+    "Name": "Nuova Zelanda",
+    "State": "EE"
+  },
+  {
+    "Name": "Papuasia",
+    "State": "EE"
+  },
+  {
+    "Name": "Isole Cilene (Pasqua e Sala Y Gomez)",
+    "State": "EE"
+  },
+  {
+    "Name": "Pasqua (Isola)",
+    "State": "EE"
+  },
+  {
+    "Name": "Pitcairn (E Dipendenze)",
+    "State": "EE"
+  },
+  {
+    "Name": "Polinesia Francese (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Salomone",
+    "State": "EE"
+  },
+  {
+    "Name": "Salomone (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Samoa Americane (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Samoa",
+    "State": "EE"
+  },
+  {
+    "Name": "Tokelau",
+    "State": "EE"
+  },
+  {
+    "Name": "Tonga",
+    "State": "EE"
+  },
+  {
+    "Name": "Wallis e Futuna (Isole)",
+    "State": "EE"
+  },
+  {
+    "Name": "Papua Nuova Guinea",
+    "State": "EE"
+  },
+  {
+    "Name": "Kiribati",
+    "State": "EE"
+  },
+  {
+    "Name": "Tuvalu",
+    "State": "EE"
+  },
+  {
+    "Name": "Vanuatu",
+    "State": "EE"
+  },
+  {
+    "Name": "Palau",
+    "State": "EE"
+  },
+  {
+    "Name": "Palau Repubblica",
+    "State": "EE"
+  },
+  {
+    "Name": "Micronesia Stati Federati",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Canadesi",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Norvegesi Artiche",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Sovietiche",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Russe",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Australiane",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Britanniche",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Francesi",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Neozelandesi",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Norvegesi Antartiche",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Statunitensi",
+    "State": "EE"
+  },
+  {
+    "Name": "Dipendenze Sudafricane",
+    "State": "EE"
+  },
+  {
+    "Name": "Sud Sudan",
+    "State": "EE"
+  }
+]

@@ -1,0 +1,36 @@
+﻿@using FiscalCode.Data
+@using FiscalCode.Resources.Languages
+
+@inject IStringLocalizer<Localization> Localizer
+
+<div class="w-full sm:w-96 m-5 p-5 bg-cyan-200 rounded shadow-lg">
+
+    <label class="text-cyan-600">@Localizer["FirstName"]:</label>
+    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.FirstName</label>
+    <br />
+
+    <label class="text-cyan-600">@Localizer["LastName"]:</label>
+    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.LastName</label>
+    <br />
+
+    <label class="text-cyan-600">@Localizer["Sex"]:</label>
+    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.Sex</label>
+    <br />
+
+    <label class="text-cyan-600">@Localizer["Birthdate"]:</label>
+    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.BirthDate</label>
+    <br />
+
+    <label class="text-cyan-600">@Localizer["Birthplace"]:</label>
+    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.BirthPlace</label>
+    <br />
+
+    <div class="text-center text-lg font-medium mt-5">
+        CODICE FISCALE
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public FiscalCodeDTO FiscalCodeDTO { get; set; } = new();
+}
