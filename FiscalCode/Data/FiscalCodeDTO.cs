@@ -7,10 +7,9 @@ public class FiscalCodeDTO
     public string LastName { get; set; } = string.Empty;
 
     public string Sex { get; set; } = string.Empty;
+    public string FiscalCode { get; set; } = string.Empty;
 
-    public string BirthPlace { get; set; } = string.Empty;
+    public BirthplaceDTO? BirthPlace { get; set; }
 
-    public string BirthState { get; set; } = string.Empty;
-
-    public DateTime? BirthDate { get; set; } = DateTime.Now;
+    public DateTime? BirthDate { get; set; }
 }

@@ -1,6 +1,8 @@
 {
+  "scripts": {
+    "tailwindcss": "npx tailwindcss -i .\\Styles\\app.css -o .\\wwwroot\\css\\app.css --watch"
+  },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
     "tailwindcss": "^3.3.5"
   }
 }

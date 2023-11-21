@@ -3,32 +3,43 @@
 
 @inject IStringLocalizer<Localization> Localizer
 
-<div class="w-full sm:w-96 m-5 p-5 bg-cyan-200 rounded shadow-lg">
+<MudCard Class="m-5 w-full sm:w-auto">
 
-    <label class="text-cyan-600">@Localizer["FirstName"]:</label>
-    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.FirstName</label>
-    <br />
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Class="text-2xl" Align="Align.Center" Typo="Typo.h6">@FiscalCodeDTO.FiscalCode</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
 
-    <label class="text-cyan-600">@Localizer["LastName"]:</label>
-    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.LastName</label>
-    <br />
+    <MudCardContent>
+        <MudText Class="inline">@Localizer["FirstName"]: </MudText>
+        <MudText Class="inline font-semibold">@FiscalCodeDTO.FirstName</MudText>
+        <br />
 
-    <label class="text-cyan-600">@Localizer["Sex"]:</label>
-    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.Sex</label>
-    <br />
+        <MudText Class="inline">@Localizer["LastName"]: </MudText>
+        <MudText Class="inline font-semibold">@FiscalCodeDTO.LastName</MudText>
+        <br />
 
-    <label class="text-cyan-600">@Localizer["Birthdate"]:</label>
-    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.BirthDate</label>
-    <br />
+        <MudText Class="inline">@Localizer["Sex"]: </MudText>
+        <MudText Class="inline font-semibold">@FiscalCodeDTO.Sex</MudText>
+        <br />
 
-    <label class="text-cyan-600">@Localizer["Birthplace"]:</label>
-    <label class="text-cyan-800 font-medium">@FiscalCodeDTO.BirthPlace</label>
-    <br />
+        <MudText Class="inline">@Localizer["Birthdate"]: </MudText>
+        <MudText Class="inline font-semibold">@FiscalCodeDTO.BirthDate?.Date.ToString("d")</MudText>
+        <br />
 
-    <div class="text-center text-lg font-medium mt-5">
-        CODICE FISCALE
-    </div>
-</div>
+        <MudText Class="inline">@Localizer["Birthplace"]: </MudText>
+        <MudText Class="inline font-semibold">@($"{FiscalCodeDTO.BirthPlace?.Name} ({FiscalCodeDTO.BirthPlace?.State})")</MudText>
+        
+    </MudCardContent>
+
+    <MudCardActions>
+        <MudIconButton Icon="@Icons.Material.Filled.ContentCopy" Title="Copy" />
+        <MudIconButton Icon="@Icons.Material.Filled.Edit" Title="Edit" />
+        <MudIconButton Icon="@Icons.Material.Filled.Delete" Title="Delete" />
+    </MudCardActions>
+
+</MudCard>
 
 @code {
     [Parameter]

@@ -1,6 +1,11 @@
-﻿namespace FiscalCode.Configuration;
+﻿using System.Text.Json;
 
+namespace FiscalCode.Configuration;
 public static class Config
 {
-    public static string ServiceApiKey { get; set; } = string.Empty;
+    public static async Task<string?> GetServiceApiTokenAsync()
+    {
+        using var stream = await FileSystem.OpenAppPackageFileAsync("secrets.json");
+        return stream != null ? (await JsonSerializer.DeserializeAsync<Secret>(stream))?.ServiceApiKey : null;
+    }
 }

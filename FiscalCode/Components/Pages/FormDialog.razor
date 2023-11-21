@@ -1,0 +1,98 @@
+﻿@using FiscalCode.Data
+@using FiscalCode.Resources.Languages
+@using FiscalCode.Services
+
+@inject IStringLocalizer<Localization> Localizer
+@inject BirthplaceDataService Service;
+
+<MudDialog>
+
+    <TitleContent>
+        <MudText Typo="Typo.h5">
+            <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-4" /> @Localizer["FillData"]
+        </MudText>
+    </TitleContent>
+
+    <DialogContent>
+
+        <MudForm @ref="form">
+            <MudTextField @bind-Value="@formData.FirstName" T="string" Label="@Localizer["FirstName"]"
+                          Required="true" RequiredError="@Localizer["FirstNameError"]"
+                          Class="my-5" />
+
+            <MudTextField @bind-Value="@formData.LastName" T="string" Label="@Localizer["LastName"]"
+                          Required="true" RequiredError="@Localizer["LastNameError"]"
+                          Class="my-5" />
+
+            <div Class="flex my-5">
+                <MudSelect @bind-Value="@formData.Sex" T="string" Label="@Localizer["Sex"]"
+                            Required="true" RequiredError="@Localizer["SexError"]"
+                            Class="mr-5 w-20">
+                    <MudSelectItem Value="@(string.Empty)" />
+                    <MudSelectItem Value="@("M")" />
+                    <MudSelectItem Value="@("F")" />
+                </MudSelect>
+
+                <MudDatePicker @bind-Date="@formData.BirthDate" Label="@Localizer["Birthdate"]" Placeholder="@Localizer["Birthdate"]"
+                               Editable="true" OpenTo="OpenTo.Year"
+                               Required="true" RequiredError="@Localizer["BirthdateError"]" />
+            </div>
+
+            <MudAutocomplete @bind-Value="formData.BirthPlace" T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
+                             SearchFunc="@SearchAsync" ToStringFunc="@(b => b == null ? null : $"{b.Name} ({b.State})")"
+                             ResetValueOnEmptyText="true" Required="true" RequiredError="@Localizer["BirthplaceError"]"
+                             Class="my-5" />
+
+            <MudContainer Class="flex items-center justify-center my-5">
+                <MudButton OnClick="@HandleSubmitAsync" Variant="Variant.Filled" Color="Color.Primary">
+                    @Localizer["Confirm"]
+                </MudButton>
+            </MudContainer>
+        </MudForm>
+
+    </DialogContent>
+
+</MudDialog>
+
+
+@code {
+    private FiscalCodeDTO formData = new();
+    private MudForm? form;
+
+
+    [CascadingParameter]
+    public MudDialogInstance? MudDialog { get; private set; }
+
+    [Parameter]
+    public EventCallback<FiscalCodeDTO> OnCreate { get; set; }
+
+
+    private async Task HandleSubmitAsync()
+    {
+        if(form != null)
+        {
+            await form.Validate();
+
+            if(form.IsValid)
+            {
+                await OnCreate.InvokeAsync(formData);
+                MudDialog?.Close(DialogResult.Ok(formData));
+                formData = new();           
+            }
+        }
+    }
+
+    private async Task<IEnumerable<BirthplaceDTO>> SearchAsync(string value)
+    {
+        var birthplaces = await Service.GetBirthplacesAsync();
+
+        var startsWithFilter = birthplaces.Where(x => x.Name.StartsWith(value, StringComparison.OrdinalIgnoreCase));
+
+        if (startsWithFilter.Count() > 0)
+            return startsWithFilter;
+
+        var containsFilter = birthplaces.Where(x => x.Name.Contains(value, StringComparison.OrdinalIgnoreCase));
+
+        return containsFilter;
+    }
+}

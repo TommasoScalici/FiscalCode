@@ -1,7 +1,6 @@
 ﻿@using FiscalCode.Components.Pages
 @using FiscalCode.Resources.Languages
 
-@inject IDialogService DialogService
 @inject IStringLocalizer<Localization> Localizer
 
 <MudAppBar Elevation="1">
@@ -11,19 +10,13 @@
     </MudText>
 
     <MudSpacer />
-    <MudIconButton @onclick="OpenAddForm" Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.End" />
+    <MudIconButton @onclick="AddButtonClicked" Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.End" />
 </MudAppBar>
 
 @code {
-    private void OpenAddForm()
-    {
-        var options = new DialogOptions
-        { 
-            CloseButton = true,
-            CloseOnEscapeKey = true,
-            MaxWidth = MaxWidth.Medium,
-            Position = DialogPosition.TopCenter
-        };
-        DialogService.Show<AddFormDialog>(Localizer["FillData"], options);
-    }
+
+    [Parameter]
+    public EventCallback OnAddButtonClicked { get; set; }
+
+    private async void AddButtonClicked() => await OnAddButtonClicked.InvokeAsync();
 }

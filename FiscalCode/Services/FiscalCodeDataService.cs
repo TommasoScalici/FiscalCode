@@ -1,12 +1,12 @@
-﻿using FiscalCode.Configuration;
+﻿using System.Text.Json;
+
+using FiscalCode.Configuration;
 using FiscalCode.Data;
 
-using Microsoft.Extensions.Configuration;
-
 namespace FiscalCode.Services;
-public class FiscalCodeDataService(IConfiguration config, HttpClient http)
+public class FiscalCodeDataService(HttpClient http)
 {
-    private readonly IConfiguration config = config;
+    private static readonly JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
     private readonly HttpClient http = http;
 
 
@@ -14,12 +14,25 @@ public class FiscalCodeDataService(IConfiguration config, HttpClient http)
     {
         http.BaseAddress = new("http://api.miocodicefiscale.com");
 
-        var queryString = $"calculate?lname={dto.LastName}&fname={dto.FirstName}&gender={dto.Sex}&city={dto.BirthPlace}&state={dto.BirthState}"
-                            + $"&day={dto.BirthDate.Value.Day}&month={dto.BirthDate.Value.Month}&year={dto.BirthDate.Value.Year}"
-                            + $"&access_token={Config.ServiceApiKey}";
+        if (dto.BirthDate == null)
+            throw new NullReferenceException(nameof(dto.BirthDate));
+
+        if (dto.BirthPlace == null)
+            throw new NullReferenceException(nameof(dto.BirthPlace));
+
+        var birthdate = dto.BirthDate.Value;
+        var token = await Config.GetServiceApiTokenAsync();
+
+        var queryString = $"calculate?lname={dto.LastName}&fname={dto.FirstName}&gender={dto.Sex}"
+                            + $"&city={dto.BirthPlace.Name}&state={dto.BirthPlace.State}"
+                            + $"&day={birthdate.Day}&month={birthdate.Month}&year={birthdate.Year}"
+                            + $"&access_token={token}";
 
         var response = await http.GetAsync(queryString);
+        var stream = await response.Content.ReadAsStreamAsync();
 
-        return await response.Content.ReadAsStringAsync();
+        var apiResponse = await JsonSerializer.DeserializeAsync<FiscalCodeAPIResponse>(stream, options);
+
+        return apiResponse == null ? throw new NullReferenceException(nameof(apiResponse)) : apiResponse.Data.CF;
     }
 }

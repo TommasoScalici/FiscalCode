@@ -13,10 +13,23 @@ public class BirthplaceDataService
     {
         if (birthplaces.Count == 0)
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync("cities.json");
-            var cities = await JsonSerializer.DeserializeAsync<IEnumerable<BirthplaceDTO>>(stream);
             var currentCulture = CultureInfo.CurrentCulture;
-            var currentUICulture = CultureInfo.CurrentUICulture;
+
+            if (currentCulture != null)
+            {
+                using var citiesStream = await FileSystem.OpenAppPackageFileAsync("cities.json");
+                var cities = await JsonSerializer.DeserializeAsync<IEnumerable<BirthplaceDTO>>(citiesStream);
+
+                var lang = currentCulture.TwoLetterISOLanguageName;
+                using var statesStream = await FileSystem.OpenAppPackageFileAsync($"{lang}/states.json");
+                var states = await JsonSerializer.DeserializeAsync<IEnumerable<BirthplaceDTO>>(statesStream);
+
+                if (cities != null && states != null)
+                {
+                    birthplaces.AddRange(cities);
+                    birthplaces.AddRange(states);
+                }
+            }
         }
 
         return birthplaces;

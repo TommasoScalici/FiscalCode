@@ -1,20 +1,19 @@
 ﻿@page "/"
 
-@using Azure.Identity
-@using Azure.Security.KeyVault.Secrets
 @using FiscalCode.Components.Shared
-@using FiscalCode.Configuration
 @using FiscalCode.Data
 @using FiscalCode.Resources.Languages
 @using FiscalCode.Services
+@using System.Diagnostics
 
-@inject IStringLocalizer<Localization> Localizer
-@inject BirthplaceDataService BirthplaceService
-@inject FiscalCodeDataService FiscalCodeService
+@inject IDialogService DialogService
+@inject IStringLocalizer<Localization> Localizer;
+@inject FiscalCodeDataService Service
 
-<AppBar />
 
-<div class="flex flex-wrap">
+<AppBar OnAddButtonClicked="OpenFormDialogAsync" />
+
+<div class="flex flex-wrap flex-grow">
     @foreach (var item in fiscalCodes)
     {
         <Card FiscalCodeDTO="item" />
@@ -23,30 +22,62 @@
 
 
 @code {
-    private List<FiscalCodeDTO> fiscalCodes = new();
-
-    protected override async Task OnInitializedAsync()
+    private List<FiscalCodeDTO> fiscalCodes = new()
     {
-        if(string.IsNullOrEmpty(Config.ServiceApiKey))
+        new FiscalCodeDTO
         {
-            if(!Preferences.ContainsKey(nameof(Config.ServiceApiKey)))
-            {
-                var fiscalCodeKeyVaultUri = new Uri("https://fiscalcodekeyvault.vault.azure.net/");
-                var client = new SecretClient(fiscalCodeKeyVaultUri, new DefaultAzureCredential());
-                var azureResponse = await client.GetSecretAsync(nameof(Config.ServiceApiKey));
-                var keyVaultSecret = azureResponse.Value;
-                Preferences.Set(nameof(Config.ServiceApiKey), keyVaultSecret.Value);
-            }
+            FirstName = "Tommaso",
+            LastName = "Scalici",
+            Sex = "M",
+            BirthDate = new DateTime(1991, 07, 18),
+            BirthPlace = new BirthplaceDTO { Name = "Palermo", State = "PA"},
+            FiscalCode = "SCLTMS91L18G273O"
+        },
+        new FiscalCodeDTO
+        {
+            FirstName = "Carla",
+            LastName = "Craparotta",
+            Sex = "M",
+            BirthDate = new DateTime(1991, 07, 18),
+            BirthPlace = new BirthplaceDTO { Name = "Palermo", State = "PA"},
+            FiscalCode = "SCLTMS91L18G273O"
+        },
+        new FiscalCodeDTO
+        {
+            FirstName = "Pinco",
+            LastName = "Pallino",
+            Sex = "M",
+            BirthDate = new DateTime(1991, 07, 18),
+            BirthPlace = new BirthplaceDTO { Name = "Palermo", State = "PA"},
+            FiscalCode = "SCLTMS91L18G273O"
+        }
+    };
 
-            Config.ServiceApiKey = Preferences.Get(nameof(Config.ServiceApiKey), string.Empty);
+    private async Task OpenFormDialogAsync()
+    {
+        var options = new DialogOptions
+            {
+                CloseButton = true,
+                CloseOnEscapeKey = true,
+                MaxWidth = MaxWidth.Small,
+                Position = DialogPosition.TopCenter
+            };
+
+        try
+        {
+            var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], options);
+            var result = await dialog.Result;
+
+            if (result.Data is FiscalCodeDTO dto)
+            {
+                dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
+                fiscalCodes.Add(dto);
+            }
         }
 
-        await BirthplaceService.GetBirthplacesAsync();
-    }
-
-    private async Task OnCreateAsync(FiscalCodeDTO dto)
-    {
-        var response = await FiscalCodeService.CalculateFiscalCodeAsync(dto);
-        fiscalCodes.Add(dto);
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+        }        
     }
 }
