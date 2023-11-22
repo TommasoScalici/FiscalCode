@@ -1,6 +1,7 @@
 ﻿@page "/"
 
 @using FiscalCode.Components.Shared
+@using FiscalCode.Configuration
 @using FiscalCode.Data
 @using FiscalCode.Resources.Languages
 @using FiscalCode.Services
@@ -11,12 +12,12 @@
 @inject FiscalCodeDataService Service
 
 
-<AppBar OnAddButtonClicked="OpenFormDialogAsync" />
+<AppBar OnAddButtonClicked="OpenAddFormDialogAsync" />
 
 <div class="flex flex-wrap flex-grow">
     @foreach (var item in fiscalCodes)
     {
-        <Card FiscalCodeDTO="item" />
+        <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCode" />
     }
 </div>
 
@@ -53,19 +54,13 @@
         }
     };
 
-    private async Task OpenFormDialogAsync()
-    {
-        var options = new DialogOptions
-            {
-                CloseButton = true,
-                CloseOnEscapeKey = true,
-                MaxWidth = MaxWidth.Small,
-                Position = DialogPosition.TopCenter
-            };
+    private void DeleteFiscalCode(FiscalCodeDTO dto) => fiscalCodes.Remove(dto);
 
+    private async Task OpenAddFormDialogAsync()
+    {
         try
         {
-            var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], options);
+            var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], Config.DialogOptions);
             var result = await dialog.Result;
 
             if (result.Data is FiscalCodeDTO dto)
@@ -79,5 +74,13 @@
         {
             Debug.WriteLine(ex);
         }        
+    }
+
+    private async Task OpenEditFormDialogAsync(FiscalCodeDTO dto)
+    {
+        var parameters = new DialogParameters<FormDialog>();
+        parameters.Add(d => d.FormData, dto);
+        var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], parameters, Config.DialogOptions);
+        var result = await dialog.Result;
     }
 }

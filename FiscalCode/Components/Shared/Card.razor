@@ -1,19 +1,19 @@
-﻿@using FiscalCode.Data
+﻿@using FiscalCode.Components.Pages
+@using FiscalCode.Configuration
+@using FiscalCode.Data
 @using FiscalCode.Resources.Languages
 
+@inject IDialogService DialogService
 @inject IStringLocalizer<Localization> Localizer
 
 <MudCard Class="m-5 w-full sm:w-80">
 
-    <MudCardHeader>
-        <CardHeaderContent>
-            <MudButton Color="Color.Primary" Variant="Variant.Filled">
-                <MudText Class="text-2xl" Typo="Typo.h6">@FiscalCodeDTO.FiscalCode</MudText>
-            </MudButton>  
-        </CardHeaderContent>
-    </MudCardHeader>
-
     <MudCardContent>
+        <MudButton OnClick="CopyToClipboardAsync" Class="block mb-5" Color="Color.Primary"
+                   FullWidth="true" Variant="Variant.Filled">
+            <MudText Class="text-2xl" Typo="Typo.h6">@FiscalCodeDTO.FiscalCode</MudText>
+        </MudButton>
+
         <MudText Class="inline">@Localizer["FirstName"]: </MudText>
         <MudText Class="inline font-semibold">@FiscalCodeDTO.FirstName</MudText>
         <br />
@@ -36,14 +36,27 @@
     </MudCardContent>
 
     <MudCardActions>
-        <MudIconButton Icon="@Icons.Material.Filled.ContentCopy" Title="Copy" />
-        <MudIconButton Icon="@Icons.Material.Filled.Edit" Title="Edit" />
-        <MudIconButton Icon="@Icons.Material.Filled.Delete" Title="Delete" />
+        <MudIconButton OnClick="CopyToClipboardAsync" Icon="@Icons.Material.Filled.ContentCopy" Title="Copy" />
+        <MudIconButton OnClick="EditFiscalCodeAsync" Icon="@Icons.Material.Filled.Edit" Title="Edit" />
+        <MudIconButton OnClick="DeleteFiscalCodeAsync" Icon="@Icons.Material.Filled.Delete" Title="Delete" />
     </MudCardActions>
 
 </MudCard>
 
 @code {
     [Parameter]
+    public EventCallback<FiscalCodeDTO> OnDelete { get; set; }
+
+    [Parameter]
+    public EventCallback<FiscalCodeDTO> OnEdit { get; set; }
+
+    [Parameter]
     public FiscalCodeDTO FiscalCodeDTO { get; set; } = new();
+
+
+    private async Task CopyToClipboardAsync() => await Clipboard.Default.SetTextAsync(FiscalCodeDTO.FiscalCode);
+
+    private async Task DeleteFiscalCodeAsync() => await OnDelete.InvokeAsync(FiscalCodeDTO);
+
+    private async Task EditFiscalCodeAsync() => await OnEdit.InvokeAsync(FiscalCodeDTO);
 }

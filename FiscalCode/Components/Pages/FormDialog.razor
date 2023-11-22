@@ -16,16 +16,16 @@
     <DialogContent>
 
         <MudForm @ref="form">
-            <MudTextField @bind-Value="@formData.FirstName" T="string" Label="@Localizer["FirstName"]"
+            <MudTextField @bind-Value="@FormData.FirstName" T="string" Label="@Localizer["FirstName"]"
                           Required="true" RequiredError="@Localizer["FirstNameError"]"
                           Class="my-5" />
 
-            <MudTextField @bind-Value="@formData.LastName" T="string" Label="@Localizer["LastName"]"
+            <MudTextField @bind-Value="@FormData.LastName" T="string" Label="@Localizer["LastName"]"
                           Required="true" RequiredError="@Localizer["LastNameError"]"
                           Class="my-5" />
 
             <div Class="flex my-5">
-                <MudSelect @bind-Value="@formData.Sex" T="string" Label="@Localizer["Sex"]"
+                <MudSelect @bind-Value="@FormData.Sex" T="string" Label="@Localizer["Sex"]"
                             Required="true" RequiredError="@Localizer["SexError"]"
                             Class="mr-5 w-20">
                     <MudSelectItem Value="@(string.Empty)" />
@@ -33,12 +33,12 @@
                     <MudSelectItem Value="@("F")" />
                 </MudSelect>
 
-                <MudDatePicker @bind-Date="@formData.BirthDate" Label="@Localizer["Birthdate"]" Placeholder="@Localizer["Birthdate"]"
+                <MudDatePicker @bind-Date="@FormData.BirthDate" Label="@Localizer["Birthdate"]" Placeholder="@Localizer["Birthdate"]"
                                Editable="true" OpenTo="OpenTo.Year"
                                Required="true" RequiredError="@Localizer["BirthdateError"]" />
             </div>
 
-            <MudAutocomplete @bind-Value="formData.BirthPlace" T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
+            <MudAutocomplete @bind-Value="FormData.BirthPlace" T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
                              SearchFunc="@SearchAsync" ToStringFunc="@(b => b == null ? null : $"{b.Name} ({b.State})")"
                              ResetValueOnEmptyText="true" Required="true" RequiredError="@Localizer["BirthplaceError"]"
                              Class="my-5" />
@@ -56,16 +56,13 @@
 
 
 @code {
-    private FiscalCodeDTO formData = new();
     private MudForm? form;
 
+    [Parameter]
+    public FiscalCodeDTO FormData { get; set; } = new();
 
     [CascadingParameter]
     public MudDialogInstance? MudDialog { get; private set; }
-
-    [Parameter]
-    public EventCallback<FiscalCodeDTO> OnCreate { get; set; }
-
 
     private async Task HandleSubmitAsync()
     {
@@ -75,9 +72,8 @@
 
             if(form.IsValid)
             {
-                await OnCreate.InvokeAsync(formData);
-                MudDialog?.Close(DialogResult.Ok(formData));
-                formData = new();           
+                MudDialog?.Close(DialogResult.Ok(FormData));
+                FormData = new();
             }
         }
     }
