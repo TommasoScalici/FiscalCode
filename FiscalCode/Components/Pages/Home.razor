@@ -23,36 +23,15 @@
 
 
 @code {
-    private List<FiscalCodeDTO> fiscalCodes = new()
+    private List<FiscalCodeDTO> fiscalCodes = new();
+
+
+    protected override async Task OnInitializedAsync()
     {
-        new FiscalCodeDTO
-        {
-            FirstName = "Tommaso",
-            LastName = "Scalici",
-            Sex = "M",
-            BirthDate = new DateTime(1991, 07, 18),
-            BirthPlace = new BirthplaceDTO { Name = "Palermo", State = "PA"},
-            FiscalCode = "SCLTMS91L18G273O"
-        },
-        new FiscalCodeDTO
-        {
-            FirstName = "Carla",
-            LastName = "Craparotta",
-            Sex = "M",
-            BirthDate = new DateTime(1991, 07, 18),
-            BirthPlace = new BirthplaceDTO { Name = "Palermo", State = "PA"},
-            FiscalCode = "SCLTMS91L18G273O"
-        },
-        new FiscalCodeDTO
-        {
-            FirstName = "Pinco",
-            LastName = "Pallino",
-            Sex = "M",
-            BirthDate = new DateTime(1991, 07, 18),
-            BirthPlace = new BirthplaceDTO { Name = "Palermo", State = "PA"},
-            FiscalCode = "SCLTMS91L18G273O"
-        }
-    };
+        var savedFiscalCodes = await FiscalCodeDataService.LoadFiscalCodesFromFileAsync();
+        fiscalCodes.AddRange(savedFiscalCodes);
+        await base.OnInitializedAsync();
+    }
 
     private void DeleteFiscalCode(FiscalCodeDTO dto) => fiscalCodes.Remove(dto);
 
@@ -68,6 +47,8 @@
                 dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
                 fiscalCodes.Add(dto);
             }
+
+            await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
         }
 
         catch (Exception ex)
@@ -78,9 +59,21 @@
 
     private async Task OpenEditFormDialogAsync(FiscalCodeDTO dto)
     {
-        var parameters = new DialogParameters<FormDialog>();
-        parameters.Add(d => d.FormData, dto);
-        var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], parameters, Config.DialogOptions);
-        var result = await dialog.Result;
+        try
+        {
+            var parameters = new DialogParameters<FormDialog>();
+            parameters.Add(d => d.FormData, dto);
+            var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], parameters, Config.DialogOptions);
+            var result = await dialog.Result;
+
+            if (result.Data is FiscalCodeDTO modifiedDTO)
+                dto.FiscalCode = await Service.CalculateFiscalCodeAsync(modifiedDTO);
+
+            await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+        }       
     }
 }
