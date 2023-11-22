@@ -3,11 +3,13 @@
 
 @inject IStringLocalizer<Localization> Localizer
 
-<MudCard Class="m-5 w-full sm:w-auto">
+<MudCard Class="m-5 w-full sm:w-80">
 
     <MudCardHeader>
         <CardHeaderContent>
-            <MudText Class="text-2xl" Align="Align.Center" Typo="Typo.h6">@FiscalCodeDTO.FiscalCode</MudText>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                <MudText Class="text-2xl" Typo="Typo.h6">@FiscalCodeDTO.FiscalCode</MudText>
+            </MudButton>  
         </CardHeaderContent>
     </MudCardHeader>
 
