@@ -60,16 +60,24 @@
             </MudContainer>
         </MudForm>
 
+        <MudOverlay @bind-Visible="isBusy" DarkBackground="true" />
+
+        @if (isBusy)
+        {
+            <div class="absolute left-[50%] top-[50%] -mx-5 -my-5">
+                <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+            </div>
+        }
     </DialogContent>
 
 </MudDialog>
 
-
 @code {
+    private bool isBusy;
     private MudForm? form;
     private PhotoScannerOCR? scanner;
 
-    
+
     [Parameter]
     public FiscalCodeDTO FormData { get; set; } = new();
 
@@ -97,7 +105,21 @@
     private async Task OpenScannerPageAsync()
     {
         scanner = scanner ?? new PhotoScannerOCR(OCRAnalyzerService);
-        FormData = await scanner.GetFiscalCodeDTOFromOCRScanAsync();
+        var photo = await PhotoScannerOCR.CapturePhotoAsync();
+
+        if(photo != null)
+        {
+            isBusy = true;
+            StateHasChanged();
+
+            using var stream = await photo.OpenReadAsync();
+            var scanOCR = await PhotoScannerOCR.PerformOCRScanAsync(stream);
+
+            if(scanOCR != null)
+                FormData = await scanner.GetFiscalCodeDTOFromOCRScanAsync(scanOCR);
+
+            isBusy = false;
+        }
     }
 
     private async Task<IEnumerable<BirthplaceDTO>> SearchAsync(string value)

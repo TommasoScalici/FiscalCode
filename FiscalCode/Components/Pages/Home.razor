@@ -15,16 +15,25 @@
 
 <AppBar OnAddButtonClicked="OpenAddFormDialogAsync" />
 
+<MudOverlay @bind-Visible="isBusy" DarkBackground="true" />
+
+@if (isBusy)
+{
+    <div class="absolute left-[50%] top-[50%]">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </div>
+}
+
 <div class="flex flex-wrap flex-grow">
     @foreach (var item in fiscalCodes)
     {
-        <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCode" />
-    }
+        <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCodeAsync" />
+    } 
 </div>
-
 
 @code {
     private List<FiscalCodeDTO> fiscalCodes = new();
+    private bool isBusy;
 
 
     protected override async Task OnInitializedAsync()
@@ -34,7 +43,11 @@
         await base.OnInitializedAsync();
     }
 
-    private void DeleteFiscalCode(FiscalCodeDTO dto) => fiscalCodes.Remove(dto);
+    private async Task DeleteFiscalCodeAsync(FiscalCodeDTO dto)
+    {
+        fiscalCodes.Remove(dto);
+        await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+    }
 
     private async Task OpenAddFormDialogAsync()
     {
@@ -48,13 +61,17 @@
 
             if (result.Data is FiscalCodeDTO dto)
             {
+                isBusy = true;
+                StateHasChanged();
+
                 if(string.IsNullOrEmpty(dto.FiscalCode))
                     dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
 
                 fiscalCodes.Add(dto);
-            }
+                await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
 
-            await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+                isBusy = false;
+            }
         }
 
         catch (Exception ex)
@@ -75,9 +92,16 @@
             var result = await dialog.Result;
 
             if (result.Data is FiscalCodeDTO modifiedDTO)
-                dto.FiscalCode = await Service.CalculateFiscalCodeAsync(modifiedDTO);
+            {
+                isBusy = true;
+                StateHasChanged();
 
-            await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+                dto.FiscalCode = await Service.CalculateFiscalCodeAsync(modifiedDTO);
+                await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+                isBusy = false;
+            }
+
+            
         }
         catch (Exception ex)
         {
