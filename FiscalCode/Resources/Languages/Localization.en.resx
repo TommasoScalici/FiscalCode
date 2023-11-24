@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppTitle" xml:space="preserve">
-    <value>Fiscal Code</value>
+    <value>Tax Code</value>
   </data>
   <data name="FillData" xml:space="preserve">
     <value>Fill in the data</value>
@@ -158,5 +158,8 @@
   </data>
   <data name="BirthplaceError" xml:space="preserve">
     <value>Birthplace is required!</value>
+  </data>
+  <data name="ScanCard" xml:space="preserve">
+    <value>Scan card</value>
   </data>
 </root>

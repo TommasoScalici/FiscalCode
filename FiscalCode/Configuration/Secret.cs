@@ -1,5 +1,6 @@
 ﻿namespace FiscalCode.Configuration;
-internal class Secret
+public class Secret
 {
+    public string AzureVisionOCRKey { get; set; } = string.Empty;
     public string ServiceApiKey { get; set; } = string.Empty;
 }

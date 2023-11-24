@@ -61,7 +61,7 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Fiscal Code.
+        ///   Cerca una stringa localizzata simile a Tax Code.
         /// </summary>
         internal static string AppTitle {
             get {
@@ -165,6 +165,15 @@ namespace FiscalCode.Resources.Languages {
         internal static string LastNameError {
             get {
                 return ResourceManager.GetString("LastNameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Scan card.
+        /// </summary>
+        internal static string ScanCard {
+            get {
+                return ResourceManager.GetString("ScanCard", resourceCulture);
             }
         }
         

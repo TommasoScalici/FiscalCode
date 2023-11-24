@@ -1,9 +1,12 @@
 ﻿@using FiscalCode.Data
+@using FiscalCode.Features
 @using FiscalCode.Resources.Languages
 @using FiscalCode.Services
+@using FiscalCode.Types
 
 @inject IStringLocalizer<Localization> Localizer
-@inject BirthplaceDataService Service;
+@inject BirthplaceDataService BirthplaceService
+@inject FiscalCodeOCRAnalyzerService OCRAnalyzerService;
 
 <MudDialog>
 
@@ -16,6 +19,13 @@
     <DialogContent>
 
         <MudForm @ref="form">
+
+            <MudContainer Class="flex items-center justify-center my-5">
+                <MudButton OnClick="OpenScannerPageAsync" StartIcon="@Icons.Material.Filled.PhotoCamera"
+                           Color="Color.Primary" Variant="Variant.Filled">
+                    @Localizer["ScanCard"]
+                </MudButton>
+            </MudContainer>
             <MudTextField @bind-Value="@FormData.FirstName" T="string" Label="@Localizer["FirstName"]"
                           Required="true" RequiredError="@Localizer["FirstNameError"]"
                           Class="my-5" />
@@ -44,7 +54,7 @@
                              Class="my-5" />
 
             <MudContainer Class="flex items-center justify-center my-5">
-                <MudButton OnClick="@HandleSubmitAsync" Variant="Variant.Filled" Color="Color.Primary">
+                <MudButton OnClick="@HandleSubmitAsync" Color="Color.Primary" Variant="Variant.Filled">
                     @Localizer["Confirm"]
                 </MudButton>
             </MudContainer>
@@ -57,12 +67,18 @@
 
 @code {
     private MudForm? form;
+    private PhotoScannerOCR? scanner;
 
+    
     [Parameter]
     public FiscalCodeDTO FormData { get; set; } = new();
 
+    [Parameter]
+    public FormMode FormMode { get; set; }
+
     [CascadingParameter]
     public MudDialogInstance? MudDialog { get; private set; }
+
 
     private async Task HandleSubmitAsync()
     {
@@ -78,10 +94,15 @@
         }
     }
 
+    private async Task OpenScannerPageAsync()
+    {
+        scanner = scanner ?? new PhotoScannerOCR(OCRAnalyzerService);
+        FormData = await scanner.GetFiscalCodeDTOFromOCRScanAsync();
+    }
+
     private async Task<IEnumerable<BirthplaceDTO>> SearchAsync(string value)
     {
-        var birthplaces = await Service.GetBirthplacesAsync();
-
+        var birthplaces = await BirthplaceService.GetBirthplacesAsync();
         var startsWithFilter = birthplaces.Where(x => x.Name.StartsWith(value, StringComparison.OrdinalIgnoreCase));
 
         if (startsWithFilter.Count() > 0)

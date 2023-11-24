@@ -9,7 +9,7 @@ public class FiscalCodeDataService
 {
     private static readonly JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
     private static readonly string dataJsonFileName = "data.json";
-    private static readonly string fullPath = $"{FileSystem.AppDataDirectory}{Path.DirectorySeparatorChar}{dataJsonFileName}";
+    private static readonly string fullPath = Path.Combine(FileSystem.AppDataDirectory, dataJsonFileName);
     private static string? token;
     private readonly HttpClient http;
 
@@ -17,7 +17,7 @@ public class FiscalCodeDataService
     public FiscalCodeDataService(HttpClient http)
     {
         this.http = http;
-        this.http.BaseAddress = new("http://api.miocodicefiscale.com");
+        this.http.BaseAddress = new("https://api.miocodicefiscale.com");
     }
 
 
@@ -25,10 +25,13 @@ public class FiscalCodeDataService
     {
         try
         {
-            var json = await File.ReadAllBytesAsync(fullPath);
-            using var stream = new MemoryStream(json);
-            var list = await JsonSerializer.DeserializeAsync<IEnumerable<FiscalCodeDTO>>(stream);
-            return list ?? Enumerable.Empty<FiscalCodeDTO>();
+            if (File.Exists(fullPath))
+            {
+                var json = await File.ReadAllBytesAsync(fullPath);
+                using var stream = new MemoryStream(json);
+                var list = await JsonSerializer.DeserializeAsync<IEnumerable<FiscalCodeDTO>>(stream);
+                return list ?? Enumerable.Empty<FiscalCodeDTO>();
+            }
         }
         catch (Exception ex)
         {

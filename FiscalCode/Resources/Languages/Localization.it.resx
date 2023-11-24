@@ -159,4 +159,7 @@
   <data name="BirthplaceError" xml:space="preserve">
     <value>Il luogo di nascita è obbligatorio!</value>
   </data>
+  <data name="ScanCard" xml:space="preserve">
+    <value>Scannerizza tessera</value>
+  </data>
 </root>

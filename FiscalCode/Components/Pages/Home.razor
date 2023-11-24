@@ -6,6 +6,7 @@
 @using FiscalCode.Resources.Languages
 @using FiscalCode.Services
 @using System.Diagnostics
+@using FiscalCode.Types
 
 @inject IDialogService DialogService
 @inject IStringLocalizer<Localization> Localizer;
@@ -39,12 +40,17 @@
     {
         try
         {
-            var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], Config.DialogOptions);
+            var parameters = new DialogParameters<FormDialog>();
+            parameters.Add(d => d.FormMode, FormMode.Add);
+
+            var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], parameters, Config.DialogOptions);
             var result = await dialog.Result;
 
             if (result.Data is FiscalCodeDTO dto)
             {
-                dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
+                if(string.IsNullOrEmpty(dto.FiscalCode))
+                    dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
+
                 fiscalCodes.Add(dto);
             }
 
@@ -63,6 +69,8 @@
         {
             var parameters = new DialogParameters<FormDialog>();
             parameters.Add(d => d.FormData, dto);
+            parameters.Add(d => d.FormMode, FormMode.Edit);
+
             var dialog = await DialogService.ShowAsync<FormDialog>(Localizer["FillData"], parameters, Config.DialogOptions);
             var result = await dialog.Result;
 

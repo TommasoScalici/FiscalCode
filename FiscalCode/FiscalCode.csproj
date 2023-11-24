@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.22621.0</TargetFrameworks>
+	    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+	    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.22621.0</TargetFrameworks>
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
 
@@ -22,7 +22,7 @@
         <Nullable>enable</Nullable>
 
         <!-- Display name -->
-        <ApplicationTitle>FiscalCode</ApplicationTitle>
+        <ApplicationTitle>Tax Code</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
@@ -37,43 +37,12 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-      <UserSecretsId>12571b03-bd65-4b7c-a4db-31d059975c92</UserSecretsId>
-  </PropertyGroup>
+        <UserSecretsId>12571b03-bd65-4b7c-a4db-31d059975c92</UserSecretsId>
+    </PropertyGroup>
 
     <PropertyGroup>
       <DefaultLanguage>en</DefaultLanguage>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.22621.0|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.22621.0|AnyCPU'">
-      <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
+      <NeutralLanguage>en-US</NeutralLanguage>
     </PropertyGroup>
 
     <ItemGroup>
@@ -95,7 +64,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
         <PackageReference Include="CommunityToolkit.Maui.Core" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
         <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
@@ -104,9 +75,19 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
         <PackageReference Include="MudBlazor" Version="6.11.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Syncfusion.PDF.OCR.NET" Version="23.2.4" />
+        <PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
     </ItemGroup>
 
-    <ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Platforms\iOS\Resources\en.lproj\InfoPlist.strings" />
+		<EmbeddedResource Include="Platforms\iOS\Resources\en.lproj\Localizable.strings" />
+		<EmbeddedResource Include="Platforms\iOS\Resources\it.lproj\InfoPlist.strings" />
+		<EmbeddedResource Include="Platforms\iOS\Resources\it.lproj\Localizable.strings" />
+	</ItemGroup>
+
+	<ItemGroup>
       <Compile Update="Resources\Languages\Localization.it.Designer.cs">
         <DependentUpon>Localization.it.resx</DependentUpon>
         <DesignTime>True</DesignTime>

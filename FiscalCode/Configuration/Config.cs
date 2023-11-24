@@ -5,10 +5,22 @@ using MudBlazor;
 namespace FiscalCode.Configuration;
 public static class Config
 {
+    public static Secret? Secrets { get; private set; }
+
+    public static async Task<string?> GetAzureVisionOCRKeyAsync()
+    {
+        if (Secrets == null)
+            await DeserializeSecretsAsync();
+
+        return Secrets?.AzureVisionOCRKey;
+    }
+
     public static async Task<string?> GetServiceApiTokenAsync()
     {
-        using var stream = await FileSystem.OpenAppPackageFileAsync("secrets.json");
-        return stream != null ? (await JsonSerializer.DeserializeAsync<Secret>(stream))?.ServiceApiKey : null;
+        if (Secrets == null)
+            await DeserializeSecretsAsync();
+
+        return Secrets?.ServiceApiKey;
     }
 
     public static DialogOptions DialogOptions { get; } = new()
@@ -18,4 +30,10 @@ public static class Config
         MaxWidth = MaxWidth.Small,
         Position = DialogPosition.TopCenter
     };
+
+    private static async Task DeserializeSecretsAsync()
+    {
+        using var stream = await FileSystem.OpenAppPackageFileAsync("secrets.json");
+        Secrets = await JsonSerializer.DeserializeAsync<Secret>(stream);
+    }
 }
