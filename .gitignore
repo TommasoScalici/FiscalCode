@@ -288,3 +288,4 @@ __pycache__/
 *.xsd.cs
 /FiscalCode/secrets.json
 /FiscalCode/Resources/Raw/secrets.json
+/FiscalCode/tommasoscalici.keystore
