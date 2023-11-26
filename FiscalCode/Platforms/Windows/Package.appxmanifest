@@ -11,14 +11,14 @@
   <mp:PhoneIdentity PhoneProductId="C19F8383-27AE-44F3-A9BA-35C1919F654F" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>$placeholder$</DisplayName>
+    <DisplayName>ms-resource:AppDisplayName</DisplayName>
     <PublisherDisplayName>Tommaso Scalici</PublisherDisplayName>
-    <Logo>$placeholder$.png</Logo>
+    <Logo>Platforms\Windows\Assets\Icons\fiscalcode_icon.png</Logo>
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.22621.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.22621.0" />
   </Dependencies>
 
   <Resources>
@@ -28,13 +28,13 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="$placeholder$"
-        Description="$placeholder$"
-        Square150x150Logo="$placeholder$.png"
-        Square44x44Logo="$placeholder$.png"
+        DisplayName="ms-resource:AppDisplayName"
+        Description="App that calculates the italian tax identification code"
+        Square150x150Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png"
+        Square44x44Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png"
         BackgroundColor="transparent">
-        <uap:DefaultTile Square71x71Logo="$placeholder$.png" Wide310x150Logo="$placeholder$.png" Square310x310Logo="$placeholder$.png" />
-        <uap:SplashScreen Image="$placeholder$.png" />
+        <uap:DefaultTile Square71x71Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png" Wide310x150Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png" Square310x310Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png" ShortName="CF"/>
+        <uap:SplashScreen Image="Platforms\Windows\Assets\Icons\fiscalcode_icon.png"  BackgroundColor="#1B5E20"/>
       </uap:VisualElements>
     </Application>
   </Applications>

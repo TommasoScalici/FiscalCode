@@ -6,7 +6,9 @@ using Microsoft.Extensions.Logging;
 
 using MudBlazor.Services;
 
-using ZXing.Net.Maui.Controls;
+#if !IOS
+using Plugin.MauiMTAdmob;
+#endif
 
 namespace FiscalCode;
 
@@ -18,7 +20,9 @@ public static class MauiProgram
 
         builder.UseMauiApp<App>()
                .UseMauiCommunityToolkit()
-               .UseBarcodeReader()
+#if !IOS
+               .UseMauiMTAdmob()
+#endif
                .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

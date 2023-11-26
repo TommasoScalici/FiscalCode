@@ -61,6 +61,36 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Version: 2.0&lt;br /&gt;
+        ///Author: Tommaso Scalici&lt;br /&gt;
+        ///Privacy disclaimer:
+        ///&lt;a href=&quot;http://tommasoscalici.altervista.org/fiscal_code_privacy_policy.html&quot; target=&quot;_blank&quot;&gt;
+        ///     Privacy Policy
+        ///&lt;/a&gt;
+        ///
+        ///&lt;br /&gt;&lt;br /&gt;
+        ///
+        ///&lt;strong&gt;Attention&lt;/strong&gt;:&lt;br /&gt;
+        ///This application calculates the tax identification code using an algorithm from an external service.&lt;br /&gt;
+        ///The algorithm is not able to distinguish cases of homocody.&lt;br /&gt;
+        ///Please remember that the only 100% reliable tax identification code is the one issued by [stringa troncata]&quot;;.
+        /// </summary>
+        internal static string AboutContent {
+            get {
+                return ResourceManager.GetString("AboutContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Tax Code.
         /// </summary>
         internal static string AppTitle {

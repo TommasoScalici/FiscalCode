@@ -1,0 +1,42 @@
+﻿@using FiscalCode.Resources.Languages
+
+@inject IStringLocalizer<Localization> Localizer;
+
+<style>
+    a:link {
+        color: blue;
+    }
+
+    a:focus, a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<MudDialog DisableSidePadding="true">
+    
+    <TitleContent>
+        <MudText Typo="Typo.h4">
+            @Localizer["AppTitle"]
+        </MudText>
+    </TitleContent>
+
+    <DialogContent>
+        <MudContainer Class="max-h-80 max-w-[80%] overflow-y-scroll">
+            @((MarkupString)Localizer["AboutContent"].Value)
+        </MudContainer>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton OnClick="Ok">OK</MudButton>
+    </DialogActions>
+
+</MudDialog>
+
+@code {
+
+    [CascadingParameter]
+    public MudDialogInstance? MudDialog { get; private set; }
+
+
+    private void Ok() => MudDialog?.Close(DialogResult.Ok(true));
+}

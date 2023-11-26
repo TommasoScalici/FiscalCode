@@ -162,4 +162,28 @@
   <data name="ScanCard" xml:space="preserve">
     <value>Scannerizza tessera</value>
   </data>
+  <data name="AboutContent" xml:space="preserve">
+    <value>Versione: 2.0&lt;br /&gt;
+Autore: Tommaso Scalici&lt;br /&gt;
+Informativa Privacy: 
+&lt;a href="http://tommasoscalici.altervista.org/fiscal_code_privacy_policy.html" target="_blank"&gt;
+    Privacy Policy
+&lt;/a&gt;
+
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;strong&gt;Attenzione&lt;/strong&gt;:&lt;br /&gt;
+Quest'applicazione calcola il codice fiscale per mezzo di un algoritmo di un servizio esterno.&lt;br /&gt;
+L'algoritmo non è in grado di distinguere i casi di omocodia.&lt;br /&gt;
+Si ricorda che l'unico codice fiscale attendibile al 100% è quello rilasciato dall'&lt;strong&gt;Agenzia delle Entrate&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+
+Per l'acquisizione di un nuovo codice attraverso documento di identità o tessera sanitaria è necessario scattare una foto che inquadri interamente il lato frontale del documento.&lt;br /&gt;
+La foto non verrà memorizzata sul dispositivo ma verrà processata da un algoritmo di OCR (Optical Character Recognition) in parte offerto dai servizi Microsoft.&lt;br /&gt;
+L'algoritmo potrebbe essere impreciso, sulla base di diversi fattori (tipo di fotocamera, qualità e angolazione della foto scattata, ecc.) controllare sempre i dati acquisiti.&lt;br /&gt;&lt;br /&gt;
+
+Si declina ogni responsabilità da eventuali usi illeciti o impropri della suddetta app.</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Informazioni</value>
+  </data>
 </root>

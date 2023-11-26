@@ -1,12 +1,15 @@
 ﻿@page "/"
 
+@using System.Diagnostics
+
 @using FiscalCode.Components.Shared
 @using FiscalCode.Configuration
 @using FiscalCode.Data
 @using FiscalCode.Resources.Languages
 @using FiscalCode.Services
-@using System.Diagnostics
 @using FiscalCode.Types
+
+@using Plugin.MauiMTAdmob
 
 @inject IDialogService DialogService
 @inject IStringLocalizer<Localization> Localizer;
@@ -28,7 +31,7 @@
     @foreach (var item in fiscalCodes)
     {
         <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCodeAsync" />
-    } 
+    }
 </div>
 
 @code {
@@ -46,7 +49,7 @@
     private async Task DeleteFiscalCodeAsync(FiscalCodeDTO dto)
     {
         fiscalCodes.Remove(dto);
-        await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+        await FiscalCodesUpdatedAsync();
     }
 
     private async Task OpenAddFormDialogAsync()
@@ -68,7 +71,7 @@
                     dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
 
                 fiscalCodes.Add(dto);
-                await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+                await FiscalCodesUpdatedAsync();
 
                 isBusy = false;
             }
@@ -97,15 +100,33 @@
                 StateHasChanged();
 
                 dto.FiscalCode = await Service.CalculateFiscalCodeAsync(modifiedDTO);
-                await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+                await FiscalCodesUpdatedAsync();
                 isBusy = false;
             }
 
-            
+
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
         }       
+    }
+
+    private async Task FiscalCodesUpdatedAsync()
+    {
+        await FiscalCodeDataService.SaveFiscalCodesToFileAsync(fiscalCodes);
+
+        if (CrossMauiMTAdmob.IsSupported)
+        {
+            if (fiscalCodes.Count % 2 == 0)
+            {
+                CrossMauiMTAdmob.Current.LoadInterstitial(Secret.AdUnitInterstitial);
+
+                CrossMauiMTAdmob.Current.OnInterstitialLoaded += (sender, e) =>
+                {
+                    CrossMauiMTAdmob.Current.ShowInterstitial();
+                };
+            }
+        }
     }
 }

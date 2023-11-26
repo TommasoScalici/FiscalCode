@@ -2,18 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FiscalCode"
+             xmlns:admob="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMtAdmob"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:config="clr-namespace:FiscalCode.Configuration"
              x:Class="FiscalCode.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#1B5E20" StatusBarStyle="Default" />
     </ContentPage.Behaviors>
-    
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Routes}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type local:Routes}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+
+        <admob:MTAdView Grid.Row="1" AdsId="{x:Static config:Secret.AdUnitBanner}" AdSize="Smart" />
+
+    </Grid>
 
 </ContentPage>

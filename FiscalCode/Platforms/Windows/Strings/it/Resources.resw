@@ -117,73 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppTitle" xml:space="preserve">
-    <value>Tax Code</value>
-  </data>
-  <data name="FillData" xml:space="preserve">
-    <value>Fill in the data</value>
-  </data>
-  <data name="Confirm" xml:space="preserve">
-    <value>Confirm</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>First name</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>Last name</value>
-  </data>
-  <data name="Sex" xml:space="preserve">
-    <value>Sex</value>
-  </data>
-  <data name="Birthdate" xml:space="preserve">
-    <value>Birthdate</value>
-  </data>
-  <data name="Birthplace" xml:space="preserve">
-    <value>Birthplace</value>
-  </data>
-  <data name="BirthplacePlaceholder" xml:space="preserve">
-    <value>Italian city or foreign state</value>
-  </data>
-  <data name="FirstNameError" xml:space="preserve">
-    <value>First name is required!</value>
-  </data>
-  <data name="LastNameError" xml:space="preserve">
-    <value>Last name is required!</value>
-  </data>
-  <data name="SexError" xml:space="preserve">
-    <value>Sex is required!</value>
-  </data>
-  <data name="BirthdateError" xml:space="preserve">
-    <value>Birthdate is required!</value>
-  </data>
-  <data name="BirthplaceError" xml:space="preserve">
-    <value>Birthplace is required!</value>
-  </data>
-  <data name="ScanCard" xml:space="preserve">
-    <value>Scan card</value>
-  </data>
-  <data name="AboutContent" xml:space="preserve">
-    <value>Version: 2.0&lt;br /&gt;
-Author: Tommaso Scalici&lt;br /&gt;
-Privacy disclaimer:
-&lt;a href="http://tommasoscalici.altervista.org/fiscal_code_privacy_policy.html" target="_blank"&gt;
-     Privacy Policy
-&lt;/a&gt;
-
-&lt;br /&gt;&lt;br /&gt;
-
-&lt;strong&gt;Attention&lt;/strong&gt;:&lt;br /&gt;
-This application calculates the tax identification code using an algorithm from an external service.&lt;br /&gt;
-The algorithm is not able to distinguish cases of homocody.&lt;br /&gt;
-Please remember that the only 100% reliable tax identification code is the one issued by the &lt;strong&gt;Agenzia delle Entrate&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
-
-To acquire a new code through an identity document or health insurance card it is necessary to take a photo that frames the entire front side of the document.&lt;br /&gt;
-The photo will not be stored on the device but will be processed by an OCR (Optical Character Recognition) algorithm partly offered by Microsoft services.&lt;br /&gt;
-The algorithm may be imprecise, based on various factors (type of camera, quality and angle of the photo taken, etc.) always check the acquired data.&lt;br /&gt;&lt;br /&gt;
-
-We decline any responsibility for any illicit or improper use of the aforementioned app.</value>
-  </data>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Codice Fiscale</value>
   </data>
 </root>

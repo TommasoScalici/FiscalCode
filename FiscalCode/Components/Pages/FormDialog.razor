@@ -20,12 +20,13 @@
 
         <MudForm @ref="form">
 
-            <MudContainer Class="flex items-center justify-center my-5">
+            <MudContainer Class="flex items-center justify-center">
                 <MudButton OnClick="OpenScannerPageAsync" StartIcon="@Icons.Material.Filled.PhotoCamera"
                            Color="Color.Primary" Variant="Variant.Filled">
                     @Localizer["ScanCard"]
                 </MudButton>
             </MudContainer>
+
             <MudTextField @bind-Value="@FormData.FirstName" T="string" Label="@Localizer["FirstName"]"
                           Required="true" RequiredError="@Localizer["FirstNameError"]"
                           Class="my-5" />
@@ -44,13 +45,14 @@
                 </MudSelect>
 
                 <MudDatePicker @bind-Date="@FormData.BirthDate" Label="@Localizer["Birthdate"]" Placeholder="@Localizer["Birthdate"]"
-                               Editable="true" OpenTo="OpenTo.Year"
+                               Editable="true" OpenTo="OpenTo.Year" PickerVariant="PickerVariant.Dialog"
                                Required="true" RequiredError="@Localizer["BirthdateError"]" />
             </div>
 
-            <MudAutocomplete @bind-Value="FormData.BirthPlace" T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
+            <MudAutocomplete @ref="autocomplete" @bind-Value="FormData.BirthPlace" T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
                              SearchFunc="@SearchAsync" ToStringFunc="@(b => b == null ? null : $"{b.Name} ({b.State})")"
-                             ResetValueOnEmptyText="true" Required="true" RequiredError="@Localizer["BirthplaceError"]"
+                             Clearable="true" ResetValueOnEmptyText="true" Required="true" RequiredError="@Localizer["BirthplaceError"]"
+                             Dense="true" IsOpenChanged="@OnAutocompleteOpenChangedAsync"
                              Class="my-5" />
 
             <MudContainer Class="flex items-center justify-center my-5">
@@ -74,6 +76,7 @@
 
 @code {
     private bool isBusy;
+    private MudAutocomplete<BirthplaceDTO>? autocomplete;
     private MudForm? form;
     private PhotoScannerOCR? scanner;
 
@@ -99,6 +102,19 @@
                 MudDialog?.Close(DialogResult.Ok(FormData));
                 FormData = new();
             }
+        }
+    }
+
+    private async Task OnAutocompleteOpenChangedAsync(bool isOpen)
+    {
+        // Trick to hide virtual keyboard when the autocomplete menu is closed
+        if(autocomplete != null && !isOpen)
+        {
+            #pragma warning disable BL0005 // Needed for the trick
+            autocomplete.Disabled = true;
+            await Task.Delay(100);
+            autocomplete.Disabled = false;
+            #pragma warning restore
         }
     }
 
