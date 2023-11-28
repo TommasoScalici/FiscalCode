@@ -25,7 +25,7 @@
             </BlazorWebView.RootComponents>
         </BlazorWebView>
 
-        <admob:MTAdView Grid.Row="1" AdsId="{x:Static config:Secret.AdUnitBanner}" AdSize="Smart" />
+        <!--<admob:MTAdView Grid.Row="1" AdsId="{x:Static config:Secret.AdUnitBanner}" AdSize="Smart" />-->
 
     </Grid>
 

@@ -186,4 +186,7 @@ We decline any responsibility for any illicit or improper use of the aforementio
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="BirthdateValidationError" xml:space="preserve">
+    <value>Insert a date in a valid format! No future dates allowed!</value>
+  </data>
 </root>

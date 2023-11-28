@@ -289,3 +289,4 @@ __pycache__/
 /FiscalCode/secrets.json
 /FiscalCode/Resources/Raw/secrets.json
 /FiscalCode/tommasoscalici.keystore
+/FiscalCode/Components/Pages/FormPage.razor

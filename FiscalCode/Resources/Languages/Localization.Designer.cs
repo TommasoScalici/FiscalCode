@@ -118,6 +118,15 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Insert a date in a valid format! No future dates allowed!.
+        /// </summary>
+        internal static string BirthdateValidationError {
+            get {
+                return ResourceManager.GetString("BirthdateValidationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Birthplace.
         /// </summary>
         internal static string Birthplace {

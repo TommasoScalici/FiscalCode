@@ -8,7 +8,7 @@
 @inject BirthplaceDataService BirthplaceService
 @inject FiscalCodeOCRAnalyzerService OCRAnalyzerService;
 
-<MudDialog>
+<MudDialog Class="m-5">
 
     <TitleContent>
         <MudText Typo="Typo.h5">
@@ -20,20 +20,20 @@
 
         <MudForm @ref="form">
 
-            <MudContainer Class="flex items-center justify-center">
+            <div class="flex items-center justify-center">
                 <MudButton OnClick="OpenScannerPageAsync" StartIcon="@Icons.Material.Filled.PhotoCamera"
-                           Color="Color.Primary" Variant="Variant.Filled">
+                            Color="Color.Primary" Variant="Variant.Filled">
                     @Localizer["ScanCard"]
                 </MudButton>
-            </MudContainer>
+            </div>
 
             <MudTextField @bind-Value="@FormData.FirstName" T="string" Label="@Localizer["FirstName"]"
-                          Required="true" RequiredError="@Localizer["FirstNameError"]"
-                          Class="my-5" />
+                            Required="true" RequiredError="@Localizer["FirstNameError"]"
+                            Class="my-5" />
 
             <MudTextField @bind-Value="@FormData.LastName" T="string" Label="@Localizer["LastName"]"
-                          Required="true" RequiredError="@Localizer["LastNameError"]"
-                          Class="my-5" />
+                            Required="true" RequiredError="@Localizer["LastNameError"]"
+                            Class="my-5" />
 
             <div Class="flex my-5">
                 <MudSelect @bind-Value="@FormData.Sex" T="string" Label="@Localizer["Sex"]"
@@ -44,22 +44,28 @@
                     <MudSelectItem Value="@("F")" />
                 </MudSelect>
 
-                <MudDatePicker @bind-Date="@FormData.BirthDate" Label="@Localizer["Birthdate"]" Placeholder="@Localizer["Birthdate"]"
-                               Editable="true" OpenTo="OpenTo.Year" PickerVariant="PickerVariant.Dialog"
-                               Required="true" RequiredError="@Localizer["BirthdateError"]" />
+                <MudDatePicker @bind-Date="@FormData.BirthDate" 
+                                Label="@Localizer["Birthdate"]" Placeholder="@Localizer["Birthdate"]"
+                                Editable="true" OpenTo="OpenTo.Year" PickerVariant="PickerVariant.Dialog"
+                                IsDateDisabledFunc="@((DateTime dt) => dt > DateTime.Now)"
+                                ErrorText="@Localizer["BirthdateValidationError"]"
+                                Validation="@(new Func<DateTime, bool>((DateTime dt) => dt < DateTime.Now))"
+                                Required="true" RequiredError="@Localizer["BirthdateError"]" />
             </div>
 
-            <MudAutocomplete @ref="autocomplete" @bind-Value="FormData.BirthPlace" T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
-                             SearchFunc="@SearchAsync" ToStringFunc="@(b => b == null ? null : $"{b.Name} ({b.State})")"
-                             Clearable="true" ResetValueOnEmptyText="true" Required="true" RequiredError="@Localizer["BirthplaceError"]"
-                             Dense="true" IsOpenChanged="@OnAutocompleteOpenChangedAsync"
-                             Class="my-5" />
+            <MudAutocomplete @ref="autocomplete" @bind-Value="FormData.BirthPlace"
+                              T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
+                              SearchFunc="@SearchAsync" ToStringFunc="@(b => b == null ? null : $"{b.Name} ({b.State})")"
+                              Clearable="true" ResetValueOnEmptyText="true"
+                              Required="true" RequiredError="@Localizer["BirthplaceError"]"
+                              Dense="true" IsOpenChanged="@OnAutocompleteOpenChangedAsync" Class="my-5" />
 
             <MudContainer Class="flex items-center justify-center my-5">
                 <MudButton OnClick="@HandleSubmitAsync" Color="Color.Primary" Variant="Variant.Filled">
                     @Localizer["Confirm"]
                 </MudButton>
             </MudContainer>
+
         </MudForm>
 
         <MudOverlay @bind-Visible="isBusy" DarkBackground="true" />
@@ -73,6 +79,7 @@
     </DialogContent>
 
 </MudDialog>
+
 
 @code {
     private bool isBusy;
@@ -93,11 +100,11 @@
 
     private async Task HandleSubmitAsync()
     {
-        if(form != null)
+        if (form != null)
         {
             await form.Validate();
 
-            if(form.IsValid)
+            if (form.IsValid)
             {
                 MudDialog?.Close(DialogResult.Ok(FormData));
                 FormData = new();

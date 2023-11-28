@@ -186,4 +186,7 @@ Si declina ogni responsabilità da eventuali usi illeciti o impropri della sudde
   <data name="About" xml:space="preserve">
     <value>Informazioni</value>
   </data>
+  <data name="BirthdateValidationError" xml:space="preserve">
+    <value>Inserire data in formato valido! Date future non ammesse!</value>
+  </data>
 </root>
