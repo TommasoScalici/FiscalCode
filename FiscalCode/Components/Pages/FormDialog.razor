@@ -49,7 +49,7 @@
                                 Editable="true" OpenTo="OpenTo.Year" PickerVariant="PickerVariant.Dialog"
                                 IsDateDisabledFunc="@((DateTime dt) => dt > DateTime.Now)"
                                 ErrorText="@Localizer["BirthdateValidationError"]"
-                                Validation="@(new Func<DateTime, bool>((DateTime dt) => dt < DateTime.Now))"
+                                Validation="@(new Func<DateTime, string?>(BirthdateValidation))"
                                 Required="true" RequiredError="@Localizer["BirthdateError"]" />
             </div>
 
@@ -97,6 +97,14 @@
     [CascadingParameter]
     public MudDialogInstance? MudDialog { get; private set; }
 
+
+    private string? BirthdateValidation(DateTime dateTime)
+    {
+        if (dateTime > DateTime.Now)
+            return Localizer["BirthdateValidationError"];
+
+        return null;
+    }
 
     private async Task HandleSubmitAsync()
     {

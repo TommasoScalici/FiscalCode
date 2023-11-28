@@ -21,7 +21,12 @@
 
 <AppBar OnAddButtonClicked="OpenAddFormDialogAsync" />
 
-<MudOverlay @bind-Visible="isBusy" DarkBackground="true" />
+<div class="flex flex-wrap flex-grow">
+    @foreach (var item in fiscalCodes)
+    {
+        <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCodeAsync" />
+    }
+</div>
 
 @if (isBusy)
 {
@@ -30,12 +35,7 @@
     </div>
 }
 
-<div class="flex flex-wrap flex-grow">
-    @foreach (var item in fiscalCodes)
-    {
-        <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCodeAsync" />
-    }
-</div>
+<MudOverlay @bind-Visible="isBusy" DarkBackground="true" />
 
 @code {
     private List<FiscalCodeDTO> fiscalCodes = new();
