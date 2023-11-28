@@ -189,4 +189,28 @@ We decline any responsibility for any illicit or improper use of the aforementio
   <data name="BirthdateValidationError" xml:space="preserve">
     <value>Insert a date in a valid format! No future dates allowed!</value>
   </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="SuccessAdd" xml:space="preserve">
+    <value>New tax code added succesfully</value>
+  </data>
+  <data name="SuccessCopy" xml:space="preserve">
+    <value>Tax code copied to clipboard</value>
+  </data>
+  <data name="SuccessDelete" xml:space="preserve">
+    <value>Tax code deleted succesfully</value>
+  </data>
+  <data name="SuccessEdit" xml:space="preserve">
+    <value>Tax code edited succesfully</value>
+  </data>
+  <data name="Whoops" xml:space="preserve">
+    <value>Whoops... something went wrong</value>
+  </data>
 </root>

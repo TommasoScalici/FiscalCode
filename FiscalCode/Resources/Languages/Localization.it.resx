@@ -189,4 +189,28 @@ Si declina ogni responsabilità da eventuali usi illeciti o impropri della sudde
   <data name="BirthdateValidationError" xml:space="preserve">
     <value>Inserire data in formato valido! Date future non ammesse!</value>
   </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Sei sicuro?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sì</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="SuccessAdd" xml:space="preserve">
+    <value>Nuovo codice fiscale aggiunto con successo</value>
+  </data>
+  <data name="SuccessCopy" xml:space="preserve">
+    <value>Codice fiscale copiato negli appunti</value>
+  </data>
+  <data name="SuccessEdit" xml:space="preserve">
+    <value>Codice fiscale modificato con successo</value>
+  </data>
+  <data name="SuccessDelete" xml:space="preserve">
+    <value>Codice fiscale eliminato con successo</value>
+  </data>
+  <data name="Whoops" xml:space="preserve">
+    <value>Ops... qualcosa non ha funzionato</value>
+  </data>
 </root>

@@ -100,6 +100,15 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Are you sure?.
+        /// </summary>
+        internal static string AreYouSure {
+            get {
+                return ResourceManager.GetString("AreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Birthdate.
         /// </summary>
         internal static string Birthdate {
@@ -150,6 +159,15 @@ namespace FiscalCode.Resources.Languages {
         internal static string BirthplacePlaceholder {
             get {
                 return ResourceManager.GetString("BirthplacePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
@@ -231,6 +249,60 @@ namespace FiscalCode.Resources.Languages {
         internal static string SexError {
             get {
                 return ResourceManager.GetString("SexError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a New tax code added succesfully.
+        /// </summary>
+        internal static string SuccessAdd {
+            get {
+                return ResourceManager.GetString("SuccessAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Tax code copied to clipboard.
+        /// </summary>
+        internal static string SuccessCopy {
+            get {
+                return ResourceManager.GetString("SuccessCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Tax code deleted succesfully.
+        /// </summary>
+        internal static string SuccessDelete {
+            get {
+                return ResourceManager.GetString("SuccessDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Tax code edited succesfully.
+        /// </summary>
+        internal static string SuccessEdit {
+            get {
+                return ResourceManager.GetString("SuccessEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Whoops... something went wrong.
+        /// </summary>
+        internal static string Whoops {
+            get {
+                return ResourceManager.GetString("Whoops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

@@ -14,6 +14,7 @@
 @using Plugin.MauiMTAdmob
 
 @inject IDialogService DialogService
+@inject ISnackbar Snackbar
 @inject IStringLocalizer<Localization> Localizer;
 @inject FiscalCodeDataService Service
 
@@ -76,12 +77,14 @@
                 await FiscalCodesUpdatedAsync();
 
                 isBusy = false;
+                Snackbar.Add(@Localizer["SuccessAdd"], Severity.Success);
             }
         }
 
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
+            Snackbar.Add(@Localizer["Whoops"], Severity.Error);
         }        
     }
 
@@ -111,6 +114,7 @@
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
+            Snackbar.Add(@Localizer["Whoops"], Severity.Error);
         }       
     }
 

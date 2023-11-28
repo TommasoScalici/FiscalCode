@@ -4,7 +4,9 @@
 @using FiscalCode.Resources.Languages
 
 @inject IDialogService DialogService
+@inject ISnackbar Snackbar
 @inject IStringLocalizer<Localization> Localizer
+
 
 <MudCard Class="m-5 w-full sm:w-80">
 
@@ -54,9 +56,29 @@
     public FiscalCodeDTO FiscalCodeDTO { get; set; } = new();
 
 
-    private async Task CopyToClipboardAsync() => await Clipboard.Default.SetTextAsync(FiscalCodeDTO.FiscalCode);
+    private static readonly SnackbarConfiguration config = new()
+        {
+            PositionClass = Defaults.Classes.Position.BottomCenter,
+            NewestOnTop = true,
+            PreventDuplicates = true,
+        };
 
-    private async Task DeleteFiscalCodeAsync() => await OnDelete.InvokeAsync(FiscalCodeDTO);
 
-    private async Task EditFiscalCodeAsync() => await OnEdit.InvokeAsync(FiscalCodeDTO);
+    private async Task CopyToClipboardAsync()
+    { 
+        await Clipboard.Default.SetTextAsync(FiscalCodeDTO.FiscalCode);
+        Snackbar.Add(@Localizer["SuccessCopy"], Severity.Success);
+    }
+
+    private async Task DeleteFiscalCodeAsync()
+    {
+        await OnDelete.InvokeAsync(FiscalCodeDTO);
+        Snackbar.Add(@Localizer["SuccessDelete"], Severity.Success);
+    }
+
+    private async Task EditFiscalCodeAsync()
+    {
+        await OnEdit.InvokeAsync(FiscalCodeDTO);
+        Snackbar.Add(@Localizer["SuccessEdit"], Severity.Success);
+    }
 }
