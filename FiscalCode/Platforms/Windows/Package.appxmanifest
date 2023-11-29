@@ -6,14 +6,14 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
 
-  <Identity Name="TommasoScalici.FiscalCode" Publisher="CN=User Name" Version="2.0.0.0" />
+  <Identity Name="TommasoScalici.FiscalCode" Publisher="CN=User Name" Version="2.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="C19F8383-27AE-44F3-A9BA-35C1919F654F" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>ms-resource:AppDisplayName</DisplayName>
     <PublisherDisplayName>Tommaso Scalici</PublisherDisplayName>
-    <Logo>Platforms\Windows\Assets\Icons\fiscalcode_icon.png</Logo>
+    <Logo>Platforms\Windows\Assets\Icons\fiscalcode.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -30,11 +30,9 @@
       <uap:VisualElements
         DisplayName="ms-resource:AppDisplayName"
         Description="App that calculates the italian tax identification code"
-        Square150x150Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png"
-        Square44x44Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Square71x71Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png" Wide310x150Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png" Square310x310Logo="Platforms\Windows\Assets\Icons\fiscalcode_icon.png" ShortName="CF"/>
-        <uap:SplashScreen Image="Platforms\Windows\Assets\Icons\fiscalcode_icon.png"  BackgroundColor="#1B5E20"/>
+        BackgroundColor="transparent" Square150x150Logo="Platforms\Windows\Assets\Icons\fiscalcode.png" Square44x44Logo="Platforms\Windows\Assets\Icons\fiscalcode.png">
+        <uap:DefaultTile ShortName="CF" Square71x71Logo="Platforms\Windows\Assets\Icons\fiscalcode.png" Wide310x150Logo="Platforms\Windows\Assets\Icons\fiscalcode.png" Square310x310Logo="Platforms\Windows\Assets\Icons\fiscalcode.png"/>
+        <uap:SplashScreen BackgroundColor="#1B5E20" Image="Platforms\Windows\Assets\Icons\fiscalcode.png"/>
       </uap:VisualElements>
     </Application>
   </Applications>

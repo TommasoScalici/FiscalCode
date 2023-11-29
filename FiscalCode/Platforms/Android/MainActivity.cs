@@ -1,7 +1,10 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Ads;
 using Android.OS;
+
+using Plugin.Firebase.CloudMessaging;
 
 namespace FiscalCode;
 
@@ -13,6 +16,41 @@ public class MainActivity : MauiAppCompatActivity
     protected override void OnCreate(Bundle? savedInstanceState)
     {
         MobileAds.Initialize(this);
+
         base.OnCreate(savedInstanceState);
+
+        if (Intent != null)
+            HandleIntent(Intent);
+
+        CreateNotificationChannelIfNeeded();
+    }
+
+    protected override void OnNewIntent(Intent? intent)
+    {
+        base.OnNewIntent(intent);
+
+        if (intent != null)
+            HandleIntent(intent);
+    }
+
+    private static void HandleIntent(Intent intent) => FirebaseCloudMessagingImplementation.OnNewIntent(intent);
+
+    private void CreateNotificationChannelIfNeeded()
+    {
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+            CreateNotificationChannel();
+    }
+
+    private void CreateNotificationChannel()
+    {
+        var channelId = $"{PackageName}.general";
+
+        if (GetSystemService(NotificationService) is NotificationManager notificationManager)
+        {
+            var channel = new NotificationChannel(channelId, "General", NotificationImportance.Default);
+            notificationManager?.CreateNotificationChannel(channel);
+            FirebaseCloudMessagingImplementation.ChannelId = channelId;
+            //FirebaseCloudMessagingImplementation.SmallIconRef = Resource.Drawable.ic_push_small;
+        }
     }
 }

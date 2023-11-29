@@ -28,8 +28,8 @@
         <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>2.0</ApplicationDisplayVersion>
-        <ApplicationVersion>2</ApplicationVersion>
+        <ApplicationDisplayVersion>2.0.1</ApplicationDisplayVersion>
+        <ApplicationVersion>8</ApplicationVersion>
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -43,6 +43,9 @@
     <PropertyGroup>
       <DefaultLanguage>en</DefaultLanguage>
       <NeutralLanguage>en-US</NeutralLanguage>
+      <Title>FiscalCode</Title>
+      <AssemblyVersion>2.0.1</AssemblyVersion>
+      <FileVersion>2.0.1</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
@@ -50,6 +53,8 @@
       <RunAOTCompilation>True</RunAOTCompilation>
       <PublishTrimmed>True</PublishTrimmed>
       <AndroidLinkTool>r8</AndroidLinkTool>
+      <ApplicationVersion>8</ApplicationVersion>
+      <ApplicationDisplayVersion>2.0.1</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -69,44 +74,55 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Remove="Platforms\Android\Resources\values-en\Strings.xml" />
-      <None Remove="Platforms\Android\Resources\values-it\Strings.xml" />
-      <None Remove="Platforms\Android\Resources\values\strings.xml" />
-      <None Remove="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-100.png" />
-      <None Remove="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-125.png" />
-      <None Remove="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-150.png" />
-      <None Remove="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-200.png" />
-      <None Remove="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-400.png" />
-    </ItemGroup>
 
-    <ItemGroup>
-      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-100.png" />
-      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-125.png" />
-      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-150.png" />
-      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-200.png" />
-      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode_icon.scale-400.png" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui.Core" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="MudBlazor" Version="6.11.1" />
+		<PackageReference Include="Plugin.MauiMTAdmob" Version="1.0.4" />
+		<PackageReference Include="Plugin.Firebase" Version="2.0.9" />
+		<PackageReference Include="Plugin.Firebase.Crashlytics" Version="2.0.1" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
-        <PackageReference Include="CommunityToolkit.Maui.Core" Version="7.0.0" />
-        <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-        <PackageReference Include="MudBlazor" Version="6.11.1" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="Plugin.MauiMTAdmob" Version="1.0.4" />
-        <PackageReference Include="PureWeen.Maui.FixesAndWorkarounds" Version="1.5.0" />
+	<ItemGroup Condition="$(TargetFramework.Contains('-android'))">
+		<PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.6.2" />
+		<PackageReference Include="Xamarin.Firebase.Messaging" Version="123.2.1.1" />
+	</ItemGroup>
+	
+	<ItemGroup>
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-lightunplated_targetsize-16.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-lightunplated_targetsize-24.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-lightunplated_targetsize-256.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-lightunplated_targetsize-32.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-lightunplated_targetsize-48.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-unplated_targetsize-16.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-unplated_targetsize-24.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-unplated_targetsize-256.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-unplated_targetsize-32.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.altform-unplated_targetsize-48.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.scale-100.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.scale-125.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.scale-150.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.scale-200.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.scale-400.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.targetsize-16.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.targetsize-24.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.targetsize-256.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.targetsize-32.png" />
+      <Content Include="Platforms\Windows\Assets\Icons\fiscalcode.targetsize-48.png" />
     </ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-android'))">
 		<AndroidResource Include="Platforms\Android\Resources\**" TargetPath="%(RecursiveDir)%(Filename)%(Extension)" />
+		<GoogleServicesJson Include="google-services.json" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -147,10 +163,6 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Localization.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Resources\Images\" />
     </ItemGroup>
 
 </Project>
