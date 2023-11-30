@@ -1,0 +1,67 @@
+﻿@page "/reorder"
+
+@using FiscalCode.Data
+@using FiscalCode.Resources.Languages
+@using FiscalCode.Services
+
+@using MudBlazor.Utilities
+
+@inject IStringLocalizer<Localization> Localizer;
+@inject FiscalCodeDataService Service
+@inject NavigationManager NavigationManager;
+
+<MudContainer Class="flex items-center justify-center my-5">
+    <MudButton OnClick="@HandleSubmitAsync" Color="Color.Primary" Variant="Variant.Filled">
+        @Localizer["Confirm"]
+    </MudButton>
+</MudContainer>
+
+<MudDropContainer @ref="dropContainer" T="FiscalCodeDTO" Items="items" ItemsSelector="@((item, dropzone) => "dropzone" == dropzone)"
+                  ItemDropped="ItemsUpdated" Class="flex flex-wrap">
+
+    <ChildContent>
+
+        <MudPaper Class="m-5 flex-grow">
+            <MudList Clickable="true" Class="flex flex-col mud-height-full">
+                <MudListSubheader>Premi e trascina per riordinare</MudListSubheader>
+                <MudDropZone T="FiscalCodeDTO" AllowReorder="true" Identifier="dropzone"  />
+            </MudList>
+        </MudPaper>
+
+    </ChildContent>
+
+    <ItemRenderer>
+        <MudListItem Text="@context.FiscalCode" />
+    </ItemRenderer>
+
+</MudDropContainer>
+
+@code {
+    private MudDropContainer<FiscalCodeDTO>? dropContainer;
+    private List<FiscalCodeDTO> items = new();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        var savedFiscalCodes = await FiscalCodeDataService.LoadFiscalCodesFromFileAsync();
+        items.AddRange(savedFiscalCodes);
+        items = items.OrderBy(i => i.Order).ToList();
+        RefreshContainer();
+    }
+
+    private void ItemsUpdated(MudItemDropInfo<FiscalCodeDTO> dropItem) => items.UpdateOrder(dropItem, item => item.Order, 0);
+
+    private void RefreshContainer()
+    {
+        StateHasChanged();
+        dropContainer?.Refresh();
+    }
+
+    private async Task HandleSubmitAsync()
+    {
+        await FiscalCodeDataService.SaveFiscalCodesToFileAsync(items);
+        NavigationManager.NavigateTo("/");
+    }
+}

@@ -1,4 +1,5 @@
 ﻿@using FiscalCode.Components.Pages
+@using FiscalCode.Data
 @using FiscalCode.Resources.Languages
 
 @inject IDialogService DialogService
@@ -11,13 +12,15 @@
     </MudText>
 
     <MudSpacer />
+    <MudIconButton Href="/" Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.End" />
     <MudIconButton OnClick="AddButtonClicked" Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.End" />
     <MudMenu Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit">
         <MudMenuItem OnClick="InfoMenuItemClicked" OnTouch="InfoMenuItemClicked">@Localizer["About"]</MudMenuItem>
+        <MudMenuItem Href="reorder">@Localizer["Reorder"]</MudMenuItem>
     </MudMenu>
 </MudAppBar>
 
-@code {
+    @code {
 
     [Parameter]
     public EventCallback OnAddButtonClicked { get; set; }

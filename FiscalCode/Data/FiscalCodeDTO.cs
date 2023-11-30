@@ -12,4 +12,6 @@ public class FiscalCodeDTO
     public BirthplaceDTO? BirthPlace { get; set; }
 
     public DateTime? BirthDate { get; set; }
+
+    public int Order { get; set; }
 }

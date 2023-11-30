@@ -226,6 +226,15 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Reorder.
+        /// </summary>
+        internal static string Reorder {
+            get {
+                return ResourceManager.GetString("Reorder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Scan card.
         /// </summary>
         internal static string ScanCard {

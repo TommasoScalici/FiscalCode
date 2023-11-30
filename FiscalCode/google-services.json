@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "62727076453",
+    "project_id": "codice-fiscale-48836",
+    "storage_bucket": "codice-fiscale-48836.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62727076453:android:ab8f9c3f15e25b8fce648c",
+        "android_client_info": {
+          "package_name": "tommasoscalici.fiscalcode"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBveUuoLW51AP4QhU8NOQ7nbO5Sx3Hr0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-2308630572499783~6760055483"
+    }
+  ],
+  "configuration_version": "1"
+}

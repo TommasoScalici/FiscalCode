@@ -17,6 +17,7 @@
 @inject ISnackbar Snackbar
 @inject IStringLocalizer<Localization> Localizer;
 @inject FiscalCodeDataService Service
+@inject NavigationManager NavigationManager;
 
 
 <AppBar OnAddButtonClicked="OpenAddFormDialogAsync" />
@@ -44,9 +45,10 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await base.OnInitializedAsync();
         var savedFiscalCodes = await FiscalCodeDataService.LoadFiscalCodesFromFileAsync();
         fiscalCodes.AddRange(savedFiscalCodes);
-        await base.OnInitializedAsync();
+        fiscalCodes = fiscalCodes.OrderBy(fc => fc.Order).ToList();
     }
 
     private async Task DeleteFiscalCodeAsync(FiscalCodeDTO dto)
@@ -73,6 +75,7 @@
                 if(string.IsNullOrEmpty(dto.FiscalCode))
                     dto.FiscalCode = await Service.CalculateFiscalCodeAsync(dto);
 
+                dto.Order = fiscalCodes.Count;
                 fiscalCodes.Add(dto);
                 await FiscalCodesUpdatedAsync();
 

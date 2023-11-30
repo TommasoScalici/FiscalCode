@@ -593,6 +593,10 @@ video {
   display: flex;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .max-h-80 {
   max-height: 20rem;
 }
@@ -611,6 +615,10 @@ video {
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-wrap {

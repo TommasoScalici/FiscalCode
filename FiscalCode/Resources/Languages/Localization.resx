@@ -213,4 +213,7 @@ We decline any responsibility for any illicit or improper use of the aforementio
   <data name="Whoops" xml:space="preserve">
     <value>Whoops... something went wrong</value>
   </data>
+  <data name="Reorder" xml:space="preserve">
+    <value>Reorder</value>
+  </data>
 </root>

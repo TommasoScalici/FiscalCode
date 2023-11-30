@@ -213,4 +213,7 @@ Si declina ogni responsabilità da eventuali usi illeciti o impropri della sudde
   <data name="Whoops" xml:space="preserve">
     <value>Ops... qualcosa non ha funzionato</value>
   </data>
+  <data name="Reorder" xml:space="preserve">
+    <value>Riordina</value>
+  </data>
 </root>
