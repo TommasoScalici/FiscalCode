@@ -3,7 +3,7 @@
 using FiscalCode.Data;
 using FiscalCode.Services;
 
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+using Google.Cloud.Vision.V1;
 
 namespace FiscalCode.Features;
 public class PhotoScannerOCR(FiscalCodeOCRAnalyzerService fiscalCodeOCRAnalyzerService)
@@ -26,11 +26,11 @@ public class PhotoScannerOCR(FiscalCodeOCRAnalyzerService fiscalCodeOCRAnalyzerS
         return null;
     }
 
-    public static async Task<ReadResult?> PerformOCRScanAsync(Stream stream)
+    public static async Task<TextAnnotation?> PerformOCRScanAsync(Stream stream)
     {
         try
         {
-            return await AzureOCRService.PerformOCRAsync(stream);
+            return await GoogleOCRService.PerformOCRAsync(stream);
         }
         catch (Exception ex)
         {
@@ -40,11 +40,11 @@ public class PhotoScannerOCR(FiscalCodeOCRAnalyzerService fiscalCodeOCRAnalyzerS
         return null;
     }
 
-    public async Task<FiscalCodeDTO> GetFiscalCodeDTOFromOCRScanAsync(ReadResult result)
+    public async Task<FiscalCodeDTO> GetFiscalCodeDTOFromOCRScanAsync(TextAnnotation textAnnotation)
     {
         try
         {
-            return await fiscalCodeOCRAnalyzerService.GetFiscalCodeDTOFromOCRScanAsync(result.Lines);
+            return await fiscalCodeOCRAnalyzerService.GetFiscalCodeDTOFromOCRScanAsync(textAnnotation.Text);
         }
         catch (Exception ex)
         {

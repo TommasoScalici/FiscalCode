@@ -292,3 +292,5 @@ __pycache__/
 /FiscalCode/Components/Pages/FormPage.razor
 /FiscalCode/tommasoscalici.keystore
 /FiscalCode/google-services.json
+/FiscalCode/tommasoscalici.keystore.asc
+/FiscalCode/Resources/Raw/google_apis_ocr.json

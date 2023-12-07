@@ -163,6 +163,6 @@
 
         var containsFilter = birthplaces.Where(x => x.Name.Contains(value, StringComparison.OrdinalIgnoreCase));
 
-        return containsFilter;
+        return containsFilter.Distinct();
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System.Globalization;
-using System.Text.RegularExpressions;
 
 using FiscalCode.Data;
 using FiscalCode.Features;
-
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 namespace FiscalCode.Services;
 public class FiscalCodeOCRAnalyzerService(BirthplaceDataService birthplaceDataService)
@@ -36,22 +33,26 @@ public class FiscalCodeOCRAnalyzerService(BirthplaceDataService birthplaceDataSe
         ];
     private readonly Dictionary<string, string> fieldsToLookFor = new()
     {
-        { "Nome", nameof(FiscalCodeDTO.FirstName)},
+        { "Codice", nameof(FiscalCodeDTO.FiscalCode)},
         { "Cognome", nameof(FiscalCodeDTO.LastName)},
-        { "Sesso", nameof(FiscalCodeDTO.Sex)},
+        { "Nome", nameof(FiscalCodeDTO.FirstName)},
         { "Luogo", nameof(FiscalCodeDTO.BirthPlace)},
         { "Data", nameof(FiscalCodeDTO.BirthDate)},
-        { "Codice", nameof(FiscalCodeDTO.FiscalCode)}
+        { "Sesso", nameof(FiscalCodeDTO.Sex)}
     };
 
-
-    public async Task<FiscalCodeDTO> GetFiscalCodeDTOFromOCRScanAsync(IList<Line> resultLines)
+    public async Task<FiscalCodeDTO> GetFiscalCodeDTOFromOCRScanAsync(string text)
     {
         var fiscalCodeDTO = new FiscalCodeDTO();
-        var fiscalCodeDTOType = fiscalCodeDTO.GetType();
+
         var birthplaces = await birthplaceDataService.GetBirthplacesAsync();
-        var allAtomicStrings = resultLines.SelectMany(res => res.Text.Split(" "));
+        var allAtomicStrings = text.Split(' ', '\n').ToList();
         var allCapsResults = allAtomicStrings.Where(res => res.IsAllUpper());
+        var textRows = text.Split("\n").ToList();
+        var foundValues = new List<string>();
+
+        var indexField = 0;
+        var indexValue = 0;
         var isIDCard = false;
         var ignoreCase = StringComparison.OrdinalIgnoreCase;
 
@@ -60,83 +61,144 @@ public class FiscalCodeOCRAnalyzerService(BirthplaceDataService birthplaceDataSe
 
         foreach (var field in fieldsToLookFor.Keys)
         {
-            var value = string.Empty;
-            var potentialMatch = resultLines.FirstOrDefault(l =>
-                                           l.Text.Split(" ").Any(s =>
-                                           s.RemoveSpecialCharacters().Equals(field, ignoreCase)));
+            if (indexField == -1)
+                indexField = 0;
 
-            if (potentialMatch == null) // search failed, we look for the next field
-                continue;
+            indexField = textRows.FindIndex(indexField, item => item.Contains(field, ignoreCase));
+            var potentialValue = string.Empty;
+            var isValueValid = false;
 
-            var indexPotentialMatch = resultLines.IndexOf(potentialMatch);
-            var textPotentialMatch = potentialMatch.Text;
 
-            // If a potential match is found...
-            if (!string.IsNullOrEmpty(textPotentialMatch))
+            switch (field)
             {
-                // First we manage the two "special" cases: Birthdate and Birthplace
+                case "Codice":
+                    if (isIDCard)
+                        break;
+                    indexValue = textRows.FindIndex(indexField,
+                                                item => item.Split(" ").Any(s => s.Length == 16));
 
-                #region Birthplace management
-                // Here we discard the potential match and we look for the exact match
-                // filtering the birthplaces data source with all CAPS entries (which are values)
-                if (field == "Luogo")
-                {
-                    var placesNames = birthplaces.Select(b => b.Name);
-                    var bestMatch = string.Empty;
-                    var bestLength = 0;
+                    var fiscalCode = indexValue == -1 ? null :
+                                           textRows[indexValue].Split(" ")
+                                                                     .FirstOrDefault(item => item.Length == 16);
 
-                    if (placesNames != null)
+                    if (fiscalCode is not null)
                     {
-                        var capsResultsFiltered = allCapsResults.Where(x => x.Length > 1).ToList();
-                        capsResultsFiltered.RemoveAll(res => wordsToRemove.Any(word =>
-                                                            res.Contains(word, ignoreCase)));
+                        fiscalCodeDTO.FiscalCode = fiscalCode;
+                        foundValues.Add(fiscalCode);
+                    }
 
-                        // If we are scanning an ID card we look for a "cityname (province)" match
-                        if (isIDCard)
+                    break;
+                case "Cognome":
+                    isValueValid = false;
+
+                    var splittedLast = textRows[indexField].Split(" ");
+
+                    if (splittedLast.Length == 2)
+                    {
+                        indexField++;
+                        potentialValue = splittedLast[1];
+                    }
+                    else
+                    {
+                        while (!isValueValid)
                         {
-                            var filteredResultLines = resultLines.Where(res => res.Text.Length > 1).ToList();
-                            filteredResultLines.RemoveAll(line => wordsToRemove.Any(word => line.Text.Contains(word)));
+                            indexValue = textRows.FindIndex(indexField + 1, item => item.IsAllUpper());
+                            potentialValue = textRows[indexValue];
 
-                            foreach (var line in filteredResultLines)
+                            if (!foundValues.Contains(potentialValue))
+                                isValueValid = true;
 
+                            indexField++;
+                        }
+                    }
+
+                    fiscalCodeDTO.LastName = potentialValue;
+                    foundValues.Add(potentialValue);
+
+                    break;
+                case "Nome":
+                    isValueValid = false;
+
+                    var splittedFirst = textRows[indexField].Split(" ");
+
+                    if (splittedFirst.Length == 2)
+                    {
+                        indexField++;
+                        potentialValue = splittedFirst[1];
+                    }
+                    else
+                    {
+                        while (!isValueValid)
+                        {
+                            indexValue = textRows.FindIndex(indexField + 1, item => item.IsAllUpper());
+                            potentialValue = textRows[indexValue];
+
+                            if (!foundValues.Contains(potentialValue))
+                                isValueValid = true;
+
+                            indexField++;
+                        }
+                    }
+
+                    fiscalCodeDTO.FirstName = potentialValue;
+                    foundValues.Add(potentialValue);
+
+                    break;
+                case "Sesso":
+                    indexValue = textRows.FindIndex(indexField,
+                                                    item => item.Split(" ")
+                                                                     .Any(s => s.IsAllUpper() && s.Length == 1));
+
+                    if (indexValue == -1)
+                    {
+                        indexValue = textRows.FindIndex(0,
+                                                    item => item.Split(" ")
+                                                                     .Any(s => s.IsAllUpper() && s.Length == 1
+                                                                     && (s == "M" || s == "F")));
+                    }
+
+                    potentialValue = textRows[indexValue].Split(" ")
+                                                                     .FirstOrDefault(item => item.Length == 1);
+                    if (potentialValue is not null)
+                    {
+                        foundValues.Add(potentialValue);
+                        fiscalCodeDTO.Sex = potentialValue;
+                    }
+
+                    break;
+                case "Luogo":
+                    isValueValid = false;
+                    var potentialValues = new List<string>();
+
+                    while (!isValueValid)
+                    {
+                        indexValue = textRows.FindIndex(indexField, item => item.IsAllUpper());
+                        potentialValues = [.. textRows[indexValue].Split(" ")];
+                        var placesNames = birthplaces.Select(b => b.Name);
+
+                        foreach (var item in potentialValues)
+                        {
+                            if (!foundValues.Contains(item))
                             {
-                                var pattern = "[A-Za-z]+\\s\\([A-Za-z]{2}\\)";
-                                var placeMatch = Regex.Match(line.Text, pattern);
+                                potentialValue = placesNames.FirstOrDefault(p =>
+                                                            p.Equals(item, ignoreCase));
 
-                                if (placeMatch.Success)
+                                if (!string.IsNullOrEmpty(potentialValue))
                                 {
-                                    bestMatch = placeMatch.Value.Split(" ")[0];
+                                    isValueValid = true;
+                                    foundValues.Add(potentialValue);
+                                    fiscalCodeDTO.BirthPlace = birthplaces.Single(b =>
+                                                               b.Name.Equals(potentialValue, ignoreCase));
                                     break;
                                 }
                             }
                         }
 
-                        // otherwise we look for the longest matching string
-                        else
-                        {
-                            foreach (var capsResult in capsResultsFiltered)
-                            {
-                                var match = placesNames.FirstOrDefault(p =>
-                                                  p.Contains(capsResult, ignoreCase));
-
-                                if (!string.IsNullOrEmpty(match) && capsResult.Length > bestLength)
-                                {
-                                    bestMatch = match;
-                                    bestLength = capsResult.Length;
-                                }
-
-                            }
-                        }
+                        indexField++;
                     }
 
-                    fiscalCodeDTO.BirthPlace = birthplaces.Single(b =>
-                                               b.Name.Equals(bestMatch, ignoreCase));
-                }
-                #endregion
-
-                #region Birthdate management
-                else if (field == "Data")
-                {
+                    break;
+                case "Data":
                     var dates = new List<DateTime>();
 
                     foreach (var item in allAtomicStrings)
@@ -146,45 +208,9 @@ public class FiscalCodeOCRAnalyzerService(BirthplaceDataService birthplaceDataSe
                     }
 
                     fiscalCodeDTO.BirthDate = dates.Min();
-                }
-                #endregion
-
-                #region Other cases management
-                else
-                {
-                    // The string is splitted and we look for value in the string
-                    var splittedText = textPotentialMatch.Split(" ");
-
-                    // If there are two entry (not containing special characters),
-                    // the first should the field name and second should be the value
-                    // otherwise we look for the next line
-                    value = splittedText.Length == 2 && textPotentialMatch.IsAlphanumeric() ?
-                            splittedText[1] :
-                            resultLines[indexPotentialMatch + 1].Text;
-
-
-                    if (isIDCard)
-                    {
-                        // adjustement to ID card structure, very workaroundish
-                        if (field == "Sesso")
-                            value = resultLines.SingleOrDefault(res => res.Text is "M" or "F")?.Text;
-                    }
-
-                    // The value is setted to DTO through reflection
-                    var propertyName = fieldsToLookFor[field];
-
-                    if (fiscalCodeDTOType != null && !string.IsNullOrEmpty(propertyName))
-                    {
-                        var property = fiscalCodeDTOType.GetProperty(propertyName);
-
-                        if (property != null)
-                        {
-                            if (property.PropertyType == typeof(string))
-                                property.SetValue(fiscalCodeDTO, value);
-                        }
-                    }
-                }
-                #endregion
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -193,4 +219,5 @@ public class FiscalCodeOCRAnalyzerService(BirthplaceDataService birthplaceDataSe
         fiscalCodeDTO.LastName = textInfo.ToTitleCase(fiscalCodeDTO.LastName.ToLowerInvariant());
         return fiscalCodeDTO;
     }
+
 }

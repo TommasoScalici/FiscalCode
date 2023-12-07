@@ -31,18 +31,21 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
+        var deviceInfo = DeviceInfo.Current;
 
         builder.UseMauiApp<App>()
                .UseMauiCommunityToolkit()
-#if !IOS
-               .UseMauiMTAdmob()
-#endif
                .RegisterFirebaseServices()
                .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+#if !IOS
+        if (deviceInfo.Platform != DevicePlatform.iOS && deviceInfo.Idiom != DeviceIdiom.Watch)
+            builder.UseMauiMTAdmob();
+#endif
 
         builder.Services.AddHttpClient();
         builder.Services.AddLocalization();

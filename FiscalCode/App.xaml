@@ -8,6 +8,7 @@
 
             <Color x:Key="PageBackgroundColor">White</Color>
             <Color x:Key="PrimaryTextColor">Black</Color>
+            <Color x:Key="SecondaryTextColor">#1B5E20</Color>
 
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />

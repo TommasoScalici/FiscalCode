@@ -15,7 +15,10 @@ public class MainActivity : MauiAppCompatActivity
 {
     protected override void OnCreate(Bundle? savedInstanceState)
     {
-        MobileAds.Initialize(this);
+        var idiom = DeviceInfo.Idiom;
+
+        if (idiom != DeviceIdiom.Watch)
+            MobileAds.Initialize(this);
 
         base.OnCreate(savedInstanceState);
 

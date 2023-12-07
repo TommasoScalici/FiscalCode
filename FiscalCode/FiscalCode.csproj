@@ -74,11 +74,17 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Remove="Resources\Raw\google_apis_ocr.json" />
+    </ItemGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
+		<PackageReference Include="Google.Apis" Version="1.64.0" />
+		<PackageReference Include="Google.Apis.Auth" Version="1.64.0" />
+		<PackageReference Include="Google.Cloud.Vision.V1" Version="3.3.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0" />
@@ -93,8 +99,8 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-android'))">
-		<PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.6.2" />
-		<PackageReference Include="Xamarin.Firebase.Messaging" Version="123.2.1.1" />
+		<PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.6.2.1" />
+		<PackageReference Include="Xamarin.Firebase.Messaging" Version="123.3.1" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -163,6 +169,12 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Localization.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="MainWatchPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
     </ItemGroup>
 
 </Project>
