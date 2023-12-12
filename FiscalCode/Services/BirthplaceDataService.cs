@@ -15,7 +15,7 @@ public class BirthplaceDataService
         {
             var currentCulture = CultureInfo.CurrentCulture;
 
-            if (currentCulture != null)
+            if (currentCulture is not null)
             {
                 using var citiesStream = await FileSystem.OpenAppPackageFileAsync("cities.json");
                 var cities = await JsonSerializer.DeserializeAsync<IEnumerable<BirthplaceDTO>>(citiesStream);
@@ -24,7 +24,7 @@ public class BirthplaceDataService
                 using var statesStream = await FileSystem.OpenAppPackageFileAsync($"{lang}/states.json");
                 var states = await JsonSerializer.DeserializeAsync<IEnumerable<BirthplaceDTO>>(statesStream);
 
-                if (cities != null && states != null)
+                if (cities is not null && states is not null)
                 {
                     birthplaces.AddRange(cities);
                     birthplaces.AddRange(states);

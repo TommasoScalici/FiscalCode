@@ -6,7 +6,11 @@
              x:Class="FiscalCode.MainWatchPage"
              BindingContext="{Binding Source={RelativeSource Self}}">
 
-    <ListView ItemsSource="{Binding FiscalCodes}" SelectionMode="None" Margin="0, 20, 0, 20">
+    <ListView x:Name="listView"
+              ItemsSource="{Binding FiscalCodes}" IsPullToRefreshEnabled="True" 
+              RefreshControlColor="{DynamicResource SecondaryTextColor}"
+              SelectionMode="None" Margin="0, 20, 0, 20"
+              Refreshing="ListViewRefreshing">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="data:FiscalCodeDTO">
                 <ViewCell>

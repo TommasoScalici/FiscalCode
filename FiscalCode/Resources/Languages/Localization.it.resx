@@ -163,7 +163,7 @@
     <value>Scannerizza tessera</value>
   </data>
   <data name="AboutContent" xml:space="preserve">
-    <value>Versione: 2.0&lt;br /&gt;
+    <value>Versione: 2.0.3&lt;br /&gt;
 Autore: Tommaso Scalici&lt;br /&gt;
 Informativa Privacy: 
 &lt;a href="http://tommasoscalici.altervista.org/fiscal_code_privacy_policy.html" target="_blank"&gt;
@@ -215,5 +215,8 @@ Si declina ogni responsabilità da eventuali usi illeciti o impropri della sudde
   </data>
   <data name="Reorder" xml:space="preserve">
     <value>Riordina</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
   </data>
 </root>

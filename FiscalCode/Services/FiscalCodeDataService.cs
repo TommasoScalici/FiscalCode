@@ -18,6 +18,7 @@ public class FiscalCodeDataService
     {
         this.http = http;
         this.http.BaseAddress = new("https://api.miocodicefiscale.com");
+        this.http.Timeout = TimeSpan.FromSeconds(10);
     }
 
 
@@ -59,13 +60,13 @@ public class FiscalCodeDataService
         if (string.IsNullOrEmpty(token))
             token = await Config.GetServiceApiTokenAsync();
 
-        if (token == null)
+        if (token is null)
             throw new NullReferenceException(nameof(token));
 
-        if (dto.BirthDate == null)
+        if (dto.BirthDate is null)
             throw new NullReferenceException(nameof(dto.BirthDate));
 
-        if (dto.BirthPlace == null)
+        if (dto.BirthPlace is null)
             throw new NullReferenceException(nameof(dto.BirthPlace));
 
         var birthdate = dto.BirthDate.Value;
@@ -80,6 +81,6 @@ public class FiscalCodeDataService
 
         var apiResponse = await JsonSerializer.DeserializeAsync<FiscalCodeAPIResponse>(stream, options);
 
-        return apiResponse == null ? throw new NullReferenceException(nameof(apiResponse)) : apiResponse.Data.CF;
+        return apiResponse is null ? throw new NullReferenceException(nameof(apiResponse)) : apiResponse.Data.CF;
     }
 }

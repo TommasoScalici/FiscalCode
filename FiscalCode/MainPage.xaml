@@ -6,6 +6,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:config="clr-namespace:FiscalCode.Configuration"
              x:Class="FiscalCode.MainPage"
+             x:DataType="local:MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.Behaviors>

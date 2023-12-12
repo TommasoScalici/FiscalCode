@@ -70,7 +70,7 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a Version: 2.0&lt;br /&gt;
+        ///   Cerca una stringa localizzata simile a Version: 2.0.3&lt;br /&gt;
         ///Author: Tommaso Scalici&lt;br /&gt;
         ///Privacy disclaimer:
         ///&lt;a href=&quot;http://tommasoscalici.altervista.org/fiscal_code_privacy_policy.html&quot; target=&quot;_blank&quot;&gt;
@@ -82,7 +82,7 @@ namespace FiscalCode.Resources.Languages {
         ///&lt;strong&gt;Attention&lt;/strong&gt;:&lt;br /&gt;
         ///This application calculates the tax identification code using an algorithm from an external service.&lt;br /&gt;
         ///The algorithm is not able to distinguish cases of homocody.&lt;br /&gt;
-        ///Please remember that the only 100% reliable tax identification code is the one issued by [stringa troncata]&quot;;.
+        ///Please remember that the only 100% reliable tax identification code is the one issued  [stringa troncata]&quot;;.
         /// </summary>
         internal static string AboutContent {
             get {
@@ -168,6 +168,15 @@ namespace FiscalCode.Resources.Languages {
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Close.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         

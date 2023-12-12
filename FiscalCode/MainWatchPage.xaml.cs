@@ -7,18 +7,27 @@ namespace FiscalCode;
 
 public partial class MainWatchPage : ContentPage
 {
-    public ObservableCollection<FiscalCodeDTO>? FiscalCodes { get; private set; } = [];
+    public ObservableCollection<FiscalCodeDTO> FiscalCodes { get; private set; } = [];
 
 
     public MainWatchPage()
     {
         InitializeComponent();
-        Task.Run(async () =>
-        {
-            var fiscalCodes = await FiscalCodeDataService.LoadFiscalCodesFromFileAsync();
+        Task.Run(RefreshFiscalCodesAsync);
+    }
 
-            foreach (var item in fiscalCodes)
-                FiscalCodes.Add(item);
-        });
+
+    private async void ListViewRefreshing(object sender, EventArgs e)
+    {
+        await RefreshFiscalCodesAsync();
+        listView.EndRefresh();
+    }
+
+    private async Task RefreshFiscalCodesAsync()
+    {
+        var fiscalCodes = await FiscalCodeDataService.LoadFiscalCodesFromFileAsync();
+
+        foreach (var item in fiscalCodes)
+            FiscalCodes.Add(item);
     }
 }

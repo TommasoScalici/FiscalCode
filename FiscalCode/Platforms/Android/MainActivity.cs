@@ -22,7 +22,7 @@ public class MainActivity : MauiAppCompatActivity
 
         base.OnCreate(savedInstanceState);
 
-        if (Intent != null)
+        if (Intent is not null)
             HandleIntent(Intent);
 
         CreateNotificationChannelIfNeeded();
@@ -32,7 +32,7 @@ public class MainActivity : MauiAppCompatActivity
     {
         base.OnNewIntent(intent);
 
-        if (intent != null)
+        if (intent is not null)
             HandleIntent(intent);
     }
 

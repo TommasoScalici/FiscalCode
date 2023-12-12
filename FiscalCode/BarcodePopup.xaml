@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FiscalCode.BarcodePopup"
+             xmlns:camera="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             xmlns:data="clr-namespace:FiscalCode.Data"
+             xmlns:strings="clr-namespace:FiscalCode.Resources.Languages"
+             x:DataType="data:FiscalCodeDTO">
+
+    <VerticalStackLayout Padding="50" VerticalOptions="Center" HorizontalOptions="Center">
+
+        <camera:BarcodeImage BarcodeWidth="450" BarcodeHeight="100" BarcodeMargin="1" BarcodeFormat="CODE_128"
+                             BarcodeBackground="White" BarcodeForeground="Black" Barcode="{Binding FiscalCode}" />
+
+        <Label FontSize="Title" Text="{Binding FiscalCode}" HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <Button Text="{x:Static strings:Localization.Close}" Margin="0, 50, 0, 0" Clicked="CloseButtonClicked" />
+
+    </VerticalStackLayout>
+    
+</ContentPage>

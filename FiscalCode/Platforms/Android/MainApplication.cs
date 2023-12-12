@@ -9,7 +9,7 @@ using static Android.Manifest;
 [assembly: UsesPermission(Permission.AccessNetworkState)]
 [assembly: UsesPermission(Permission.Internet)]
 
-// Needed for Picking photo/vid
+//// Needed for Picking photo/vid
 [assembly: UsesPermission(Permission.ReadExternalStorage, MaxSdkVersion = 32)]
 [assembly: UsesPermission(Permission.ReadMediaAudio)]
 [assembly: UsesPermission(Permission.ReadMediaImages)]

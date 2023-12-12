@@ -1,6 +1,6 @@
 ﻿namespace FiscalCode.Data;
 
-public class FiscalCodeDTO
+public sealed class FiscalCodeDTO
 {
     public string FirstName { get; set; } = string.Empty;
 

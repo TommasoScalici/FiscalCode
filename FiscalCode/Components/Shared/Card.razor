@@ -1,9 +1,14 @@
-﻿@using FiscalCode.Components.Pages
+﻿@using CommunityToolkit.Maui.Core
+
+@using FiscalCode.Components.Pages
 @using FiscalCode.Configuration
 @using FiscalCode.Data
 @using FiscalCode.Resources.Languages
 
+@using ISnackbar = MudBlazor.ISnackbar
+
 @inject IDialogService DialogService
+@inject IPopupService PopupService
 @inject ISnackbar Snackbar
 @inject IStringLocalizer<Localization> Localizer
 
@@ -11,7 +16,7 @@
 <MudCard Class="m-5 w-full sm:w-80">
 
     <MudCardContent>
-        <MudButton OnClick="CopyToClipboardAsync" Class="block mb-5" Color="Color.Primary"
+        <MudButton OnClick="ShowBarcodeAsync" Class="block mb-5" Color="Color.Primary"
                    FullWidth="true" Variant="Variant.Filled">
             <MudText Class="text-2xl" Typo="Typo.h6">@FiscalCodeDTO.FiscalCode</MudText>
         </MudButton>
@@ -80,5 +85,16 @@
     {
         await OnEdit.InvokeAsync(FiscalCodeDTO);
         Snackbar.Add(@Localizer["SuccessEdit"], Severity.Success);
+    }
+
+    private async Task ShowBarcodeAsync()
+    {
+        var navigation = Application.Current?.MainPage?.Navigation;
+
+        if (navigation is not null)
+        {
+            var barcodePopup = new BarcodePopup { BindingContext = FiscalCodeDTO };
+            await navigation.PushModalAsync(barcodePopup);
+        }
     }
 }

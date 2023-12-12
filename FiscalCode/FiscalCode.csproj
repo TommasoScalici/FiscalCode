@@ -28,24 +28,26 @@
         <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>2.0.1</ApplicationDisplayVersion>
-        <ApplicationVersion>8</ApplicationVersion>
+        <ApplicationDisplayVersion>2.0.3</ApplicationDisplayVersion>
+        <ApplicationVersion>11</ApplicationVersion>
 
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">28.0</SupportedOSPlatformVersion>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>     
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">28.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-        <UserSecretsId>12571b03-bd65-4b7c-a4db-31d059975c92</UserSecretsId>
+		
+		<UserSecretsId>12571b03-bd65-4b7c-a4db-31d059975c92</UserSecretsId>
     </PropertyGroup>
 
     <PropertyGroup>
       <DefaultLanguage>en</DefaultLanguage>
       <NeutralLanguage>en-US</NeutralLanguage>
       <Title>FiscalCode</Title>
-      <AssemblyVersion>2.0.1</AssemblyVersion>
-      <FileVersion>2.0.1</FileVersion>
+      <AssemblyVersion>2.0.3</AssemblyVersion>
+      <FileVersion>2.0.3</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
@@ -53,8 +55,8 @@
       <RunAOTCompilation>True</RunAOTCompilation>
       <PublishTrimmed>True</PublishTrimmed>
       <AndroidLinkTool>r8</AndroidLinkTool>
-      <ApplicationVersion>8</ApplicationVersion>
-      <ApplicationDisplayVersion>2.0.1</ApplicationDisplayVersion>
+      <ApplicationVersion>11</ApplicationVersion>
+      <ApplicationDisplayVersion>2.0.3</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -74,12 +76,8 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Remove="Resources\Raw\google_apis_ocr.json" />
-    </ItemGroup>
-
-
 	<ItemGroup>
+		<PackageReference Include="Camera.MAUI" Version="1.4.4" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="7.0.0" />
 		<PackageReference Include="Google.Apis" Version="1.64.0" />
@@ -139,6 +137,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+      <Compile Update="BarcodePopup.xaml.cs">
+        <DependentUpon>BarcodePopup.xaml</DependentUpon>
+      </Compile>
       <Compile Update="Resources\Languages\Localization.it.Designer.cs">
         <DependentUpon>Localization.it.resx</DependentUpon>
         <DesignTime>True</DesignTime>
@@ -169,12 +170,6 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Localization.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-      <MauiXaml Update="MainWatchPage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
     </ItemGroup>
 
 </Project>

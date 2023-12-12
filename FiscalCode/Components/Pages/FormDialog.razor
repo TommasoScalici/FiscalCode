@@ -3,7 +3,9 @@
 @using FiscalCode.Resources.Languages
 @using FiscalCode.Services
 @using FiscalCode.Types
+@using System.Diagnostics
 
+@inject ISnackbar Snackbar
 @inject IStringLocalizer<Localization> Localizer
 @inject BirthplaceDataService BirthplaceService
 @inject FiscalCodeOCRAnalyzerService OCRAnalyzerService;
@@ -55,7 +57,7 @@
 
             <MudAutocomplete @ref="autocomplete" @bind-Value="FormData.BirthPlace"
                               T="BirthplaceDTO" Label="@Localizer["BirthplacePlaceholder"]"
-                              SearchFunc="@SearchAsync" ToStringFunc="@(b => b == null ? null : $"{b.Name} ({b.State})")"
+                              SearchFunc="@SearchAsync" ToStringFunc="@(b => b is null ? null : $"{b.Name} ({b.State})")"
                               Clearable="true" ResetValueOnEmptyText="true"
                               Required="true" RequiredError="@Localizer["BirthplaceError"]"
                               Dense="true" IsOpenChanged="@OnAutocompleteOpenChangedAsync" Class="my-5" />
@@ -108,7 +110,7 @@
 
     private async Task HandleSubmitAsync()
     {
-        if (form != null)
+        if (form is not null)
         {
             await form.Validate();
 
@@ -123,7 +125,7 @@
     private async Task OnAutocompleteOpenChangedAsync(bool isOpen)
     {
         // Trick to hide virtual keyboard when the autocomplete menu is closed
-        if(autocomplete != null && !isOpen)
+        if(autocomplete is not null && !isOpen)
         {
             #pragma warning disable BL0005 // Needed for the trick
             autocomplete.Disabled = true;
@@ -135,22 +137,30 @@
 
     private async Task OpenScannerPageAsync()
     {
-        scanner = scanner ?? new PhotoScannerOCR(OCRAnalyzerService);
-        var photo = await PhotoScannerOCR.CapturePhotoAsync();
-
-        if(photo != null)
+        try
         {
-            isBusy = true;
-            StateHasChanged();
+            scanner = scanner ?? new PhotoScannerOCR(OCRAnalyzerService);
+            var photo = await PhotoScannerOCR.CapturePhotoAsync();
 
-            using var stream = await photo.OpenReadAsync();
-            var scanOCR = await PhotoScannerOCR.PerformOCRScanAsync(stream);
+            if(photo is not null)
+            {
+                isBusy = true;
+                StateHasChanged();
 
-            if(scanOCR != null)
-                FormData = await scanner.GetFiscalCodeDTOFromOCRScanAsync(scanOCR);
+                using var stream = await photo.OpenReadAsync();
+                var scanOCR = await PhotoScannerOCR.PerformOCRScanAsync(stream);
 
-            isBusy = false;
+                if(scanOCR is not null)
+                    FormData = await scanner.GetFiscalCodeDTOFromOCRScanAsync(scanOCR);
+
+                isBusy = false;
+            }
         }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            Snackbar.Add(@Localizer["Whoops"], Severity.Error);
+        }  
     }
 
     private async Task<IEnumerable<BirthplaceDTO>> SearchAsync(string value)
@@ -159,7 +169,7 @@
         var startsWithFilter = birthplaces.Where(x => x.Name.StartsWith(value, StringComparison.OrdinalIgnoreCase));
 
         if (startsWithFilter.Count() > 0)
-            return startsWithFilter;
+            return startsWithFilter.Distinct();
 
         var containsFilter = birthplaces.Where(x => x.Name.Contains(value, StringComparison.OrdinalIgnoreCase));
 
