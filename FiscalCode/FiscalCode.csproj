@@ -28,8 +28,8 @@
         <ApplicationId>tommasoscalici.fiscalcode</ApplicationId>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>2.0.3</ApplicationDisplayVersion>
-        <ApplicationVersion>11</ApplicationVersion>
+        <ApplicationDisplayVersion>2.0.4</ApplicationDisplayVersion>
+        <ApplicationVersion>12</ApplicationVersion>
 
 		
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.0</SupportedOSPlatformVersion>
@@ -46,8 +46,8 @@
       <DefaultLanguage>en</DefaultLanguage>
       <NeutralLanguage>en-US</NeutralLanguage>
       <Title>FiscalCode</Title>
-      <AssemblyVersion>2.0.3</AssemblyVersion>
-      <FileVersion>2.0.3</FileVersion>
+      <AssemblyVersion>2.0.4</AssemblyVersion>
+      <FileVersion>2.0.4</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
@@ -55,8 +55,8 @@
       <RunAOTCompilation>True</RunAOTCompilation>
       <PublishTrimmed>True</PublishTrimmed>
       <AndroidLinkTool>r8</AndroidLinkTool>
-      <ApplicationVersion>11</ApplicationVersion>
-      <ApplicationDisplayVersion>2.0.3</ApplicationDisplayVersion>
+      <ApplicationVersion>12</ApplicationVersion>
+      <ApplicationDisplayVersion>2.0.4</ApplicationDisplayVersion>
     </PropertyGroup>
 
     <ItemGroup>

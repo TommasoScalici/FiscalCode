@@ -591,6 +591,10 @@ video {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .inline {
   display: inline;
 }
@@ -611,8 +615,24 @@ video {
   width: 100%;
 }
 
+.w-80 {
+  width: 20rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
 .max-w-\[80\%\] {
   max-width: 80%;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .flex-grow {
@@ -661,6 +681,10 @@ video {
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-2xl {

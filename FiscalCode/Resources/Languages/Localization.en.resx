@@ -163,7 +163,7 @@
     <value>Scan card</value>
   </data>
   <data name="AboutContent" xml:space="preserve">
-    <value>Version: 2.0.3&lt;br /&gt;
+    <value>Version: 2.0.4&lt;br /&gt;
 Author: Tommaso Scalici&lt;br /&gt;
 Privacy disclaimer:
 &lt;a href="http://tommasoscalici.altervista.org/fiscal_code_privacy_policy.html" target="_blank"&gt;
@@ -173,12 +173,12 @@ Privacy disclaimer:
 &lt;br /&gt;&lt;br /&gt;
 
 &lt;strong&gt;Attention&lt;/strong&gt;:&lt;br /&gt;
-This application calculates the tax identification code using an algorithm from an external service.&lt;br /&gt;
-The algorithm is not able to distinguish cases of homocody.&lt;br /&gt;
+This application calculates the tax code using an algorithm from an external service, therefore an Internet connection is required to use it.&lt;br /&gt;
+Furthermore, the algorithm is unable to distinguish cases of homocody. In cases of homocody, the calculated tax code may not correspond to the real one.&lt;br /&gt;
 Please remember that the only 100% reliable tax identification code is the one issued by the &lt;strong&gt;Agenzia delle Entrate&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
 
 To acquire a new code through an identity document or health insurance card it is necessary to take a photo that frames the entire front side of the document.&lt;br /&gt;
-The photo will not be stored on the device but will be processed by an OCR (Optical Character Recognition) algorithm partly offered by Microsoft services.&lt;br /&gt;
+The photo will not be stored on the device but will be processed by an OCR (Optical Character Recognition) algorithm partly offered by Google Vision services.&lt;br /&gt;
 The algorithm may be imprecise, based on various factors (type of camera, quality and angle of the photo taken, etc.) always check the acquired data.&lt;br /&gt;&lt;br /&gt;
 
 We decline any responsibility for any illicit or improper use of the aforementioned app.</value>
@@ -218,5 +218,8 @@ We decline any responsibility for any illicit or improper use of the aforementio
   </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
   </data>
 </root>

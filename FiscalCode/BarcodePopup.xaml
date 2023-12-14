@@ -5,9 +5,11 @@
              xmlns:camera="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              xmlns:data="clr-namespace:FiscalCode.Data"
              xmlns:strings="clr-namespace:FiscalCode.Resources.Languages"
+             Background="White"
+             BackgroundColor="White"
              x:DataType="data:FiscalCodeDTO">
 
-    <VerticalStackLayout Padding="50" VerticalOptions="Center" HorizontalOptions="Center">
+    <VerticalStackLayout Margin="50,0,50,0" VerticalOptions="Center" HorizontalOptions="Center">
 
         <camera:BarcodeImage BarcodeWidth="450" BarcodeHeight="100" BarcodeMargin="1" BarcodeFormat="CODE_128"
                              BarcodeBackground="White" BarcodeForeground="Black" Barcode="{Binding FiscalCode}" />

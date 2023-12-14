@@ -15,8 +15,16 @@
     <MudIconButton Href="/" Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Edge="Edge.End" />
     <MudIconButton OnClick="AddButtonClicked" Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.End" />
     <MudMenu Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit">
-        <MudMenuItem OnClick="InfoMenuItemClicked" OnTouch="InfoMenuItemClicked">@Localizer["About"]</MudMenuItem>
-        <MudMenuItem Href="reorder">@Localizer["Reorder"]</MudMenuItem>
+
+        <MudMenuItem Icon="@Icons.Material.Filled.Info" IconColor="Color.Primary"
+                     OnClick="InfoMenuItemClicked" OnTouch="InfoMenuItemClicked">
+            @Localizer["About"]
+        </MudMenuItem>
+
+        <MudMenuItem Icon="@Icons.Material.Filled.Reorder" IconColor="Color.Primary" Href="reorder">
+            @Localizer["Reorder"]
+        </MudMenuItem>
+
     </MudMenu>
 </MudAppBar>
 

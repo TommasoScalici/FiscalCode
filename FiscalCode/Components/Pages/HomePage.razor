@@ -22,8 +22,15 @@
 
 <AppBar OnAddButtonClicked="OpenAddFormDialogAsync" />
 
+<div class="m-5 text-center">
+    <MudTextField Class="inline-block w-96" Label="@Localizer["Search"]"
+                  Clearable="true" Immediate="true"
+                  Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" Variant="Variant.Outlined"
+                  ValueChanged="@((string value) => SearchValueChanged(value))" />
+</div>
+
 <div class="flex flex-wrap flex-grow">
-    @foreach (var item in fiscalCodes)
+    @foreach (var item in fiscalCodesFiltered)
     {
         <Card FiscalCodeDTO="item" OnEdit="@(() => OpenEditFormDialogAsync(item))" OnDelete="DeleteFiscalCodeAsync" />
     }
@@ -39,7 +46,7 @@
 <MudOverlay @bind-Visible="isBusy" DarkBackground="true" />
 
 @code {
-    private List<FiscalCodeDTO> fiscalCodes = new();
+    private List<FiscalCodeDTO> fiscalCodes = new(), fiscalCodesFiltered = new();
     private bool isBusy;
 
 
@@ -48,12 +55,13 @@
         await base.OnInitializedAsync();
         var savedFiscalCodes = await FiscalCodeDataService.LoadFiscalCodesFromFileAsync();
         fiscalCodes.AddRange(savedFiscalCodes);
-        fiscalCodes = fiscalCodes.OrderBy(fc => fc.Order).ToList();
+        fiscalCodes = fiscalCodesFiltered = fiscalCodes.OrderBy(fc => fc.Order).ToList();
     }
 
     private async Task DeleteFiscalCodeAsync(FiscalCodeDTO dto)
     {
         fiscalCodes.Remove(dto);
+        fiscalCodesFiltered = fiscalCodes;
         await FiscalCodesUpdatedAsync();
     }
 
@@ -77,6 +85,7 @@
 
                 dto.Order = fiscalCodes.Count;
                 fiscalCodes.Add(dto);
+                fiscalCodesFiltered = fiscalCodes;
                 await FiscalCodesUpdatedAsync();
 
                 isBusy = false;
@@ -137,5 +146,18 @@
                 };
             }
         }
+    }
+
+    private void SearchValueChanged(string textSearch)
+    {
+        var ignoreCase = StringComparison.InvariantCultureIgnoreCase;
+
+        fiscalCodesFiltered = fiscalCodes.Where(fc => fc.FiscalCode.Contains(textSearch, ignoreCase) ||
+                                                     fc.FirstName.Contains(textSearch, ignoreCase)  ||
+                                                     fc.LastName.Contains(textSearch, ignoreCase)   ||
+                                                     fc.BirthPlace != null && 
+                                                     fc.BirthPlace.Name.Contains(textSearch, ignoreCase))
+                                         .OrderBy(fc => fc.Order)
+                                         .ToList();
     }
 }
