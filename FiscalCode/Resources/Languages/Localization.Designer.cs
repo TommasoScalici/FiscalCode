@@ -279,7 +279,7 @@ namespace FiscalCode.Resources.Languages {
         }
         
         /// <summary>
-        ///   Cerca una stringa localizzata simile a New tax code added succesfully.
+        ///   Cerca una stringa localizzata simile a Tax code added succesfully.
         /// </summary>
         internal static string SuccessAdd {
             get {

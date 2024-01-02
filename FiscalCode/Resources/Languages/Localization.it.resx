@@ -199,7 +199,7 @@ Si declina ogni responsabilità da eventuali usi illeciti o impropri della sudde
     <value>Annulla</value>
   </data>
   <data name="SuccessAdd" xml:space="preserve">
-    <value>Nuovo codice fiscale aggiunto con successo</value>
+    <value>Codice fiscale aggiunto con successo</value>
   </data>
   <data name="SuccessCopy" xml:space="preserve">
     <value>Codice fiscale copiato negli appunti</value>

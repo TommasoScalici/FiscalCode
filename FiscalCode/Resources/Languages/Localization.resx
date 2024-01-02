@@ -199,7 +199,7 @@ We decline any responsibility for any illicit or improper use of the aforementio
     <value>Cancel</value>
   </data>
   <data name="SuccessAdd" xml:space="preserve">
-    <value>New tax code added succesfully</value>
+    <value>Tax code added succesfully</value>
   </data>
   <data name="SuccessCopy" xml:space="preserve">
     <value>Tax code copied to clipboard</value>
